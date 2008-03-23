@@ -1,0 +1,32 @@
+<h1>Listing designers</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Phone</th>
+  </tr>
+
+<% for designer in @designers %>
+  <tr>
+    <td><%=h designer.firstname %></td>
+    <td><%=h designer.lastname %></td>
+    <td><%=h designer.address %></td>
+    <td><%=h designer.city %></td>
+    <td><%=h designer.state %></td>
+    <td><%=h designer.zip %></td>
+    <td><%=h designer.phone %></td>
+    <td><%= link_to 'Show', designer %></td>
+    <td><%= link_to 'Edit', edit_designer_path(designer) %></td>
+    <td><%= link_to 'Destroy', designer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New designer', new_designer_path %>

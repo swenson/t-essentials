@@ -1,0 +1,63 @@
+<p>
+  <b>Addate:</b>
+  <%=h @transaction.addate %>
+</p>
+
+<p>
+  <b>Adsize:</b>
+  <%=h @transaction.adsize.adsize %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @transaction.category.name %>
+</p>
+
+<p>
+  <b>Subcategory:</b>
+  <%=h @transaction.subcategory.name if @transaction.subcategory %>
+</p>
+
+<p>
+  <b>Client Approved?</b>
+  <%=h @transaction.clientapproval %>
+</p>
+
+<p>
+  <b>Salesperson:</b>
+  <%=h @transaction.salesperson.name %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%=h @transaction.client.name %>
+</p>
+
+<p>
+  <b>Amount Due:</b>
+  <%=h @transaction.amountdue %>
+</p>
+
+<p>
+  <b>Amount Paid:</b>
+  <%=h @transaction.amountpaid %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%=h @transaction.balance %>
+</p>
+
+<p>
+  <b>Number of Listings:</b>
+  <%=h @transaction.numlistings %>
+</p>
+
+<p>
+  <b>Designer:</b>
+  <%=h @transaction.designer.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

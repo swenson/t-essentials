@@ -1,0 +1,42 @@
+<h1>Transactions</h1>
+
+<table>
+  <tr>
+    <th>Ad Date</th>
+    <th><%= link_to 'Ad Size', {:controller => :adsizes} %></th>
+    <th><%= link_to 'Category', {:controller => :categories} %></th>
+    <th><%= link_to 'Subcategory', {:controller => :subcategories} %></th>
+    <th>Client Approved?</th>
+    <th><%= link_to 'Salesperson', {:controller => :salespeople} %></th>
+    <th><%= link_to 'Client', {:controller => :clients} %></th>
+    <th>Amount Due</th>
+    <th>Amount Paid</th>
+    <th>Balance</th>
+    <th># Listings</th>
+    <th><%= link_to 'Designer', {:controller => :designers} %></th>
+  </tr>
+
+<% for transaction in @transactions %>
+  <tr>
+    <td><%=h transaction.addate %></td>
+    <td><%=h transaction.adsize.adsize %></td>
+    <td><%=h transaction.category.name %></td>
+    <td><%=h transaction.subcategory.name if transaction.subcategory %></td>
+    <td><%=h (transaction.clientapproval ? 'yes' : 'no') %></td>
+    <td><%=h transaction.salesperson.name %></td>
+    <td><%=h transaction.client.name %></td>
+    <td><%=h transaction.amountdue %></td>
+    <td><%=h transaction.amountpaid %></td>
+    <td><%=h transaction.balance %></td>
+    <td><%=h transaction.numlistings %></td>
+    <td><%=h transaction.designer.name %></td>
+    <td><%= link_to 'Show', transaction %></td>
+    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+    <td><%= link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New transaction', new_transaction_path %>

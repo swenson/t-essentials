@@ -1,0 +1,56 @@
+<h1>New listing</h1>
+
+<%= error_messages_for :listing %>
+
+<% form_for(@listing) do |f| %>
+  <p>
+    <b>Title</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>Body</b><br />
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <b>By</b><br />
+    <%= f.text_field :by %>
+  </p>
+
+  <p>
+    <b>Email</b><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <b>Start</b><br />
+    <%= f.datetime_select :start %>
+  </p>
+
+  <p>
+    <b>End</b><br />
+    <%= f.datetime_select :end, :default => 1.month.from_now %>
+  </p>
+
+  <p>
+    <b>Region</b><br />
+    <%= f.collection_select :region_id, Region.find(:all), :id, :name %>
+  </p>
+
+  <p>
+    <b>Category</b><br />
+    <%= f.collection_select :category_id, Category.find(:all), :id, :name %>
+  </p>
+ 
+  <p>
+    <b>Subcategory</b><br />
+    <%= f.collection_select :subcategory_id, Subcategory.find(:all), :id, :name %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', listings_path %>

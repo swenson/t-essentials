@@ -1,0 +1,52 @@
+<h1>Editing salesperson</h1>
+
+<%= error_messages_for :salesperson %>
+
+<% form_for(@salesperson) do |f| %>
+  <p>
+    <b>Firstname</b><br />
+    <%= f.text_field :firstname %>
+  </p>
+
+  <p>
+    <b>Lastname</b><br />
+    <%= f.text_field :lastname %>
+  </p>
+
+  <p>
+    <b>Address</b><br />
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <b>City</b><br />
+    <%= f.text_field :city %>
+  </p>
+
+  <p>
+    <b>State</b><br />
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <b>Zip</b><br />
+    <%= f.text_field :zip %>
+  </p>
+
+  <p>
+    <b>Phone</b><br />
+    <%= f.text_field :phone %>
+  </p>
+
+  <p>
+    <b>Numberofads</b><br />
+    <%= f.text_field :numberofads %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @salesperson %> |
+<%= link_to 'Back', salespeople_path %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  addate: 2008-03-21 16:21:35
+  adsize: 
+  category: 
+  subcategory: 
+  clientapproval: false
+  salesperson: 
+  client: 
+  amountdue: 9.99
+  amountpaid: 9.99
+  balance: 9.99
+  numlistings: 1
+  designer: 
+
+two:
+  addate: 2008-03-21 16:21:35
+  adsize: 
+  category: 
+  subcategory: 
+  clientapproval: false
+  salesperson: 
+  client: 
+  amountdue: 9.99
+  amountpaid: 9.99
+  balance: 9.99
+  numlistings: 1
+  designer: 

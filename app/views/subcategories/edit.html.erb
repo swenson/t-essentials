@@ -1,0 +1,23 @@
+<h1>Editing subcategory</h1>
+
+<%= error_messages_for :subcategory %>
+
+<% form_for(@subcategory) do |f| %>
+  <p>
+    <b>Category</b><br />
+    <%= f.collection_select :category_id, Category.find(:all), :id, :name %>
+  </p>
+
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @subcategory %> |
+<%= link_to 'Back', subcategories_path %>

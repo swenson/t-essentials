@@ -1,0 +1,43 @@
+<p>
+  <b>Firstname:</b>
+  <%=h @salesperson.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%=h @salesperson.lastname %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @salesperson.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @salesperson.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @salesperson.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @salesperson.zip %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @salesperson.phone %>
+</p>
+
+<p>
+  <b>Numberofads:</b>
+  <%=h @salesperson.numberofads %>
+</p>
+
+
+<%= link_to 'Edit', edit_salesperson_path(@salesperson) %> |
+<%= link_to 'Back', salespeople_path %>

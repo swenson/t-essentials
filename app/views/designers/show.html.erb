@@ -1,0 +1,38 @@
+<p>
+  <b>Firstname:</b>
+  <%=h @designer.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%=h @designer.lastname %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @designer.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @designer.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @designer.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @designer.zip %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @designer.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_designer_path(@designer) %> |
+<%= link_to 'Back', designers_path %>

@@ -1,0 +1,26 @@
+<h1>The Directory</h1>
+
+<h2><%= Time.now %></h2>
+
+
+
+<table id="business_stuff_table">
+<tr><th>Business Stuff</th></tr>
+<tr><td>
+<%= link_to "Transactions", :controller => "transactions" %> | <%= link_to "Clients", :controller => "clients" %>
+</td></tr>
+</table>
+
+<table id="site_management_table">
+<tr><th>Site Management</th></tr>
+<tr><td>
+<%= link_to "Edit Categories", :controller => "categories" %> | 
+<%= link_to "Edit SubCategories", :controller => "subcategories" %> | 
+<%= link_to "Designers", :controller => "designers" %></td></tr>
+<tr><td>
+<%= link_to "Edit Regions", :controller => "regions" %> | 
+<%= link_to "Edit Salespeople", :controller => "Salespeople" %> | 
+<%= link_to "User Management", :controller => "users" %>
+</td></tr>
+</table>
+

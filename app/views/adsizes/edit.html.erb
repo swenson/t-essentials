@@ -1,0 +1,22 @@
+<h1>Editing adsize</h1>
+
+<%= error_messages_for :adsize %>
+
+<% form_for(@adsize) do |f| %>
+  <p>
+    <b>Adsize</b><br />
+    <%= f.text_field :adsize %>
+  </p>
+
+  <p>
+    <b>Numlistings</b><br />
+    <%= f.text_field :numlistings %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @adsize %> |
+<%= link_to 'Back', adsizes_path %>

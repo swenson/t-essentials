@@ -1,0 +1,40 @@
+<h1>Listing clients</h1>
+
+<table>
+  <tr>
+    <th>Business</th>
+    <th>Lastname</th>
+    <th>Firstname</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Website</th>
+    <th>Comments</th>
+  </tr>
+
+<% for client in @clients %>
+  <tr>
+    <td><%=h client.business %></td>
+    <td><%=h client.lastname %></td>
+    <td><%=h client.firstname %></td>
+    <td><%=h client.address %></td>
+    <td><%=h client.city %></td>
+    <td><%=h client.state %></td>
+    <td><%=h client.zip %></td>
+    <td><%=h client.phone %></td>
+    <td><%= email(client.email) if client.email %></td>
+    <td><%= link_to client.website, fixwebsite(client.website) if client.website %></td>
+    <td><%=h client.comments %></td>
+    <td><%= link_to 'Show', client %></td>
+    <td><%= link_to 'Edit', edit_client_path(client) %></td>
+    <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New client', new_client_path %>

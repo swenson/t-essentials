@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  body: MyText
+  by: MyString
+  email: MyString
+  start: 2008-03-22 11:55:41
+  end: 2008-03-22 11:55:41
+  region: 
+  category: 
+  subcategory: 
+
+two:
+  title: MyString
+  body: MyText
+  by: MyString
+  email: MyString
+  start: 2008-03-22 11:55:41
+  end: 2008-03-22 11:55:41
+  region: 
+  category: 
+  subcategory: 
