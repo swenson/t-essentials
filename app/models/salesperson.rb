@@ -1,5 +1,4 @@
 class Salesperson < ActiveRecord::Base
-  has_many :transactions
   has_many :contracts
   has_one :user
   

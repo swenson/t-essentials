@@ -1,6 +1,5 @@
 class Subcategory < ActiveRecord::Base
   belongs_to :category
-  has_many :transactions
   has_many :listings
   
   validates_presence_of :category_id

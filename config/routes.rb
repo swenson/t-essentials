@@ -1,19 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :ads
-
-  map.resources :comments
-
-  map.resources :charges
-
-  map.resources :payments
-
   map.resources :contracts
 
   map.resources :listings
 
   map.resources :users
-
-  map.resources :transactions
 
   map.resources :subcategories
 
@@ -28,12 +18,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :adsizes
 
   map.resources :clients
-
-  #map.resources :cities
-
-  #map.resources :states
-
-  #map.resources :modalities
 
   # The priority is based upon order of creation: first created -> highest priority.
 

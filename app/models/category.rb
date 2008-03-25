@@ -1,6 +1,5 @@
 class Category < ActiveRecord::Base
   has_many :subcategories
-  has_many :transactions
   has_many :listings
   
   def num_listings

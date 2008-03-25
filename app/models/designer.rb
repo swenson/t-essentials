@@ -1,5 +1,5 @@
 class Designer < ActiveRecord::Base
-  has_many :transactions
+  has_many :contracts
   
   def name
     "#{firstname} #{lastname}"
