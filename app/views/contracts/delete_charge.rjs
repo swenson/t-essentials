@@ -1,0 +1,2 @@
+page.replace_html("charge_table", :partial => "list_charges")
+page[:charge_table].visual_effect :highlight

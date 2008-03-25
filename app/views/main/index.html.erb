@@ -1,41 +1,15 @@
-<h1 align="Center">
-  Directory for ...
-</h1>
-
-<table width="90%">
-<tr>
-<td id="leftsidebar" valign="top" width="25%">
-  <div id="searchbox">
-  <h2>Search</h2>
-  <% form_tag '/main/search' do -%>
-    <%= text_field_tag 'search' %> <%= submit_tag 'Search' %>
-  <% end %>
-  </div>
-
-  <div id="categorybox">
-  <h2>Categories</h2>
-  <ul>
-  <% for category in @categories do %>
-    <li><%= link_to "#{category.name} (#{category.num_listings})", category %></li>
-  <% end %>
-  </ul>
-  </div>
-</td>
-<td valign="top" idth="55%">
 <div class="categories">
   <h2>Browse by Category</h2>
   <hr />
   <table width="100%">
   <tr>
-    <% for categories in @thirds do %>
+    <% for categories in @cat_thirds do %>
       <td valign="top" width="30%">
       <% for category in categories do %>
-          <div class="category">
-          <h2><%= link_to "#{category.name} (#{category.num_listings})", category %></h2>
-          <div class="subcategories">
-          <% for subcat in category.subcategories %>
-            <%= link_to "#{subcat.name}", subcat %> 
-          <% end %>
+        <div class="category">
+        <h2><%= link_to "#{category.name.downcase} (#{category.listings.length})", :action => :show_category, :id => category.id %></h2>
+        <div class="subcategories">
+          <%= (category.subcategories.map { |subcat| "#{subcat.name.downcase} (#{subcat.listings.length})" }).join(", ") %>
         </div>
         </div>
       <% end %>
@@ -47,14 +21,16 @@
 <div class="regions">
   <h2>Browse by Region</h2>
   <hr />
-  <% for region in @regions %>
-    <h2 class="region"><%= h region.name %> (<%= h region.listings.length %>)</h2><br />
-  <% end %>
+  <table width="100%">
+  <tr>
+    <% for regions in @reg_thirds %>
+      <td valign="top" width="30%">
+        <% for region in regions %>
+        <div class="region">
+          <h2><%= h region.name %> (<%= h region.listings.length %>)</h2>
+        </div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr></table>
 </div>
-
-</td>
-<td valign="top" width="20%">
-Sidebar?
-</td>
-</tr>
-</table>

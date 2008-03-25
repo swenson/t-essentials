@@ -4,24 +4,26 @@
   <tr>
     <th>Firstname</th>
     <th>Lastname</th>
+    <th>Email</th>
     <th>Address</th>
     <th>City</th>
     <th>State</th>
     <th>Zip</th>
     <th>Phone</th>
-    <th>Numberofads</th>
+    <th>Number of Ads</th>
   </tr>
 
 <% for salesperson in @salespeople %>
   <tr>
     <td><%=h salesperson.firstname %></td>
     <td><%=h salesperson.lastname %></td>
+    <td><%=h salesperson.email %></td>
     <td><%=h salesperson.address %></td>
     <td><%=h salesperson.city %></td>
     <td><%=h salesperson.state %></td>
     <td><%=h salesperson.zip %></td>
     <td><%=h salesperson.phone %></td>
-    <td><%=h salesperson.numberofads %></td>
+    <td><%=h salesperson.sum_ads %></td>
     <td><%= link_to 'Show', salesperson %></td>
     <td><%= link_to 'Edit', edit_salesperson_path(salesperson) %></td>
     <td><%= link_to 'Destroy', salesperson, :confirm => 'Are you sure?', :method => :delete %></td>

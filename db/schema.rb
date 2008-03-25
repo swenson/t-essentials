@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 23) do
+
+  create_table "ads", :force => true do |t|
+    t.integer  "contract_id"
+    t.integer  "adsize_id"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "adsizes", :force => true do |t|
     t.string   "adsize"
@@ -20,6 +28,14 @@ ActiveRecord::Schema.define(:version => 14) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "charges", :force => true do |t|
+    t.integer  "contract_id"
+    t.decimal  "amount"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +63,25 @@ ActiveRecord::Schema.define(:version => 14) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "contract_id"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contracts", :force => true do |t|
+    t.datetime "contractdate"
+    t.integer  "client_id"
+    t.integer  "salesperson_id"
+    t.integer  "designer_id"
+    t.boolean  "clientapproved"
+    t.boolean  "certlistedoncontract"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "region_id"
+  end
+
   create_table "designers", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -71,11 +106,20 @@ ActiveRecord::Schema.define(:version => 14) do
     t.integer  "subcategory_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contract_id"
   end
 
   create_table "modalities", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "contract_id"
+    t.decimal  "amount"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -97,6 +141,7 @@ ActiveRecord::Schema.define(:version => 14) do
     t.integer  "numberofads"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "sessions", :force => true do |t|
@@ -148,6 +193,7 @@ ActiveRecord::Schema.define(:version => 14) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "salesperson_id"
   end
 
 end

@@ -1,0 +1,2 @@
+page.replace_html("ad_table", :partial => "list_ads")
+page[:ad_table].visual_effect :highlight

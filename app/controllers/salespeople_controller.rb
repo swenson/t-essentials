@@ -1,4 +1,6 @@
 class SalespeopleController < ApplicationController
+  before_filter :authorize_admin
+  
   # GET /salespeople
   # GET /salespeople.xml
   def index

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contractdate: 2008-03-23 09:47:52
+  client: 
+  salesperson: 
+  designer: 
+  clientapproved: false
+  certlistedoncontract: false
+
+two:
+  contractdate: 2008-03-23 09:47:52
+  client: 
+  salesperson: 
+  designer: 
+  clientapproved: false
+  certlistedoncontract: false

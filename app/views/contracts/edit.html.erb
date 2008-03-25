@@ -1,0 +1,50 @@
+<h1>Editing contract</h1>
+
+<%= error_messages_for :contract %>
+
+<% form_for(@contract) do |f| %>
+  <p>
+    <b>Contract Date</b><br />
+    <%= f.datetime_select :contractdate %>
+  </p>
+
+  <p>
+    <b>Region</b><br />
+    <%= f.collection_select :region_id, Region.find(:all), :id, :name %>
+  </p>
+
+  <p>
+    <b>Client</b><br />
+    <%= f.collection_select :client_id, Client.find(:all), :id, :name %>
+  </p>
+
+<% if @user.admin %>
+  <p>
+    <b>Salesperson</b><br />
+    <%= f.collection_select :salesperson_id, Salesperson.find(:all), :id, :name %>
+  </p>
+<% else %>
+  <%= f.hidden_field :salesperson_id, :value => @user.salesperson_id %>
+<% end %> 
+
+  <p>
+    <b>Designer</b><br />
+    <%= f.collection_select :designer_id, Designer.find(:all), :id, :name %>
+  </p>
+  <p>
+    <b>Client Approved?</b><br />
+    <%= f.check_box :clientapproved %>
+  </p>
+ 
+  <p>
+    <b>Cert/Edu List on Contract?</b><br />
+    <%= f.check_box :certlistedoncontract %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @contract %> |
+<%= link_to 'Back', contracts_path %>

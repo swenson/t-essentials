@@ -1,0 +1,28 @@
+<div id="ad_table">
+<table>
+  <tr><th colspan="3">Ads</th></tr>
+  <tr>
+    <th><%= link_to h("Ad Size"), :controller => :adsizes %></th>
+    <th>Quantity</th>
+    <th>Delete</th>
+  </tr>
+  <% for ad in @contract.ads do %>
+    <tr><td><%= h(ad.adsize) %></td><td><%= h ad.count %></td>
+      <td>
+        <% form_remote_tag :url => { :action => :delete_ad, :id => @contract.id } do |f| %>
+          <%= hidden_field_tag :ad_id, ad.id %>
+          <%= submit_tag "Delete", :onclick => "return #{confirm_javascript_function("Are you sure?")}" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <tr><td colspan="2">
+  <% form_remote_for (@newad, :url => {:action => :add_ad, :id => @contract.id }) do |f| %>
+    <%= f.hidden_field :contract_id, :value => @contract.id %>
+    <%= f.collection_select :adsize_id, Adsize.find(:all), :id, :adsize %> &nbsp;
+    <%= f.text_field :count, :size => 5 %><br />
+    <%= submit_tag "Add Ad" %>
+  <% end %>  
+  </td></tr>
+</table>
+</div>

@@ -1,4 +1,6 @@
 class DesignersController < ApplicationController
+  before_filter :authorize_admin
+  
   # GET /designers
   # GET /designers.xml
   def index

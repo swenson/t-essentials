@@ -1,4 +1,5 @@
 class AdsizesController < ApplicationController
+  before_filter :authorize_admin
   # GET /adsizes
   # GET /adsizes.xml
   def index

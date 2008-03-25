@@ -4,15 +4,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Users: <%= controller.action_name %></title>
+  <title>Directory: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'listings' %>
 </head>
 <body>
- 
 <p style="color: green"><%= flash[:notice] %></p>
- 
+
+<h1 align="Center">
+  <%= link_to "Directory for ...", :controller => :main, :action => :index %>
+</h1>
+
+<table width="90%">
+<tr>
+<td id="leftsidebar" valign="top" width="25%">
+  <div id="searchbox">
+  <h2>Search</h2>
+  <% form_tag '/main/search' do -%>
+    <%= text_field_tag 'search' %> <%= submit_tag 'Search' %>
+  <% end %>
+  </div>
+
+  <div id="categorybox">
+  <h2>Categories</h2>
+  <ul>
+  <% for category in @categories do %>
+    <li><%= link_to "#{category.name} (#{category.num_listings})", category %></li>
+  <% end %>
+  </ul>
+  </div>
+</td>
+<td valign="top" idth="55%">
+
 <%= yield  %>
  
+</td>
+<td valign="top" width="20%">
+Sidebar?
+</td>
+</tr>
+</table>
+
 </body>
 </html>
  

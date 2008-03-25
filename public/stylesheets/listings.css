@@ -1,4 +1,9 @@
-body { background-color: #f0fff0; color: #333; }
+body {
+  background-color: #f0fff0;
+  background-image: url(http://www.bramswenson.com/grad-green.png);
+  background-repeat: repeat-x;
+  color: #333; 
+}
  
 body, p, ol, ul, td {
   font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
@@ -6,7 +11,7 @@ body, p, ol, ul, td {
   line-height: 15px;
 }
  
-.categories, .category, .regions, .category.subcategories {
+.categories, .category, .regions, .region, .category.subcategories {
   margin-top: 10px;
   font-size: 75%;
 } 

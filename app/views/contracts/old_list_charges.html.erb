@@ -1,0 +1,24 @@
+<div id="charge_table">
+ 
+<table>
+  <tr>
+  <th colspan="2">Charges</th>
+  </tr>
+  <tr>
+    <th>Comment</th>
+    <th>Charge Amount</th>
+  </tr>
+  <%= "<tr><td colspan=\"2\"><i>None yet</i></td></tr>" unless @contract.payments.length > 0 %>
+  <% for charge in @contract.charges %>
+    <tr>
+      <td><pre><%= h charge.comment %></pre></td>
+      <td><%= h charge.amount %></td>
+    </tr>
+  <% end %>
+  <% form_remote_for (@charge, :url => {:action => :add_charge, :id => @contract.id }) do |f| %>
+    <%= f.hidden_field :contract_id, :value => @contract.id %>
+    <%= f.text_area :comment %><br />
+    <%= submit_tag "Add Charge" %>
+  <% end %>  
+</table>
+</div>

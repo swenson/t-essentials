@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  before_filter :authorize
+
   # GET /listings
   # GET /listings.xml
   def index

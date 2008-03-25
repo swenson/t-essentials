@@ -1,0 +1,22 @@
+<div>
+<h2>Category: <%= h @category.name %></h2>
+
+<hr />
+
+<% if @listings.length == 0 %>
+  <i>No listings yet.</i>
+<% end %>
+
+<% for listing in @listings %>
+<div class="listing">
+  <% if listing.subcategory %>
+    <p>Subcategory: <i><%= h listing.subcategory.name %></i></p>
+  <% end %>
+  <h3><%= h listing.title %></h3>
+  <p>By: <a href="<%= h listing.email %>"><%= h listing.by %></a></p>
+  <p>
+  <%= h listing.body %>
+  </p>
+</div>
+<% end %>
+</div>

@@ -1,0 +1,4 @@
+page.replace_html("comment_table", :partial => "list_comments")
+ 
+page[:comment_table].visual_effect :highlight
+ 

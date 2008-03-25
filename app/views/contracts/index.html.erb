@@ -1,0 +1,37 @@
+<h1>Contracts</h1>
+
+<table>
+  <tr>
+    <th>Go to Contract (link)</th>
+    <th>Contract Date</th>
+    <th>Region</th>
+    <th><%= link_to 'Client', {:controller => :clients} %></th>
+    <th><%= link_to 'Salesperson', {:controller => :salespeople} %></th>
+    <th><%= link_to 'Designer', {:controller => :designers} %></th>
+    <th>Client Approved?</th>
+    <th>Certs/Edu Listed On Contract?</th>
+    <th>Amount Due</th>
+    <th>Total Amount</th>
+  </tr>
+
+<% for contract in @contracts %>
+  <tr>
+    <td align="center"><%= link_to h("(link)"), contract %></td>
+    <td><%= link_to h(contract.contractdate), contract %></td>
+    <td><%= h contract.region %>
+    <td><%= link_to h(contract.client.name), contract.client %></td>
+    <td><%= link_to h(contract.salesperson.name), contract.salesperson %></td>
+    <td><%= link_to h(contract.designer.name), contract.designer %></td>
+    <td><%=h contract.clientapproved %></td>
+    <td><%=h contract.certlistedoncontract %></td>
+    <td><%=h contract.amount_due %></td>
+    <td><%=h contract.sum_charges %></td>
+    <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
+    <td><%= link_to 'Delete', contract, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New contract', new_contract_path %>

@@ -1,0 +1,54 @@
+<%= link_to 'Edit Contract Info', edit_contract_path(@contract) %> &emsp; | &emsp;
+<%= link_to 'Back to Contracts', contracts_path %>
+
+<br /><hr />
+
+<p>
+  <b>Contract Date:</b>
+  <%=h @contract.contractdate %>
+</p>
+
+<p>
+  <b>Region</b>
+  <%=h @contract.region %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%=h @contract.client.name %>
+</p>
+
+<p><br /></p>
+
+<p>&emsp;<b><%= link_to "Show Current Listings", :action => "show_listings", :id => @contract.id %></b></p>
+
+<p><br /></p>
+
+<p>
+  <b>Salesperson:</b>
+  <%=h @contract.salesperson.name %>
+</p>
+
+<p>
+  <b>Designer:</b>
+  <%=h @contract.designer.name %>
+</p>
+
+<p>
+  <b>Client Approved?</b>
+  <%=h @contract.clientapproved %>
+</p>
+
+<p>
+  <b>Cert/Education Listed On Contract?</b>
+  <%=h @contract.certlistedoncontract %>
+</p>
+
+<%= render :partial => "list_payments"%>
+
+<%= render :partial => "list_charges" %>
+
+<%= render :partial => "list_ads" %>
+
+<%= render :partial => "list_comments" %>
+  

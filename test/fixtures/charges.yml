@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contract: 
+  amount: 9.99
+  comment: MyText
+
+two:
+  contract: 
+  amount: 9.99
+  comment: MyText

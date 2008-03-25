@@ -1,0 +1,23 @@
+<%= link_to 'Show Contract Info', @contract %> &emsp; | &emsp;
+<%= link_to 'Back to Contracts', contracts_path %>
+ 
+<br /><hr />
+ 
+<p>
+  <b>Contract Date:</b>
+  <%=h @contract.contractdate %>
+</p>
+ 
+<p>
+  <b>Region</b>
+  <%=h @contract.region %>
+</p>
+ 
+<p>
+  <b>Client:</b>
+  <%=h @contract.client.name %>
+</p>
+
+<%= render :partial => "list_listings" %>
+
+

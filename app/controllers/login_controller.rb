@@ -21,5 +21,6 @@ class LoginController < ApplicationController
   
   def index
     @user = User.find(session[:user_id])
+    redirect_to(:controller => "contracts", :action => "index")
   end
 end

@@ -16,13 +16,21 @@ class ApplicationController < ActionController::Base
     unless User.find_by_id(session[:user_id])
         flash[:notice] = "Please log in"
         redirect_to(:controller => "login", :action => "login")
+    else
+      @user = User.find(session[:user_id])
     end
   end
   
   def authorize_admin
-    unless session[:user_id] and User.find(session[:user_id], :conditions => 'admin = true')
+    unless session[:user_id] and User.find(session[:user_id]).admin
         flash[:notice] = "You are not logged in as an administrator"
-        redirect_to(:controller => "login", :action => "login")
+        begin
+          redirect_to :back
+          rescue ::ActionController::RedirectBackError
+            redirect_to :controller => "login", :action => "login"
+        end
+    else
+       @user = User.find(session[:user_id])
     end
   end
 end
