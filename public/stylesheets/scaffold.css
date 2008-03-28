@@ -6,6 +6,23 @@ body, p, ol, ul, td {
   line-height: 15px;
 }
 
+#header {
+  margin-bottom: 20px;
+}
+
+#linkbar {
+  margin: 0px auto 0px auto;
+  text-align: center;
+  font-size: 120%;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+#linkbar a {
+  text-decoration: none;
+}
+
+
 table#site_management_table {
   margin-top: 20px;
 }

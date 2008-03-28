@@ -1,7 +1,8 @@
-<%= link_to 'Edit Contract Info', edit_contract_path(@contract) %> &emsp; | &emsp;
-<%= link_to 'Back to Contracts', contracts_path %>
+<p><%= link_to 'Edit this contract', :action => "edit" %></p>
 
-<br /><hr />
+<p><%= link_to "Go to associated listings", :action => "show_listings", :id => @contract.id %></p>
+
+<p><br /></p>
 
 <p>
   <b>Contract Date:</b>
@@ -20,10 +21,6 @@
 
 <p><br /></p>
 
-<p>&emsp;<b><%= link_to "Show Current Listings", :action => "show_listings", :id => @contract.id %></b></p>
-
-<p><br /></p>
-
 <p>
   <b>Salesperson:</b>
   <%=h @contract.salesperson.name %>
@@ -36,12 +33,12 @@
 
 <p>
   <b>Client Approved?</b>
-  <%=h @contract.clientapproved %>
+  <%= @contract.clientapproved ? "yes" : "no" %>
 </p>
 
 <p>
   <b>Cert/Education Listed On Contract?</b>
-  <%=h @contract.certlistedoncontract %>
+  <%= @contract.certlistedoncontract ? "yes" : "no" %>
 </p>
 
 <%= render :partial => "list_payments"%>

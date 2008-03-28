@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authorize_admin
+  before_filter :authorize
+  before_filter :authorize_admin, :except => [:show, :edit, :update]
   # GET /users
   # GET /users.xml
   def index
@@ -14,7 +15,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
+    if @login_user.admin
+      @user = User.find(params[:id])
+    else
+      @user = @login_user
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +40,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    if @login_user.admin
+      @user = User.find(params[:id])
+    else
+      @user = @login_user
+    end
   end
 
   # POST /users
@@ -58,7 +67,13 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = User.find(params[:id])
+    if @login_user.admin
+      @user = User.find(params[:id])
+    else
+      @user = @login_user
+      params[:user][:admin] = false
+      params[:user][:salesperson_id] = @user.salesperson_id
+    end
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

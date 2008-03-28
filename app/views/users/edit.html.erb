@@ -4,14 +4,16 @@
 
 <% form_for(@user) do |f| %>
   <p>
-    <b>Salesperson</b><br />
-    <%= f.collection_select :salesperson_id, Salesperson.find(:all), :id, :name, {:include_blank => true} %>
-  </p>
-
-  <p>
     <b>Name</b><br />
     <%= f.text_field :name %>
   </p>
+
+  <% if @login_user.admin %>
+  <p>
+    <b>Associated Salesperson</b><br />
+    <%= f.collection_select :salesperson_id, Salesperson.find(:all), :id, :name, {:include_blank => true} %>
+  </p>
+  <% end %>
 
   <p>
     <b>Email</b><br />
@@ -28,10 +30,13 @@
     <%= f.password_field :password_confirmation %>
   </p>
 
+
+  <% if @login_user.admin %>
   <p>
     <b>Admin</b><br />
     <%= f.check_box :admin %>
   </p>
+  <% end %>
 
   <p>
     <%= f.submit "Update" %>

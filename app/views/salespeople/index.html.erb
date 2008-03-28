@@ -1,9 +1,10 @@
-<h1>Listing salespeople</h1>
+<%= link_to 'New salesperson', new_salesperson_path %>
+
+<h1>Sales People</h1>
 
 <table>
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
+    <th>Name</th>
     <th>Email</th>
     <th>Address</th>
     <th>City</th>
@@ -15,8 +16,7 @@
 
 <% for salesperson in @salespeople %>
   <tr>
-    <td><%=h salesperson.firstname %></td>
-    <td><%=h salesperson.lastname %></td>
+    <td><%=link_to h(salesperson.name), salesperson %></td>
     <td><%=h salesperson.email %></td>
     <td><%=h salesperson.address %></td>
     <td><%=h salesperson.city %></td>
@@ -24,13 +24,8 @@
     <td><%=h salesperson.zip %></td>
     <td><%=h salesperson.phone %></td>
     <td><%=h salesperson.sum_ads %></td>
-    <td><%= link_to 'Show', salesperson %></td>
     <td><%= link_to 'Edit', edit_salesperson_path(salesperson) %></td>
     <td><%= link_to 'Destroy', salesperson, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New salesperson', new_salesperson_path %>

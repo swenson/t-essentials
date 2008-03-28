@@ -1,4 +1,6 @@
-<h1>Listing subcategories</h1>
+<%= button_to 'New category', new_category_path %>
+
+<h1>Subcategories List</h1>
 
 <table>
   <tr>
@@ -9,8 +11,7 @@
 <% for subcategory in @subcategories %>
   <tr>
     <td><%=h subcategory.category.name %></td>
-    <td><%=h subcategory.name %></td>
-    <td><%= link_to 'Show', subcategory %></td>
+    <td><%= link_to h(subcategory.name), subcategory %></td>
     <td><%= link_to 'Edit', edit_subcategory_path(subcategory) %></td>
     <td><%= link_to 'Destroy', subcategory, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -19,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New subcategory', new_subcategory_path %>
+

@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
         redirect_to(:controller => "login", :action => "login")
     else
       @user = User.find(session[:user_id])
+      @login_user = @user
     end
   end
   
@@ -31,6 +32,7 @@ class ApplicationController < ActionController::Base
         end
     else
        @user = User.find(session[:user_id])
+       @login_user = @user
     end
   end
 end

@@ -8,5 +8,13 @@ module ApplicationHelper
   def email(addr)
     link_to addr, "mailto:#{addr}"
   end
+  
+  def twodec(num)
+    sprintf("%.2f", num)
+  end
+  
+  def money(num)
+    "$" + twodec(num)
+  end
 
 end

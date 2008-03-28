@@ -1,14 +1,17 @@
-<h1>Listing clients</h1>
+<%= button_to 'Create new client', new_client_path %>
+
+
+<h1>Client List</h1>
 
 <table>
   <tr>
     <th>Business</th>
-    <th>Lastname</th>
-    <th>Firstname</th>
+    <th>Last Name</th>
+    <th>First Name</th>
     <th>Address</th>
     <th>City</th>
     <th>State</th>
-    <th>Zip</th>
+    <th>ZIP</th>
     <th>Phone</th>
     <th>Email</th>
     <th>Website</th>
@@ -17,9 +20,9 @@
 
 <% for client in @clients %>
   <tr>
-    <td><%=h client.business %></td>
-    <td><%=h client.lastname %></td>
-    <td><%=h client.firstname %></td>
+    <td><%= link_to h(client.business), client %></td>
+    <td><%= link_to h(client.lastname), client %></td>
+    <td><%= link_to h(client.firstname), client %></td>
     <td><%=h client.address %></td>
     <td><%=h client.city %></td>
     <td><%=h client.state %></td>
@@ -28,7 +31,6 @@
     <td><%= email(client.email) if client.email %></td>
     <td><%= link_to client.website, fixwebsite(client.website) if client.website %></td>
     <td><%=h client.comments %></td>
-    <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>
     <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -36,5 +38,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New client', new_client_path %>

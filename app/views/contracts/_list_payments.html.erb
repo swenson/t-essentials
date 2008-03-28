@@ -1,15 +1,15 @@
 <div id="payment_table">
 <p>
-  <b>Total Amount Due:</b> <b><%= @contract.amount_due %></b>
+  <b>Total Amount Due:</b> <b><%= money(@contract.amount_due) %></b>
 </p>
 
 <p>
-  <b>Total Amount for Contract:</b> <%= @contract.sum_charges %>
+  <b>Total Amount for Contract:</b> <%= money(@contract.sum_charges) %>
 </p>
 <table>
   <tr><th colspan="3">Payments:</th></tr>
   <% for c in @contract.payments do %>
-    <tr><td><%= h c.comment %></td><td><%= h c.amount %></td>
+    <tr><td><%= h c.comment %></td><td align="right"><%= h money(c.amount) %></td>
       <td>
         <% form_remote_tag :url => { :action => :delete_payment, :id => @contract.id } do |f| %>
           <%= hidden_field_tag :payment_id, c.id %>

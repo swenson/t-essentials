@@ -1,9 +1,12 @@
-<h1>Listing users</h1>
+
+<%= button_to 'Create new user', new_user_path %>
+
+<h1>Website User Manager</h1>
 
 <table>
   <tr>
-    <th>Salesperson</th>
     <th>Name</th>
+    <th>Associated Salesperson</th>
     <th>Email</th>
     <th>Password</th>
     <th>Admin</th>
@@ -11,12 +14,11 @@
 
 <% for user in @users %>
   <tr>
+    <td><%=link_to h(user.name), user %></td>
     <td><%=h user.salesperson.name if user.salesperson %></td>
-    <td><%=h user.name %></td>
     <td><%=h user.email %></td>
     <td> *** </td>
-    <td><%=h user.admin %></td>
-    <td><%= link_to 'Show', user %></td>
+    <td><%= user.admin ? "yes" : "no" %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -24,5 +26,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New user', new_user_path %>

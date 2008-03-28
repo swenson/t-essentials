@@ -1,4 +1,6 @@
-<h1>Listing regions</h1>
+<%= button_to 'New region', new_region_path %>
+
+<h1>Regions</h1>
 
 <table>
   <tr>
@@ -7,14 +9,9 @@
 
 <% for region in @regions %>
   <tr>
-    <td><%=h region.name %></td>
-    <td><%= link_to 'Show', region %></td>
+    <td><%=link_to h(region.name), region %></td>
     <td><%= link_to 'Edit', edit_region_path(region) %></td>
     <td><%= link_to 'Destroy', region, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New region', new_region_path %>

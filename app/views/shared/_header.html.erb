@@ -1,19 +1,29 @@
-<p style="color: green"><%= flash[:notice] %></p>
-<center>
+<div id="header">
+<div id="linkbar">
 <%= link_to h("Contracts"), :controller => :contracts %>
 <%= link_to h("Clients"), :controller => :clients %>
+<%= link_to h("Categories"), :controller => :categories if @login_user.admin %>
 <%= link_to h("Subcategories"), :controller => :subcategories %>
-<% if @user.admin %>
+<% if @login_user.admin %>
   <%= link_to h("Sales People"), :controller => :salespeople %>
   <%= link_to h("Designers"), :controller => :salespeople %>
   <%= link_to h("Ad Sizes"), :controller => :adsizes %>
   <%= link_to h("Regions"), :controller => :regions %>
-  <%= link_to h("Categories"), :controller => :categories %>
-  <%= link_to h("Logins/Users"), :controller => :users %>
 <% end %>
+  &emsp;
+  <% if @login_user.admin %>
+    <%= link_to h("Logins/Users"), :controller => :users %>
+    &emsp;
+  <% end %>
+  
+  <%= link_to h('Change my password / info'), edit_user_path(@login_user.id) %>
+  
+  
+  
 &emsp;
 <%= link_to h("Logout"), :controller => :login, :action => :logout %>
-</center>
-<hr />
-<p><br /></p>
+</div>
+
+<p style="color: green"><%= flash[:notice] %></p>
  
+</div>

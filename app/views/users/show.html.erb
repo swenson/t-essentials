@@ -1,12 +1,11 @@
 <p>
-  <b>Salesperson:</b>
-  <%=h @user.salesperson.name if @user.salesperson %>
-</p>
-
-
-<p>
   <b>Name:</b>
   <%=h @user.name %>
+</p>
+
+<p>
+  <b>Associated Salesperson:</b>
+  <%= link_to(h(@user.salesperson.name), @user.salesperson) if @user.salesperson %>
 </p>
 
 <p>
@@ -21,7 +20,7 @@
 
 <p>
   <b>Admin:</b>
-  <%=h @user.admin %>
+  <%= @user.admin ? "yes" : "no" %>
 </p>
 
 
