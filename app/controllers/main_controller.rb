@@ -16,6 +16,19 @@ class MainController < ApplicationController
     end
   end
   
+  def search
+    @term = params[:search].downcase
+    terms = @term.split
+    @listings = []
+    
+    terms.each { |term| 
+      search_term = "%#{term}%"
+      listings = Listing.find(:all, :conditions => [
+      'lower(title) like ? or lower(body) like ? or lower(whoby) like ? or lower(email) like ?', search_term,search_term,search_term,search_term])
+      @listings += listings
+    }
+  end
+  
   def index
   end
   
@@ -23,4 +36,11 @@ class MainController < ApplicationController
     @category = Category.find(params[:id])
     @listings = Listing.find(:all, :conditions => "category_id = #{@category.id}")
   end
+
+  def show_subcategory
+    @subcategory = Subcategory.find(params[:id])
+    @category = @subcategory.category
+    @listings = @subcategory.listings
+  end
+
 end

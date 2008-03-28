@@ -28,7 +28,7 @@
   <h2>Categories</h2>
   <ul>
   <% for category in @categories do %>
-    <li><%= link_to "#{category.name} (#{category.num_listings})", category %></li>
+    <li><%= link_to "#{category.name} (#{category.num_listings})", :action => :show_category, :id => category.id %></li>
   <% end %>
   </ul>
   </div>
