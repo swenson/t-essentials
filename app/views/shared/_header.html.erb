@@ -1,5 +1,7 @@
 <div id="header">
 <div id="linkbar">
+<%= link_to h("Main Site"), :controller => :main %>
+&emsp;
 <%= link_to h("Contracts"), :controller => :contracts %>
 <%= link_to h("Clients"), :controller => :clients %>
 <%= link_to h("Categories"), :controller => :categories if @login_user.admin %>

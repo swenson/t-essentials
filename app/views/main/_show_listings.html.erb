@@ -10,7 +10,7 @@
     <p>Subcategory: <%= link_to h(listing.subcategory.name), :action => :show_subcategory, :id => listing.subcategory.id%></p>
   <% end %>
   <h3><%= h listing.title %></h3>
-  <p>By: <a href="<%= h listing.email %>"><%= h listing.by %></a></p>
+  <p>By: <a href="mailto:<%= h listing.email %>"><%= h listing.by %></a></p>
   <p>
   <%= h listing.body %>
   </p>
