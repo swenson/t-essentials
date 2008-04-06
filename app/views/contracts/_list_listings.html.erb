@@ -42,7 +42,7 @@
         <% end %>
       </td>    
       <td>
-        <% form_remote_tag :url => { :action => :delete_listing, :id => @contract.id } do |f| %>
+        <% form_remote_tag :url => { :action => :delete_listing, :id => @contract.id } do %>
           <%= hidden_field_tag :listing_id, listing.id %>
           <%= submit_tag "Delete", :onclick => "return #{confirm_javascript_function("Are you sure?")}" %>
         <% end %>

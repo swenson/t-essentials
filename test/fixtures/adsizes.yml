@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  adsize: MyString
-  numlistings: 1
+half:
+  adsize: Half page
+  numlistings: 2
 
-two:
-  adsize: MyString
-  numlistings: 1
+full:
+  adsize: Full page
+  numlistings: 3

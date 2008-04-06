@@ -5,7 +5,7 @@
   <% for c in @contract.charges do %>
     <tr><td><%= h c.comment %></td><td align="right"><%= h money(c.amount) %></td>
       <td>
-        <% form_remote_tag :url => { :action => :delete_charge, :id => @contract.id } do |f| %>
+        <% form_remote_tag :url => { :action => :delete_charge, :id => @contract.id } do %>
           <%= hidden_field_tag :charge_id, c.id %>
           <%= submit_tag "Delete", :onclick => "return #{confirm_javascript_function("Are you sure?")}" %>
         <% end %>
@@ -13,7 +13,7 @@
     </tr>
   <% end %>
   <tr><td colspan="2">
-  <% form_remote_for (@newcharge, :url => {:action => :add_charge, :id => @contract.id }) do |f| %>
+  <% form_remote_for(@newcharge, :url => {:action => :add_charge, :id => @contract.id }) do |f| %>
     <%= f.hidden_field :contract_id, :value => @contract.id %>
     <%= f.text_field :comment %> &nbsp;
     <%= f.text_field :amount, :size => 5 %><br />
@@ -22,7 +22,7 @@
   </td></tr>
 </table></td>
 <td>
-<% form_remote_for (@newcharge, :url => {:action => :add_charge, :id => @contract.id }) do |f| %>
+<% form_remote_for(@newcharge, :url => {:action => :add_charge, :id => @contract.id }) do |f| %>
   <%= f.hidden_field :contract_id, :value => @contract.id %><%= f.hidden_field :comment, :value => "Finance Charge @ 1.75%" %>
   <%= f.hidden_field :amount, :value => (@contract.amount_due * 0.0175 * 100.0).round.to_f / 100.0 %>
   <%= submit_tag "Add Finance Charge" %><br />

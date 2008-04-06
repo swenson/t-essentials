@@ -1,13 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
+  id: 1
+  name: a
   email: MyString
-  password: MyString
-  admin: false
+  hashed_password: c859238caf4574b4c60a84659bb6be772eea951e
+  salt: 189885000.552367963409545
+  admin: true
 
 two:
   name: MyString
   email: MyString
-  password: MyString
+  hashed_password: MyString
+  salt: MyString
   admin: false

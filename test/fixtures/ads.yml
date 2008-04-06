@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  contract: 
-  adsize: 
+  contract: one
+  adsize: half
   count: 1
 
 two:
-  contract: 
-  adsize: 
+  contract: one
+  adsize: full
   count: 1

@@ -19,7 +19,7 @@
     </tr>
   <% end %>
   <tr><td colspan="2">
-  <% form_remote_for (@newpayment, :url => {:action => :add_payment, :id => @contract.id }) do |f| %>
+  <% form_remote_for(@newpayment, :url => {:action => :add_payment, :id => @contract.id }) do |f| %>
     <%= f.hidden_field :contract_id, :value => @contract.id %>
     <%= f.text_field :comment %> &nbsp;
     <%= f.text_field :amount, :size => 5 %><br />

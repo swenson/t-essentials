@@ -3,21 +3,21 @@
 one:
   title: MyString
   body: MyText
-  by: MyString
+  whoby: MyString
   email: MyString
   start: 2008-03-22 11:55:41
   end: 2008-03-22 11:55:41
-  region: 
-  category: 
+  region: one
+  category: health
   subcategory: 
 
 two:
   title: MyString
   body: MyText
-  by: MyString
+  whoby: MyString
   email: MyString
   start: 2008-03-22 11:55:41
   end: 2008-03-22 11:55:41
-  region: 
-  category: 
+  region: two
+  category: health
   subcategory: 

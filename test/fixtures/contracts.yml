@@ -2,16 +2,16 @@
 
 one:
   contractdate: 2008-03-23 09:47:52
-  client: 
-  salesperson: 
-  designer: 
+  client: one
+  salesperson: one
+  designer: one
   clientapproved: false
   certlistedoncontract: false
 
 two:
   contractdate: 2008-03-23 09:47:52
-  client: 
-  salesperson: 
-  designer: 
+  client: two
+  salesperson: two
+  designer: two
   clientapproved: false
   certlistedoncontract: false

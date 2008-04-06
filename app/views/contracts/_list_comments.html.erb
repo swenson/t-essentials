@@ -5,7 +5,7 @@
   <% for comment in @comments %>
     <tr><td><pre><%= comment.comment %></pre></td>
       <td>
-        <% form_remote_tag :url => { :action => :delete_comment, :id => @contract.id } do |f| %>
+        <% form_remote_tag :url => { :action => :delete_comment, :id => @contract.id } do %>
           <%= hidden_field_tag :comment_id, comment.id %>
           <%= submit_tag "Delete", :onclick => "return #{confirm_javascript_function("Are you sure?")}" %>
         <% end %>
@@ -13,7 +13,7 @@
     </tr>
   <% end %>
   <tr><td>
-  <% form_remote_for (@newcomment, :url => {:action => :add_comment, :id => @contract.id }) do |f| %>
+  <% form_remote_for(@newcomment, :url => {:action => :add_comment, :id => @contract.id }) do |f| %>
     <%= f.hidden_field :contract_id, :value => @contract.id %>
     <%= f.text_area :comment %><br />
     <%= submit_tag "Add Comment" %>

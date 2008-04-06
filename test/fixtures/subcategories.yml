@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  category: 
+superfun:
+  name: SuperFun
+  category: fun
 
-two:
-  name: MyString
-  category: 
+superhealth:
+  name: SuperHealth
+  category: health
