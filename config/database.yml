@@ -1,0 +1,15 @@
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+
+production:
+  adapater: mysql
+  database: directory
+  username: directory 
+  password: cx8v9ukrwjntalvx89
+  host: localhost
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
