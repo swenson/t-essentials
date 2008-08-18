@@ -1,6 +1,6 @@
 require 'mongrel_cluster/recipes'
 
-set :application, "Terra Essenials Directory"
+set :application, "directory"
 set :repository,  "root@www.t-essentials.com:/home/git/directory"
 set :scm, :git
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
