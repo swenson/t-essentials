@@ -3,7 +3,7 @@ development:
   database: db/development.sqlite3
 
 production:
-  adapter: mysql
+  adapater: mysql
   database: directory
   username: directory 
   password: cx8v9ukrwjntalvx89
