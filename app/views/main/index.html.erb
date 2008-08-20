@@ -17,20 +17,3 @@
     <% end %>
   </tr></table>
 </div>
-<br />
-<div class="regions">
-  <h2>Browse by Region</h2>
-  <hr />
-  <table width="100%">
-  <tr>
-    <% for regions in @reg_thirds %>
-      <td valign="top" width="30%">
-        <% for region in regions %>
-        <div class="region">
-          <h2><%= h region.name %> (<%= h region.listings.length %>)</h2>
-        </div>
-        <% end %>
-      </td>
-    <% end %>
-  </tr></table>
-</div>
