@@ -3,5 +3,13 @@
 
 <hr />
 
+<div id="subcategories">
+  <%= (@category.subcategories.sort_by {|c| c.name}.map { |subcat| link_to("#{subcat.name.downcase} (#{subcat.listings.length})", :action => :show_subcategory, :id => subcat.id) }).join(", ") %>
+
+
+</div>
+
+<hr />
+
 <%= render :partial => "show_listings" %>
 </div>
