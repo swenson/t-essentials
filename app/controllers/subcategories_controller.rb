@@ -3,7 +3,7 @@ class SubcategoriesController < ApplicationController
   # GET /subcategories
   # GET /subcategories.xml
   def index
-    @subcategories = Subcategory.find(:all, :order => :name)
+    @subcategories = Subcategory.all_sorted
 
     respond_to do |format|
       format.html # index.html.erb

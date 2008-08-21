@@ -7,4 +7,14 @@ class Subcategory < ActiveRecord::Base
   def fullname
     "#{category.name} – #{name}"
   end
+  
+  def Subcategory.all_sorted
+    find(:all).sort do |x,y| 
+      if x.category.name == y.category.name
+        x.name <=> y.name
+      else
+        x.category.name <=> y.category.name
+      end
+    end
+  end
 end
