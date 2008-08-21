@@ -9,7 +9,7 @@
         <div class="category">
         <h2><%= link_to "#{category.name.downcase} (#{category.listings.length})", :action => :show_category, :id => category.id %></h2>
         <div class="subcategories">
-          <%= (category.subcategories.map { |subcat| link_to ("#{subcat.name.downcase} (#{subcat.listings.length})", :action => :show_subcategory, :id => subcat.id) }).join(", ") %>
+          <%= (category.subcategories.map { |subcat| link_to("#{subcat.name.downcase} (#{subcat.listings.length})", :action => :show_subcategory, :id => subcat.id) }).join(", ") %>
         </div>
         </div>
       <% end %>
