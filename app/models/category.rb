@@ -10,4 +10,8 @@ class Category < ActiveRecord::Base
       return 0
     end
   end
+  
+  def randomsubs
+    subs = subcategories.sort_by { rand }[0..5]    
+  end
 end

@@ -5,7 +5,7 @@
 <% form_for(@subcategory) do |f| %>
   <p>
     <b>Category</b><br />
-    <%= f.collection_select :category_id, Category.find(:all), :id, :name %>
+    <%= f.collection_select :category_id, Category.find(:all, :order => :name), :id, :name %>
   </p>
 
   <p>
