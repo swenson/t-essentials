@@ -46,7 +46,10 @@ class SubcategoriesController < ApplicationController
     respond_to do |format|
       if @subcategory.save
         flash[:notice] = 'Subcategory was successfully created.'
-        format.html { redirect_to(@subcategory) }
+        category_id = @subcategory.category_id
+        @subcategory = Subcategory.new
+        @subcategory.category_id = category_id
+        format.html { render :action => "new" } #redirect_to(@subcategory) }
         format.xml  { render :xml => @subcategory, :status => :created, :location => @subcategory }
       else
         format.html { render :action => "new" }
