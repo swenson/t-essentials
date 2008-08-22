@@ -1,6 +1,12 @@
 <div id="payment_table">
 <p>
   <b>Total Amount Due:</b> <b><%= money(@contract.amount_due) %></b>
+  <% form_remote_for(@newpayment, :url => {:action => :add_payment, :id => @contract.id }) do |f| %>
+    <%= f.hidden_field :contract_id, :value => @contract.id %>
+    <%= f.hidden_field :comment, :value => 'Marked payment complete' %>
+    <%= f.hidden_field :amount, :value => @contract.amount_due %>
+    <%= submit_tag "Account Paid In Full" %>
+  <% end %>  
 </p>
 
 <p>

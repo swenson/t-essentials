@@ -1,3 +1,5 @@
+require 'erb'
+
 class Subcategory < ActiveRecord::Base
   belongs_to :category
   has_many :listings
@@ -16,5 +18,13 @@ class Subcategory < ActiveRecord::Base
         x.category.name <=> y.category.name
       end
     end
+  end
+  
+  def partial_description
+    ERB::Util::html_escape(description).split("\n")[0]
+  end
+  
+  def format_text
+    ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
   end
 end

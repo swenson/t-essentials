@@ -1,12 +1,23 @@
-<div>
+<div id="category">
 <h2>Category: <%= h @category.name %></h2>
+
+<script language="JavaScript">
+function fulldesc()
+{
+	$('description').innerHTML = "<%= @category.format_text %>";
+	$('tohide').hide();
+}
+</script>
+
+<div id="description">
+	<%= @category.partial_description %>
+	<a href="#" id="tohide" onclick="fulldesc()">&hellip; (more)</a>
+</div>
 
 <hr />
 
 <div id="subcategories">
   <%= (@category.subcategories.sort_by {|c| c.name}.map { |subcat| link_to("#{subcat.name.downcase} (#{subcat.listings.length})", :action => :show_subcategory, :id => subcat.id) }).join(", ") %>
-
-
 </div>
 
 <hr />

@@ -1,6 +1,19 @@
-<div>
-<h2>Category: <%= h @category.name %></h2>
+<div id="category">
+<h2>Category: <%= link_to h(@category.name), :action => :show_category, :id => @category.id %></h2>
 <h2>Subcategory: <%= h @subcategory.name %></h2>
+
+<script language="JavaScript">
+function fulldesc()
+{
+	$('description').innerHTML = "<%= @subcategory.format_text %>";
+	$('tohide').hide();
+}
+</script>
+
+<div id="description">
+	<%= @subcategory.partial_description %>
+	<a href="#" id="tohide" onclick="fulldesc()">&hellip; (more)</a>
+</div>
  
 <hr />
  

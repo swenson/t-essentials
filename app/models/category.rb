@@ -1,3 +1,5 @@
+require 'erb'
+
 class Category < ActiveRecord::Base
   has_many :subcategories
   has_many :listings
@@ -14,4 +16,12 @@ class Category < ActiveRecord::Base
   def randomsubs
     subs = subcategories.sort_by { rand }[0..5]    
   end
+
+  def partial_description
+    ERB::Util::html_escape(description).split("\n")[0]
+  end
+  
+  def format_text
+    ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
+  end  
 end

@@ -5,13 +5,17 @@
 <table>
   <tr>
     <th>Name</th>
+	<th>Text</th>
+	<th>edit</th>
+	<th>delete</th>
   </tr>
 
 <% for category in @categories %>
   <tr>
     <td><%=link_to h(category.name), category %></td>
+	<td><%= h category.description %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
