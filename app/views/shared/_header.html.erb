@@ -6,6 +6,7 @@
 <%= link_to h("Clients"), :controller => :clients %>
 <%= link_to h("Categories"), :controller => :categories if @login_user.admin %>
 <%= link_to h("Subcategories"), :controller => :subcategories %>
+<%= link_to h("Pages"), :controller => :pages %>
 <% if @login_user.admin %>
   <%= link_to h("Sales People"), :controller => :salespeople %>
   <%= link_to h("Designers"), :controller => :salespeople %>

@@ -14,6 +14,12 @@ class MainController < ApplicationController
     for i in 0..(@regions.length - 1)
       @reg_thirds[i % 3] += [@regions[i]]
     end
+    
+    @pages = Page.find(:all, :order => 'name')
+  end
+  
+  def show_page
+    @page = Page.find(params[:id])
   end
   
   def search

@@ -43,6 +43,13 @@
 </td>
 <td valign="top" width="20%">
 <!--Sidebar?-->
+  <% if @pages %>
+  <ul>
+	<% for page in @pages %>
+	  <li><%= link_to h(page.name), :action => :show_page, :id => page.id %></li>
+	<% end %>
+  </ul>
+  <% end %>
 </td>
 </tr>
 </table>
