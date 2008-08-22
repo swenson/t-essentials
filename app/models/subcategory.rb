@@ -25,6 +25,7 @@ class Subcategory < ActiveRecord::Base
   end
   
   def format_text
-    ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
+    #ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
+    description.gsub("\n", "<br />").gsub("\r", "")
   end
 end

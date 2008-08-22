@@ -18,10 +18,12 @@ class Category < ActiveRecord::Base
   end
 
   def partial_description
-    ERB::Util::html_escape(description).split("\n")[0]
+    #ERB::Util::html_escape(description).split("\n")[0]
+    description.split("\n")[0]
   end
   
   def format_text
-    ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
+    #ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
+    description.gsub("\n", "<br />").gsub("\r", "")
   end  
 end
