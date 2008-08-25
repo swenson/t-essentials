@@ -57,3 +57,14 @@ Rails::Initializer.run do |config|
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
 end
+
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.smtp_settings = {
+  :address  => "localhost",
+  :port  => 25, 
+  :domain  => "t-essentials.com",
+  :user_name  => "<a href=\"mailto:amy@t-essentials.com\">amy@t-essentials.com</a>",
+  #:password  => "mypass",
+  #:authentication  => :login
+} 
