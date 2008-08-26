@@ -99,3 +99,19 @@ div.progressBar div.background {
   height: 18px;
   width: 0%;
 }
+
+table.nice {
+	border-width: 2px;
+	border-spacing: 3px;
+	border-style: groove;
+	border-color: gray;
+	border-collapse: separate;
+}
+
+table.nice th, table.nice td {
+	border-width: 1px;
+	padding: 4px;
+	border-style: groove;
+	border-color: gray;
+	-moz-border-radius: 4px;
+}
