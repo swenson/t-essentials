@@ -11,7 +11,7 @@
 
 <br />
 <p>
-  <b>Total Amount for Contract:</b> <%= money(@contract.sum_charges) %> <%= button_to 'Send Invoice', :action => :send_invoice, :id => id, :method => :get %>
+  <b>Total Amount for Contract:</b> <%= money(@contract.sum_charges) %> <%= button_to 'Send Invoice', :action => :send_invoice, :id => @contract.id, :method => :get %>
 </p>
 <br />
 <table>
