@@ -10,18 +10,18 @@
 
   <p>
     <b>Region</b><br />
-    <%= f.collection_select :region_id, Region.find(:all), :id, :name %>
+    <%= f.collection_select :region_id, Region.find(:all).sort_by {|c| c.name}, :id, :name %>
   </p>
  
   <p>
     <b>Client</b><br />
-    <%= f.collection_select :client_id, Client.find(:all), :id, :name %>
+    <%= f.collection_select :client_id, Client.find(:all).sort_by {|c| c.name}, :id, :name %>
   </p>
 
 <% if @user.admin %>
   <p>
     <b>Salesperson</b><br />
-    <%= f.collection_select :salesperson_id, Salesperson.find(:all), :id, :name %>
+    <%= f.collection_select :salesperson_id, Salesperson.find(:all).sort_by {|c| c.name}, :id, :name %>
   </p>
 <% else %>
   <%= f.hidden_field :salesperson_id, :value => @user.salesperson_id %>
@@ -29,7 +29,7 @@
 
   <p>
     <b>Designer</b><br />
-    <%= f.collection_select :designer_id, Designer.find(:all), :id, :name %>
+    <%= f.collection_select :designer_id, Designer.find(:all).sort_by {|c| c.name}, :id, :name %>
   </p>
  
   <p>
