@@ -5,17 +5,20 @@
     <%= f.hidden_field :contract_id, :value => @contract.id %>
     <%= f.hidden_field :comment, :value => 'Marked payment complete' %>
     <%= f.hidden_field :amount, :value => @contract.amount_due %>
-    <%= submit_tag "Account Paid In Full" %>
+    <%= submit_tag "Mark Account as Paid in Full" %>
   <% end %>  
 </p>
 
+<br />
 <p>
-  <b>Total Amount for Contract:</b> <%= money(@contract.sum_charges) %>
+  <b>Total Amount for Contract:</b> <%= money(@contract.sum_charges) %> <%= button_to 'Send Invoice', :action => :send_invoice, :id => id, :method => :get %>
 </p>
+<br />
 <table>
   <tr><th colspan="3">Payments:</th></tr>
+  <tr><th>Comment</th><th>Amount</th><th></th></tr>
   <% for c in @contract.payments do %>
-    <tr><td><%= h c.comment %></td><td align="right"><%= h money(c.amount) %></td>
+    <tr><td><%= h c.comment %></td><td align="right"><%= h money(c.amount) if c.amount %></td>
       <td>
         <% form_remote_tag :url => { :action => :delete_payment, :id => @contract.id } do |f| %>
           <%= hidden_field_tag :payment_id, c.id %>
@@ -24,7 +27,7 @@
       </td>    
     </tr>
   <% end %>
-  <tr><td colspan="2">
+  <tr><td colspan="3">
   <% form_remote_for(@newpayment, :url => {:action => :add_payment, :id => @contract.id }) do |f| %>
     <%= f.hidden_field :contract_id, :value => @contract.id %>
     <%= f.text_field :comment %> &nbsp;

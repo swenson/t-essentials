@@ -1,5 +1,16 @@
 class ContractsController < ApplicationController
   before_filter :authorize
+
+
+  def send_invoice
+    @contract = Contract.find(params[:id])
+    Invoicer.deliver_invoice(@contract)
+    flash[:notice] = 'Delivered invoice'
+    redirect_to(@contract)
+  end
+
+
+
   # POST /comments
   # POST /comments.xml
   

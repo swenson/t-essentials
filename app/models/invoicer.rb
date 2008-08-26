@@ -1,13 +1,19 @@
 class Invoicer < ActionMailer::Base
   
-def invoice(client)
+def invoice(contract)
+  client = contract.client
   # Email header info MUST be added here
   recipients client.email
-  from  "<a href=\"mailto:amy@t-essentials.com\">amy@t-essentials.com</a>"
+  cc contract.salesperson.email
+  #from  "<a href=\"mailto:amy@t-essentials.com\">amy@t-essentials.com</a>"
+  from "<a href=\"mailto:#{contract.salesperson.email}\">#{contract.salesperson.name}</a>"
   subject "Invoice from Terra Essentials"
+  
+  due = sprintf("$%.2f", contract.amount_due)
 
   # Email body substitutions go here
-  body :client => client 
+  body :client => client, :contract => contract, :due => "#{due}"
+  
 end
 
 end

@@ -3,6 +3,7 @@
 <table>
   <tr><th colspan="3">Charges:</th></tr>
   <% for c in @contract.charges do %>
+  <tr><th>Comment</th><th>Amount</th><th></th></tr>
     <tr><td><%= h c.comment %></td><td align="right"><%= h money(c.amount) %></td>
       <td>
         <% form_remote_tag :url => { :action => :delete_charge, :id => @contract.id } do %>

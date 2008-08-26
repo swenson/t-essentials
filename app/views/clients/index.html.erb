@@ -31,7 +31,6 @@
     <td><%= email(client.email) if client.email %></td>
     <td><%= link_to client.website, fixwebsite(client.website) if client.website %></td>
     <td><%=h client.comments %></td>
-    <td><%= link_to 'Send Invoice', :action => :send_invoice, :id => client.id %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>
     <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

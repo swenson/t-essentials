@@ -1,5 +1,12 @@
-Dear <%= @client.firstname %> <%= @client.lastname %>,
+Dear <%= h @client.name %>,
 
-Thanks for signing up with My Website!
+Your contract with Terra Essentials has a balance of <%= h @due %>.
+Please pay this as soon as possible.
 
-Your account will allow you to do blah, blah, blah.
+Please contact <%= @contract.salesperson.name %> (<%= h @contract.salesperson.email %>)
+for more information.
+
+
+Sincerely,
+<%= @contract.salesperson.name %>
+Terra Essentials

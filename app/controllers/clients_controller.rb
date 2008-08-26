@@ -1,14 +1,6 @@
 class ClientsController < ApplicationController
   before_filter :authorize
 
-
-  def send_invoice
-    @client = Client.find(params[:id])
-    Invoicer.deliver_invoice(@client)
-    flash[:notice] = 'Delivered invoice'
-    redirect_to(@client)
-  end
-
   # GET /clients
   # GET /clients.xml
   def index
