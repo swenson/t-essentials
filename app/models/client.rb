@@ -3,7 +3,10 @@ class Client < ActiveRecord::Base
   
   validates_presence_of :business
   
-
+  def normalname
+    "#{firstname} #{lastname} (#{business})"
+  end
+  
   def name
     "#{lastname}, #{firstname} (#{business})"
   end

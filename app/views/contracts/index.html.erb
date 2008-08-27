@@ -4,6 +4,7 @@
   <tr>
     <th>Go to Contract (link)</th>
     <th>Contract Date</th>
+		<th>Due Date</th>
     <th>Region</th>
     <th><%= link_to 'Client', {:controller => :clients} %></th>
     <th><%= link_to 'Salesperson', {:controller => :salespeople} %></th>
@@ -18,6 +19,7 @@
   <tr>
     <td align="center"><%= button_to h("Go to contract"), contract, :method => :get %></td>
     <td><%= link_to h(contract.contractdate), contract %></td>
+		<td><%= h contract.paymentduedate %></td>
     <td><%= h contract.region %>
     <td><%= link_to h(contract.client.name), contract.client %></td>
     <td><%= link_to h(contract.salesperson.name), contract.salesperson %></td>

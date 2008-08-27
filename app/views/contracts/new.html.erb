@@ -9,6 +9,12 @@
   </p>
 
   <p>
+		<b>Payment Due Date</b><br />
+		<%= f.datetime_select :paymentduedate %>
+	</p>
+
+
+  <p>
     <b>Region</b><br />
     <%= f.collection_select :region_id, Region.find(:all).sort_by {|c| c.name}, :id, :name %>
   </p>

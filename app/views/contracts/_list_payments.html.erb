@@ -10,6 +10,13 @@
 </p>
 
 <br />
+
+<p>
+	<b>Payment Due Date:</b> <%= h @contract.paymentduedate %>
+</p>
+
+<br />
+
 <p>
   <b>Total Amount for Contract:</b> <%= money(@contract.sum_charges) %> <%= button_to 'Send Invoice', :action => :send_invoice, :id => @contract.id, :method => :get %>
 </p>

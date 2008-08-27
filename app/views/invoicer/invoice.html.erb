@@ -1,12 +1,11 @@
-Dear <%= h @client.name %>,
+Dear <%= h @client.normalname %>,
 
 Your contract with Terra Essentials has a balance of <%= h @due %>.
-Please pay this as soon as possible.
+Please pay this by <%= h @date_due %>.
 
-Please contact <%= @contract.salesperson.name %> (<%= h @contract.salesperson.email %>)
-for more information.
+Please contact Amy (amy@t-essentials.com) for more information.
 
 
-Sincerely,
-<%= @contract.salesperson.name %>
 Terra Essentials
+PO Box 7754
+Colorado Springs, CO 80933-7754

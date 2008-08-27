@@ -31,4 +31,13 @@ class Contract < ActiveRecord::Base
   def amount_due
     sum_charges - sum_payments
   end
+  
+  def due_date
+    if paymentduedate
+      d = paymentduedate
+    else
+      d = 90.days.from_now
+    end
+    "#{d.month}/#{d.day}/#{d.year}"
+  end
 end

@@ -12,7 +12,7 @@ def invoice(contract)
   due = sprintf("$%.2f", contract.amount_due)
 
   # Email body substitutions go here
-  body :client => client, :contract => contract, :due => "#{due}"
+  body :client => client, :contract => contract, :due => "#{due}", :date_due => contract.due_date
   
 end
 
