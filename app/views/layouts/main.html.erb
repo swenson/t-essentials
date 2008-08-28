@@ -43,13 +43,24 @@
 </td>
 <td valign="top" width="20%">
 <!--Sidebar?-->
+  <ul>
+  <% if @bios.length > 0 %>
+  <li>Bios</li>
+  <ul>
+		<% for page in @bios %>
+		  <li><%= link_to h(page.name), :action => :show_page, :id => page.id %></li>
+		<% end %>
+	</ul>
+	<% end %>
   <% if @pages %>
+  <li>Misc</li>
   <ul>
 	<% for page in @pages %>
 	  <li><%= link_to h(page.name), :action => :show_page, :id => page.id %></li>
 	<% end %>
   </ul>
   <% end %>
+  </ul>
 </td>
 </tr>
 </table>

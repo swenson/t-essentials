@@ -15,7 +15,9 @@ class MainController < ApplicationController
       @reg_thirds[i % 3] += [@regions[i]]
     end
     
-    @pages = Page.find(:all, :order => 'name')
+    @all_pages = Page.find(:all, :order => 'name')
+    @bios = @all_pages.select { |p| p.name =~ /bio/i }
+    @pages = @all_pages.select { |p| not @bios.include? p }
   end
   
   def show_page
