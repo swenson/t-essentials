@@ -125,3 +125,11 @@ div.progressBar div.background {
   width: 0%;
 }
 
+input.submit, input.button {
+  background-image: url(/images/button-bg.png);
+  background-repeat: repeat-x;
+  height: 49px;
+  font-size: 120%;
+}
+
+
