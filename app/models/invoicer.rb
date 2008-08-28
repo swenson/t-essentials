@@ -4,7 +4,8 @@ def invoice(contract)
   client = contract.client
   # Email header info MUST be added here
   recipients client.email
-  cc contract.salesperson.email
+  #cc contract.salesperson.email
+  cc "amy@t-essentials.com"
   #from  "<a href=\"mailto:amy@t-essentials.com\">amy@t-essentials.com</a>"
   from "amy@t-essentials.com"
   subject "Invoice from Terra Essentials"
