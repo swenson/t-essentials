@@ -1,4 +1,9 @@
-body { background-color: #fff; color: #333; }
+body {
+  background-color: #f0fff0;
+  background-image: url(/images/grad-green.png);
+  background-repeat: repeat-x;
+  color: #333; 
+}
 
 body, p, ol, ul, td {
   font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
@@ -20,6 +25,7 @@ body, p, ol, ul, td {
 
 #linkbar a {
   text-decoration: none;
+  padding: 6px;
 }
 
 
@@ -37,22 +43,22 @@ body table {
   border-style: inset inset inset inset;
   border-color: gray gray gray gray;
   border-collapse: separate;
-  background-color: rgb(255, 240, 240);
+  background-color: rgb(240, 255, 240);
 }
 body table th {
   border-width: thin thin thin thin;
-  padding: 3px 3px 3px 3px;
+  padding: 4px;
   border-style: outset outset outset outset;
   border-color: gray gray gray gray;
-  background-color: rgb(255, 250, 250);
+  background-color: rgb(230, 255, 230);
   -moz-border-radius: 0px 0px 0px 0px;
 }
 body table td {
   border-width: thin thin thin thin;
-  padding: 3px 3px 3px 3px;
+  padding: 4px;
   border-style: outset outset outset outset;
   border-color: gray gray gray gray;
-  background-color: rgb(255, 250, 250);
+  background-color: rgb(230, 255, 230);
   -moz-border-radius: 0px 0px 0px 0px;
 }
 pre {
@@ -62,7 +68,7 @@ pre {
 }
 
 td pre {
-  background-color: rgb(255,250,250);
+  background-color: rgb(250,255,250);
 }
 
 a { color: #000; }
