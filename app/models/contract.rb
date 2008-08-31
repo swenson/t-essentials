@@ -4,6 +4,7 @@ class Contract < ActiveRecord::Base
   has_many :comments
   has_many :listings
   has_many :ads
+  has_many :web_ads
   has_many :listings
   belongs_to :client
   belongs_to :designer

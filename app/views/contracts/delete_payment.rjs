@@ -1,2 +1,3 @@
-page.replace_html("comment_table", :partial => "list_comments")
-page[:comment_table].visual_effect :highlight
+page.replace_html("payment_table", :partial => "list_payments")
+ 
+page[:payment_table].visual_effect :highlight

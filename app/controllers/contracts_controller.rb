@@ -1,7 +1,7 @@
 class ContractsController < ApplicationController
   before_filter :authorize
 
-
+  # send an invoice
   def send_invoice
     @contract = Contract.find(params[:id])
     Invoicer.deliver_invoice(@contract)
@@ -14,15 +14,16 @@ class ContractsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   
+  # DELETE (XML) listing  
   def delete_listing
-    listing = Listing.find(params[:listing_id])
+    listing = Listing.find(params[:delete_listing_id])
     listing.destroy
     
     @contract = Contract.find(params[:id])
     @newlisting = Listing.new
   end
      
-
+  # POST (XML) listing
   def add_listing
     if params[:listing] and params[:listing][:id]
       listing = Listing.find(params[:listing][:id])
@@ -35,6 +36,34 @@ class ContractsController < ApplicationController
     @contract = Contract.find(params[:id])
     @newlisting = Listing.new
   end
+  
+  def delete_web_ad
+    web_ad = WebAd.find(params[:delete_web_ad_id])
+    web_ad.destroy
+    
+    @contract = Contract.find(params[:id])
+    @newwebad = WebAd.new
+    @newlisting = Listing.new
+  end
+     
+
+  def add_web_ad
+    if params[:web_ad] and params[:web_ad][:id]
+      web_ad = WebAd.find(params[:web_ad][:id])
+      web_ad.update_attributes(params[:web_ad])
+    else
+      web_ad = WebAd.new(params[:web_ad])
+      puts params[:web_ad][:type]
+      puts web_ad.type
+      web_ad.save
+    end
+    
+    @contract = Contract.find(params[:id])
+    @newwebad = WebAd.new
+    @newlisting = Listing.new
+  end
+
+
   
   def delete_charge
     charge = Charge.find(params[:charge_id])
@@ -164,6 +193,12 @@ class ContractsController < ApplicationController
       @newlisting = Listing.find(params[:listing_id])
     else
       @newlisting = Listing.new
+    end
+    
+    if params[:web_ad_id]
+      @newwebad = WebAd.find(params[:web_ad_id])
+    else
+      @newwebad = WebAd.new
     end
   end
   

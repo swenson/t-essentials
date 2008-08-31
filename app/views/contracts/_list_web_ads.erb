@@ -1,0 +1,77 @@
+<div style="margin-top: 20px;" id="web_ads_table">
+
+<table>
+<tr><th>Web Ads</th></tr>
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Content</th>
+</tr>
+<% if @contract.web_ads.length == 0 %>
+  <tr><td>No web ads yet.</td></tr>
+<% end %>
+<% for ad in @contract.web_ads %>
+  <tr>
+    <td><%=h ad.name %></td>
+    <td><%=h ad.kindof %></td>
+    <td><%=h ad.startdate %></td>
+    <td><%=h ad.enddate %></td>
+    <td><pre><%=h ad.content %></pre></td>
+      <td>
+        <% form_tag do |f| %>
+          <%= hidden_field_tag :web_ad_id, ad.id %>
+          <%= submit_tag "Edit" %>
+        <% end %>
+      </td>    
+      <td>
+        <% form_remote_tag :url => { :action => :delete_web_ad, :id => @contract.id } do %>
+          <%= hidden_field_tag :delete_web_ad_id, ad.id %>
+          <%= submit_tag "Delete", :onclick => "return #{confirm_javascript_function("Are you sure?")}" %>
+        <% end %>
+      </td>    
+  </tr>
+<% end %>
+</table>
+
+<table>
+<tr><th>New Web Ad</th></tr>
+<tr><td>
+<% form_remote_for(@newwebad, :url => {:action => :add_web_ad, :id => @contract.id}) do |f| %>
+  <%= f.hidden_field :contract_id, :value => @contract.id %>
+  <%= f.hidden_field (:id, :value => params[:web_ad_id]) if params[:web_ad_id] %>
+
+  <p>
+    Name<br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    Type<br />
+    <%= f.select :kindof, WebAd.types %>
+  </p>
+  <p>
+    Start Date<br />
+    <%= f.datetime_select :startdate %>
+  </p>
+  <p>
+    End Date<br />
+    <%= f.datetime_select :enddate %>
+  </p>
+  <p>
+    Content<br />
+    <%= f.text_area :content %>
+  </p>
+ 
+  <p>
+    <% if params[:web_ad_id] %>
+      <%= f.submit "Edit Web Ad" %>
+    <% else %>
+      <%= f.submit "Add Web Ad" %>
+    <% end %>
+  </p>
+<% end %>
+
+</td></tr>
+</table>
+</div>

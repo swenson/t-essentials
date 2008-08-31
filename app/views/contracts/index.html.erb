@@ -13,6 +13,8 @@
     <th>Certs/Edu Listed On Contract?</th>
     <th>Amount Due</th>
     <th>Total Amount</th>
+    <th>Listings</th>
+	<th>Web Ads</th>
   </tr>
 
 <% for contract in @contracts %>
@@ -28,6 +30,8 @@
     <td><%=h contract.certlistedoncontract %></td>
     <td><%=h contract.amount_due %></td>
     <td><%=h contract.sum_charges %></td>
+	<td><%= h contract.listings.length %> / <%= h contract.listings_allowed %></td>
+    <td><%=h contract.web_ads.length %></td>
     <td><%= button_to 'Send Invoice', :action => :send_invoice, :id => contract.id, :method => :get %></td>
     <td><%= button_to 'Edit', edit_contract_path(contract), :method => :get %></td>
     <td><%= button_to 'Delete', contract, :confirm => 'Are you sure?', :method => :delete %></td>
