@@ -25,8 +25,16 @@ class Subcategory < ActiveRecord::Base
     description.split("\n")[0]
   end
   
+  def partial_description_esc_quote
+    partial_description.gsub('"', '\\"')
+  end
+  
   def format_text
     #ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
     description.gsub("\n", "<br />").gsub("\r", "")
+  end
+  
+  def format_text_esc_quote
+    format_text.gsub('"', '\\"')
   end
 end

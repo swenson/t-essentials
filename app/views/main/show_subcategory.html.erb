@@ -6,14 +6,14 @@
 <script language="JavaScript">
 function fulldesc()
 {
-	$('description').innerHTML = "<%= @subcategory.format_text %>";
+	$('description').innerHTML = "<%= @subcategory.format_text_esc_quote %>";
 	$('tohide').hide();
 }
 </script>
 
 <div id="description">
-	<%= @subcategory.partial_description %>
-	<a href="#" id="tohide" onclick="fulldesc()">&hellip; (more)</a>
+	<%= @subcategory.partial_description_esc_quote %>
+	<% if @subcategory.partial_description != @subcategory.format_text %><a href="#" id="tohide" onclick="fulldesc()">&hellip; (more)</a><% end %>
 </div>
 <% end %>
 <hr />

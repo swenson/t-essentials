@@ -1,18 +1,18 @@
 <div id="category">
 <h2>Category: <%= h @category.name %></h2>
 
-<% if @category.description %>
+<% if @category.description and @category.description.length > 0 %>
 <script language="JavaScript">
 function fulldesc()
 {
-	$('description').innerHTML = "<%= @category.format_text %>";
+	$('description').innerHTML = "<%= @category.format_text_esc_quote %>";
 	$('tohide').hide();
 }
 </script>
 
 <div id="description">
-	<%= @category.partial_description %>
-	<a href="#" id="tohide" onclick="fulldesc()">&hellip; (more)</a>
+	<%= @category.partial_description_esc_quote %>
+	<% if @category.partial_description != @category.format_text %><a href="#" id="tohide" onclick="fulldesc()">&hellip; (more)</a><% end %>
 </div>
 
 <% end %>
