@@ -29,7 +29,7 @@ class Subcategory < ActiveRecord::Base
     if partial_description
       partial_description.gsub('"', '\\"')
     else
-      ''
+      nil
     end
   end
   
@@ -42,7 +42,7 @@ class Subcategory < ActiveRecord::Base
     if format_text
       format_text.gsub('"', '\\"')
     else
-      ''
+      nil
     end
   end
 end
