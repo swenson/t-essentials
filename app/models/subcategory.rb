@@ -26,7 +26,11 @@ class Subcategory < ActiveRecord::Base
   end
   
   def partial_description_esc_quote
-    partial_description.gsub('"', '\\"')
+    if partial_description
+      partial_description.gsub('"', '\\"')
+    else
+      ''
+    end
   end
   
   def format_text
@@ -35,6 +39,10 @@ class Subcategory < ActiveRecord::Base
   end
   
   def format_text_esc_quote
-    format_text.gsub('"', '\\"')
+    if format_text
+      format_text.gsub('"', '\\"')
+    else
+      ''
+    end
   end
 end
