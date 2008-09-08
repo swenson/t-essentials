@@ -1,6 +1,6 @@
 <div id="comment_table">
+<h2>Comments</h2>
 <table>
-  <tr><th colspan="2">Comments:</th></tr>
   <%= "<tr><td><i>None</i></td></tr>" unless @comments.length > 0 %>
   <% for comment in @comments %>
     <tr><td><pre><%= comment.comment %></pre></td>

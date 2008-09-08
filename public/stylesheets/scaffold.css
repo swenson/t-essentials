@@ -138,4 +138,8 @@ input.submit, input.button {
   font-size: 120%;
 }
 
+#upload_table, #payment_table, #charge_table, #ad_table, #comment_table {
+  margin-top: 40px;
+}
+
 

@@ -1,0 +1,29 @@
+<div id="upload_table">
+<h2>Uploads</h2>
+<table>
+<% for upload in @uploads -%>
+  <tr>
+		<td><%= link_to h(upload.filename), upload.public_filename %></td>
+  	<td>
+			<% form_remote_for(upload, :url => {:action => :delete_upload, :id => @contract.id}) do |f| %>
+    		<%= hidden_field_tag :upload_id, upload.id %>
+        <%= submit_tag "Delete", :onclick => "return #{confirm_javascript_function("Are you sure?")}" %>
+			<% end %>
+		</td>
+	</tr>
+<% end -%>
+</table>
+	
+	
+<% form_for(@upload, :url => {:action => :add_upload, :id => @contract.id },
+									:html => { :multipart => true }) do |f| -%>
+  <%= f.hidden_field :contract_id, :value => @contract.id %>
+  <p>
+    <label for="upload">Upload an Ad (PDF, preferably):</label>
+    <%= f.file_field :uploaded_data %>
+  </p>
+  <p>
+    <%= submit_tag 'Upload' %>
+  </p>
+<% end -%>
+</div>

@@ -28,6 +28,6 @@
 <%= link_to h("Logout"), :controller => :login, :action => :logout %>
 </div>
 
-<p style="color: green"><%= flash[:notice] %></p>
- 
+<%= render :partial => 'shared/flash' %>
+
 </div>

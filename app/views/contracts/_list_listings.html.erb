@@ -9,9 +9,8 @@
 <% end %>
 
 
-
+<h2>Current Listings</h2>
 <table>
-<tr><th>Current Listings</th></tr>
 <tr>
     <th>Category</th>
     <th>Subcategory</th>
@@ -51,8 +50,8 @@
 <% end %>
 </table>
 
+<h2>New Listing</h2>
 <table>
-<tr><th>New Listing</th></tr>
 <tr><td>
 <% form_remote_for(@newlisting, :url => {:action => :add_listing, :id => @contract.id}) do |f| %>
   <%= f.hidden_field :contract_id, :value => @contract.id %>

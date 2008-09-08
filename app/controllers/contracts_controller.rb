@@ -61,8 +61,10 @@ class ContractsController < ApplicationController
     @contract = Contract.find(params[:id])
     @newwebad = WebAd.new
     @newlisting = Listing.new
+    @upload = Upload.new
+    @uploads = @contract.uploads
+    
   end
-
 
   
   def delete_charge
@@ -75,6 +77,9 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads
+    
   end
 
 
@@ -88,6 +93,9 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads
+    
   end
 
 
@@ -101,6 +109,9 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads
+    
   end
   
   def delete_ad
@@ -113,8 +124,49 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new  
+    @uploads = @contract.uploads
   end
-  
+
+  def delete_upload
+    upload = Upload.find(params[:upload_id])
+    if upload.destroy
+      flash[:notice] = 'Upload successfully deleted.'
+    else
+      flash[:notice] = 'Upload deletion failed.'
+    end
+
+    @contract = Contract.find(params[:id])
+    @comments = @contract.comments
+    @newcomment = Comment.new
+    @newpayment = Payment.new
+    @newcharge = Charge.new
+    @newad = Ad.new
+    @upload = Upload.new  
+    @uploads = @contract.uploads
+  end
+
+  def add_upload
+    @upload = Upload.new(params[:upload])
+    if @upload.save
+      flash[:notice] = 'Upload was successfully created.'
+      redirect_to :action => "show", :id => params[:id]
+    else
+      flash[:notice] = 'Problem uploading file.'
+      @contract = Contract.find(params[:id])
+      @comments = @contract.comments
+      @newcomment = Comment.new
+      @newpayment = Payment.new
+      @newcharge = Charge.new
+      @newad = Ad.new
+      #@upload = Upload.new
+      @uploads = @contract.uploads
+    
+      render :action => :show, :id => params[:id]    
+    end
+  end
+
+
   def add_ad
     @ad = Ad.new(params[:ad])
     @ad.save
@@ -125,6 +177,9 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads    
+    
   end
 
 
@@ -138,6 +193,9 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads    
+    
   end
   
   def add_payment
@@ -150,6 +208,9 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads    
+    
   end
   
   def add_comment
@@ -163,6 +224,9 @@ class ContractsController < ApplicationController
     @newpayment = Payment.new
     @newcharge = Charge.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads    
+    
     
     #respond_to do |format|
     #  format.html show.html.erb
@@ -212,6 +276,8 @@ class ContractsController < ApplicationController
     @newcharge = Charge.new
     @newcomment = Comment.new
     @newad = Ad.new
+    @upload = Upload.new
+    @uploads = @contract.uploads
     
     respond_to do |format|
       format.html # show.html.erb
