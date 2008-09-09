@@ -1,10 +1,10 @@
-<h1>New adsize</h1>
+<h1>New Ad Size</h1>
 
 <%= error_messages_for :adsize %>
 
 <% form_for(@adsize) do |f| %>
   <p>
-    <b>Adsize</b><br />
+    <b>Ad Size Name</b><br />
     <%= f.text_field :adsize %>
   </p>
 
@@ -14,8 +14,13 @@
   </p>
 
   <p>
+    <b>Standard Price</b><br />
+    <%= f.text_field :standardprice %>
+  </p>
+
+  <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', adsizes_path %>
+<%= button_to 'Back to index', adsizes_path %>

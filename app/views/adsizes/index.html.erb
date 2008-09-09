@@ -1,4 +1,4 @@
-<%= button_to 'New salesperson', new_salesperson_path %>
+<%= button_to 'New Ad Size', new_adsize_path %>
 
 <h1>Ad Sizes</h1>
 
@@ -6,12 +6,14 @@
   <tr>
     <th>Ad Size</th>
     <th>Web Listings</th>
+	<th>Standard Price</th>
   </tr>
 
 <% for adsize in @adsizes %>
   <tr>
     <td><%=link_to h(adsize.adsize), adsize %></td>
     <td><%=h adsize.numlistings %></td>
+    <td><%=h money(adsize.standardprice) %></td>
     <td><%= link_to 'Edit', edit_adsize_path(adsize) %></td>
     <td><%= link_to 'Destroy', adsize, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

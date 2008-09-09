@@ -8,6 +8,12 @@
   <%=h @adsize.numlistings %>
 </p>
 
+<p>
+  <b>Standard Price</b>
+  <%=h money(@adsize.standardprice) %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_adsize_path(@adsize) %> |
 <%= link_to 'Back', adsizes_path %>

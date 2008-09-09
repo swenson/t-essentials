@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080827231302) do
+ActiveRecord::Schema.define(:version => 20080909212122) do
 
   create_table "ads", :force => true do |t|
     t.integer  "contract_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20080827231302) do
     t.integer  "numlistings"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "standardprice"
   end
 
   create_table "categories", :force => true do |t|
@@ -164,6 +165,18 @@ ActiveRecord::Schema.define(:version => 20080827231302) do
     t.text     "description"
   end
 
+  create_table "uploads", :force => true do |t|
+    t.integer  "contract_id"
+    t.string   "content_type"
+    t.string   "filename"
+    t.string   "thumbnail"
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -173,6 +186,17 @@ ActiveRecord::Schema.define(:version => 20080827231302) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "salesperson_id"
+  end
+
+  create_table "web_ads", :force => true do |t|
+    t.string   "name"
+    t.string   "kindof"
+    t.datetime "startdate"
+    t.datetime "enddate"
+    t.text     "content"
+    t.integer  "contract_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

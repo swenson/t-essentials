@@ -1,5 +1,5 @@
 <div id="ad_table">
-<h2>Ads</h2>
+<h2><%= link_to 'Ads', :controller => :adsizes %></h2>
 <table>
   <tr>
     <th><%= link_to h("Ad Size"), :controller => :adsizes %></th>
@@ -19,7 +19,7 @@
   <tr><td colspan="2">
   <% form_remote_for(@newad, :url => {:action => :add_ad, :id => @contract.id }) do |f| %>
     <%= f.hidden_field :contract_id, :value => @contract.id %>
-    <%= f.collection_select :adsize_id, Adsize.find(:all), :id, :adsize %> &nbsp;
+    <%= f.collection_select :adsize_id, Adsize.find(:all), :id, :to_s %> &nbsp;
     <%= f.text_field :count, :size => 5 %><br />
     <%= submit_tag "Add Ad" %>
   <% end %>  

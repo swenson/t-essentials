@@ -1,5 +1,7 @@
 class AdsizesController < ApplicationController
   before_filter :authorize_admin
+  
+  
   # GET /adsizes
   # GET /adsizes.xml
   def index
@@ -42,6 +44,9 @@ class AdsizesController < ApplicationController
   # POST /adsizes.xml
   def create
     @adsize = Adsize.new(params[:adsize])
+    if params[:adsize][:standardprice]
+      @adsize.standardprice = frommoney(params[:adsize][:standardprice])
+    end
 
     respond_to do |format|
       if @adsize.save
@@ -59,6 +64,10 @@ class AdsizesController < ApplicationController
   # PUT /adsizes/1.xml
   def update
     @adsize = Adsize.find(params[:id])
+    if params[:adsize][:standardprice]
+      @adsize.standardprice = frommoney(params[:adsize][:standardprice])
+      params[:adsize].delete :standardprice
+    end
 
     respond_to do |format|
       if @adsize.update_attributes(params[:adsize])

@@ -11,6 +11,22 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # :secret => '307b8a34c931d02b46ef87ce7449305c'
   
   private
+
+  def twodec(num)
+    sprintf("%.2f", num)
+  end
+  
+  def money(num)
+    if num
+      "$" + twodec(num)
+    else
+      "$0.00"
+    end
+  end
+
+  def frommoney(s)
+    s.strip.gsub('$', '')
+  end
   
   def authorize
     unless User.find_by_id(session[:user_id])

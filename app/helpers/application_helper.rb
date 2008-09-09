@@ -14,7 +14,10 @@ module ApplicationHelper
   end
   
   def money(num)
-    "$" + twodec(num)
+    if num
+      "$" + twodec(num)
+    else
+      "$0.00"
+    end
   end
-
 end
