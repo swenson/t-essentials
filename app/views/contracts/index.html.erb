@@ -26,7 +26,7 @@
     <td><%= h contract.region %>
     <td><%= link_to h(contract.client.name), contract.client %></td>
     <td><%= link_to h(contract.salesperson.name), contract.salesperson %></td>
-    <td><%= link_to h(contract.designer.name), contract.designer %></td>
+    <td><%= link_to h(contract.designer.name), contract.designer if contract.designer %></td>
     <td><%=h contract.clientapproved %></td>
     <td><%=h contract.certlistedoncontract %></td>
     <td><%=h contract.amount_due %></td>
