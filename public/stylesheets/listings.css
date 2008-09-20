@@ -1,7 +1,5 @@
 body {
-  background-color: #f0fff0;
-  background-image: url(/images/grad-green.png);
-  background-repeat: repeat-x;
+  background: #f0fff0 url(/images/grad-green.png) fixed repeat-x;
   color: #333; 
 }
  
