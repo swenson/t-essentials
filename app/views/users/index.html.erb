@@ -1,10 +1,9 @@
-
 <%= button_to 'Create new user', new_user_path %>
 
 <h1>Website User Manager</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Name</th>
     <th>Associated Salesperson</th>
     <th>Email</th>
@@ -12,8 +11,9 @@
     <th>Admin</th>
   </tr>
 
+<% even = false %>
 <% for user in @users %>
-  <tr>
+	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=link_to h(user.name), user %></td>
     <td><%=h user.salesperson.name if user.salesperson %></td>
     <td><%=h user.email %></td>
@@ -24,5 +24,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
