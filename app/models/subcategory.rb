@@ -21,8 +21,10 @@ class Subcategory < ActiveRecord::Base
   end
   
   def partial_description
-    #ERB::Util::html_escape(description).split("\n")[0]
-    description.split("\n")[0]
+    if description
+      #ERB::Util::html_escape(description).split("\n")[0]
+      description.split("\n")[0]
+    end
   end
   
   def partial_description_esc_quote

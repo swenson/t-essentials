@@ -16,7 +16,7 @@
 	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=h subcategory.category.name %></td>
     <td><%= link_to h(subcategory.name), subcategory %></td>
-    <td><%= link_to h(subcategory.description), subcategory %></td>
+    <td><%= link_to h(subcategory.partial_description), subcategory %></td>
     <td><%= link_to 'Edit', edit_subcategory_path(subcategory) %></td>
     <td><%= link_to 'Delete', subcategory, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
