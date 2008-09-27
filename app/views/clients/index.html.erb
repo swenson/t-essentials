@@ -4,7 +4,7 @@
 <h1>Client List</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Business</th>
     <th>First Name</th>
     <th>Last Name</th>
@@ -18,8 +18,9 @@
     <th>Comments</th>
   </tr>
 
+<% even = false %>
 <% for client in @clients %>
-  <tr>
+	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%= link_to h(client.business), client %></td>
     <td><%= link_to h(client.firstname), client %></td>
     <td><%= link_to h(client.lastname), client %></td>

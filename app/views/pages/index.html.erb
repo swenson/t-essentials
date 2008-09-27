@@ -1,13 +1,16 @@
-<h1>Listing pages</h1>
+<%= button_to 'Create new page', new_page_path %>
+
+<h1>Pages</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Name</th>
     <th>Content</th>
   </tr>
 
+<% even = false %>
 <% for page in @pages %>
-  <tr>
+	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=h page.name %></td>
     <td><%=h page.content %></td>
     <td><%= link_to 'Show', page %></td>
@@ -16,7 +19,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New page', new_page_path %>

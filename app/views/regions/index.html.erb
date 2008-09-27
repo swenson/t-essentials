@@ -3,12 +3,13 @@
 <h1>Regions</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Name</th>
   </tr>
 
+<% even = false %>
 <% for region in @regions %>
-  <tr>
+<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=link_to h(region.name), region %></td>
     <td><%= link_to 'Edit', edit_region_path(region) %></td>
     <td><%= link_to 'Destroy', region, :confirm => 'Are you sure?', :method => :delete %></td>

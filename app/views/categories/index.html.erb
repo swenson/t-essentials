@@ -1,19 +1,20 @@
-<%= button_to 'New category', new_category_path %>
+<%= button_to 'Create new category', new_category_path %>
 
-<h1>Category List</h1>
+<h1>Categories</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Name</th>
 	<th>Text</th>
 	<th>edit</th>
 	<th>delete</th>
   </tr>
 
+<% even = false %>
 <% for category in @categories %>
-  <tr>
+	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=link_to h(category.name), category %></td>
-	<td><%= h category.description %></td>
+		<td><%= h category.description %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>
     <td><%= link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

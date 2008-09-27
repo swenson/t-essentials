@@ -1,18 +1,19 @@
-<%= button_to 'New subcategory', new_subcategory_path %>
+<%= button_to 'Create new subcategory', new_subcategory_path %>
 
-<h1>Subcategories List</h1>
+<h1>Subcategories</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Category</th>
     <th>Subcategory</th>
-	<th>Text</th>
-	<th>edit</th>
-	<th>delete</th>
+		<th>Text</th>
+		<th>edit</th>
+		<th>delete</th>
   </tr>
 
+<% even = false %>
 <% for subcategory in @subcategories %>
-  <tr>
+	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=h subcategory.category.name %></td>
     <td><%= link_to h(subcategory.name), subcategory %></td>
     <td><%= link_to h(subcategory.description), subcategory %></td>

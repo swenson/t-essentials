@@ -1,9 +1,9 @@
-<%= link_to 'New salesperson', new_salesperson_path %>
+<%= button_to 'Create new salesperson', new_salesperson_path %>
 
 <h1>Sales People</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Name</th>
     <th>Email</th>
     <th>Address</th>
@@ -14,8 +14,9 @@
     <th>Number of Ads</th>
   </tr>
 
+<% even = false %>
 <% for salesperson in @salespeople %>
-  <tr>
+	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=link_to h(salesperson.name), salesperson %></td>
     <td><%=h salesperson.email %></td>
     <td><%=h salesperson.address %></td>

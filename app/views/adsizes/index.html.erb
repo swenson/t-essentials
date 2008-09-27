@@ -1,16 +1,17 @@
-<%= button_to 'New Ad Size', new_adsize_path %>
+<%= button_to 'New ad size', new_adsize_path %>
 
 <h1>Ad Sizes</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Ad Size</th>
     <th>Web Listings</th>
 	<th>Standard Price</th>
   </tr>
 
+<% even = false %>
 <% for adsize in @adsizes %>
-  <tr>
+	<tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td><%=link_to h(adsize.adsize), adsize %></td>
     <td><%=h adsize.numlistings %></td>
     <td><%=h money(adsize.standardprice) %></td>
