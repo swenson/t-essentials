@@ -48,7 +48,6 @@ body table th {
   padding: 4px;
   border-style: outset outset outset outset;
   border-color: gray gray gray gray;
-  background-color: rgb(230, 255, 230);
   -moz-border-radius: 0px 0px 0px 0px;
 }
 body table td {
@@ -56,9 +55,22 @@ body table td {
   padding: 4px;
   border-style: outset outset outset outset;
   border-color: gray gray gray gray;
-  background-color: rgb(230, 255, 230);
   -moz-border-radius: 0px 0px 0px 0px;
 }
+
+tr.header {
+  background: rgb(190, 240, 190);
+}
+tr.even {
+  background: rgb(220, 255, 220);
+}
+tr.odd {
+  background: rgb(240, 255, 240);
+}
+
+
+
+
 pre {
   background-color: #eee;
   padding: 10px;

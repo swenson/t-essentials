@@ -1,7 +1,7 @@
 <h1>Contracts</h1>
 
 <table>
-  <tr>
+  <tr class="header">
     <th>Go to Contract (link)</th>
     <th>Contract Date</th>
 		<th>Due Date</th>
@@ -18,8 +18,9 @@
 		<th>Uploads</th>
   </tr>
 
+<% even = false %>
 <% for contract in @contracts %>
-  <tr>
+  <tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td align="center"><%= button_to h("Go to contract"), contract, :method => :get %></td>
     <td><%= link_to h(contract.contractdate), contract %></td>
 		<td><%= h contract.paymentduedate %></td>
