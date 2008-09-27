@@ -4,11 +4,26 @@ class Client < ActiveRecord::Base
   validates_presence_of :business
   
   def normalname
-    "#{firstname} #{lastname} (#{business})"
+    if lastname and firstname
+      "#{firstname} #{lastname} (#{business})"
+    elsif lastname
+      "#{lastname} (#{business})"
+    elsif firstname
+      "#{firstname} (#{business})"
+    else
+      "(#{business})"
+    end
   end
   
   def name
-    "#{lastname}, #{firstname} (#{business})"
+    if lastname and firstname
+      "#{lastname}, #{firstname} (#{business})"
+    elsif lastname
+      "#{lastname} (#{business})"
+    elsif firstname
+      "#{firstname} (#{business})"
+    else
+      "(#{business})"
+    end
   end
-
 end
