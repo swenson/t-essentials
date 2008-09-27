@@ -21,7 +21,7 @@
  
   <p>
     <b>Client</b><br />
-    <%= f.collection_select :client_id, Client.find(:all).sort_by {|c| c.name}, :id, :name %>
+    <%= f.collection_select :client_id, Client.find(:all).sort_by{|c| c.business}.sort_by {|c| c.name}, :id, :normalname %>
   </p>
 
 <% if @user.admin %>
