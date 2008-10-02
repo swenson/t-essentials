@@ -1,2 +1,3 @@
 page.replace_html("listings_table", :partial => "list_listings")
+
 page[:listings_table].visual_effect :highlight
