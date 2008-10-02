@@ -22,6 +22,7 @@
   <p>
     <b>Client</b><br />
     <%= f.collection_select :client_id, Client.find(:all).sort_by{|c| c.business}.sort_by {|c| c.name}, :id, :normalname %>
+    <small>(Did you create your <%= link_to 'client', {:controller => :clients} %> yet?  It won't appear in this list until you do.)</small>
   </p>
 
 <% if @user.admin %>
