@@ -1,3 +1,9 @@
+<p>
+<b>Total Amount for Contract:</b> <b><%= money(@contract.sum_charges) %></b><br />
+<b>Total Amount Currently Due:</b> <b><%= money(@contract.amount_due) %></b>
+</p>
+
+
 <p><%= button_to 'Edit this contract', {:action => "edit", :id => @contract.id}, :method => :get %></p>
 
 <p><%= button_to "Go to associated listings and web ads", {:action => "show_listings", :id => @contract.id}, :method => :get %></p>
