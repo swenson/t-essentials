@@ -1,6 +1,7 @@
 require 'erb'
 
 class Category < ActiveRecord::Base
+  include WhiteListHelper
   has_many :subcategories
   has_many :listings
   
@@ -20,7 +21,7 @@ class Category < ActiveRecord::Base
   def partial_description
     if description
       #ERB::Util::html_escape(description).split("\n")[0]
-      description.split("\n")[0]
+      white_list(description).split("\n")[0]
     end
   end
 
@@ -30,7 +31,7 @@ class Category < ActiveRecord::Base
   
   def format_text
     #ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
-    description.gsub("\n", "<br />").gsub("\r", "")
+    white_list(description).gsub("\n", "<br />").gsub("\r", "")
   end
   
   def format_text_esc_quote
@@ -39,6 +40,6 @@ class Category < ActiveRecord::Base
   
   def format_text
     #ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
-    description.gsub("\n", "<br />").gsub("\r", "")
+    white_list(description).gsub("\n", "<br />").gsub("\r", "")
   end  
 end
