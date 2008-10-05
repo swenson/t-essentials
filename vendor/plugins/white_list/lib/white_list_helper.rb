@@ -92,6 +92,6 @@ module WhiteListHelper
 end
 
 WhiteListHelper.bad_tags   = %w(script)
-WhiteListHelper.tags       = %w(strong em b i p code pre tt output samp kbd var sub sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dt dd abbr acronym a img blockquote del ins fieldset legend table td tr th)
+WhiteListHelper.tags       = %w(strong em b i p code pre tt output samp kbd var sub sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dt dd abbr acronym a img blockquote del ins fieldset legend table td tr th center)
 WhiteListHelper.attributes = %w(href src width height alt cite datetime title class id)
 WhiteListHelper.protocols  = %w(ed2k ftp http https irc mailto news gopher nntp telnet webcal xmpp callto feed)
