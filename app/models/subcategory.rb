@@ -1,6 +1,7 @@
 require 'erb'
 
 class Subcategory < ActiveRecord::Base
+  include WhiteListHelper
   belongs_to :category
   has_many :listings
   
