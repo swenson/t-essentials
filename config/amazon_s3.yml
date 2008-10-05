@@ -1,0 +1,14 @@
+development:
+  bucket_name: bramswenson_directory_development
+  access_key_id: 1R0E5XEJ5HER3TZV9WR2
+  secret_access_key: Ys++rRt72s2M0b92zaRRMkeBOXL9vJqVBT/VC3DI
+
+test:
+  bucket_name: bramswenson_directory_test
+  access_key_id: 1R0E5XEJ5HER3TZV9WR2 
+  secret_access_key: Ys++rRt72s2M0b92zaRRMkeBOXL9vJqVBT/VC3DI
+
+production:
+  bucket_name: bramswenson_directory
+  access_key_id: 1R0E5XEJ5HER3TZV9WR2
+  secret_access_key: Ys++rRt72s2M0b92zaRRMkeBOXL9vJqVBT/VC3DI
