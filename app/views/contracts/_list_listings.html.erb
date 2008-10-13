@@ -41,7 +41,7 @@
         <% end %>
       </td>    
       <td>
-        <% form_remote_tag :url => { :action => :delete_listing, :id => @contract.id } do %>
+        <% form_tag({ :action => :delete_listing, :id => @contract.id }) do %>
           <%= hidden_field_tag :delete_listing_id, listing.id %>
           <%= submit_tag "Delete", :onclick => "return #{confirm_javascript_function("Are you sure?")}" %>
         <% end %>
@@ -53,7 +53,7 @@
 <h2>New Listing</h2>
 <table>
 <tr><td>
-<% form_remote_for(@newlisting, :url => {:action => :add_listing, :id => @contract.id}) do |f| %>
+<% form_for(@newlisting, :url => {:action => :add_listing, :id => @contract.id}) do |f| %>
   <%= f.hidden_field :contract_id, :value => @contract.id %>
   <%= f.hidden_field (:id, :value => params[:listing_id]) if params[:listing_id] %>
   <p>

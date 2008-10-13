@@ -17,24 +17,62 @@ class ContractsController < ApplicationController
   # DELETE (XML) listing  
   def delete_listing
     listing = Listing.find(params[:delete_listing_id])
-    listing.destroy
-    
+
     @contract = Contract.find(params[:id])
+    @newwebad = WebAd.new
     @newlisting = Listing.new
+
+    if listing.destroy
+      respond_to do |format|
+        flash[:notice] = 'Listing was successfully deleted.'
+        format.html { redirect_to :action => :show_listings, :id => params[:id] }
+        format.xml  { head :ok }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :action => :show_listings, :id => params[:id] }
+        format.xml  { render :xml => listing.errors, :status => :unprocessable_entity }
+      end
+    end    
   end
      
-  # POST (XML) listing
+  # POST listing
   def add_listing
+    @contract = Contract.find(params[:id])
+    @newwebad = WebAd.new
+    @newlisting = Listing.new
+    
     if params[:listing] and params[:listing][:id]
       listing = Listing.find(params[:listing][:id])
-      listing.update_attributes(params[:listing])
+      if listing.update_attributes(params[:listing])
+        respond_to do |format|
+          flash[:notice] = 'Listing was successfully updated.'
+          format.html { redirect_to :action => :show_listings, :id => params[:id] }
+          format.xml  { head :ok }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to :action => :show_listings, :id => params[:id] }
+          format.xml  { render :xml => listing.errors, :status => :unprocessable_entity }
+        end
+      end
+
     else
+
       listing = Listing.new(params[:listing])
-      listing.save
+      if listing.save
+        respond_to do |format|
+          flash[:notice] = 'Listing was successfully added.'
+          format.html { redirect_to :action => :show_listings, :id => params[:id] }
+          format.xml  { head :ok }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to :action => :show_listings, :id => params[:id] }
+          format.xml  { render :xml => listing.errors, :status => :unprocessable_entity }
+        end
+      end
     end
-    
-    @contract = Contract.find(params[:id])
-    @newlisting = Listing.new
   end
   
   def delete_web_ad
