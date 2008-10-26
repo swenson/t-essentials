@@ -9,11 +9,15 @@ body, p, ol, ul, td {
   line-height: 15px;
 }
  
-.categories, .category, .regions, .region, .category.subcategories {
+.categories, .category, .regions, .region  {
   margin-top: 10px;
   font-size: 75%;
 } 
 
+#subcategories, .subcategories {
+  font-weight: bold;
+  font-size: 120%;
+}
 
 #leftsidebar {
   padding-right: 15px;

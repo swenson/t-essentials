@@ -1,6 +1,6 @@
 <div id="category">
-<h2>Category: <%= link_to h(@category.name), :action => :show_category, :id => @category.id %></h2>
-<h2>Subcategory: <%= h @subcategory.name %></h2>
+<h2><%= link_to h(@category.name), :action => :show_category, :id => @category.id %></h2>
+<h3><%= h @subcategory.name %></h3>
 
 <% if @subcategory.description and @subcategory.description.length > 0%>
 <script language="JavaScript">

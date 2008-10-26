@@ -5,12 +5,10 @@
 
 <% for listing in @listings %>
 <div class="listing">
-  <p>Category: <%= link_to h(listing.category.name), :action => :show_category, :id => listing.category.id %></p>
-  <% if listing.subcategory %>
-    <p>Subcategory: <%= link_to h(listing.subcategory.name), :action => :show_subcategory, :id => listing.subcategory.id%></p>
+  <% if not @subcategory and listing.subcategory %>
+    <p>Subcategory: <span class="subcategories"><%= h listing.subcategory.name %></span></p>
   <% end %>
   <h3><%= h listing.title %></h3>
-  <p>By: <a href="mailto:<%= h listing.email %>"><%= h listing.by %></a></p>
   <p>
   <%= h listing.body %>
   </p>

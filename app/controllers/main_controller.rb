@@ -42,7 +42,10 @@ class MainController < ApplicationController
   
   def show_category
     @category = Category.find(params[:id])
-    @listings = Listing.find(:all, :conditions => "category_id = #{@category.id}")
+    @listings = Listing.find(:all, :conditions => "category_id = #{@category.id}", :order => "title")
+    if @listings
+      @listings = @listings.sort_by { |l| if l.subcategory then l.subcategory.name else '' end }
+    end
   end
 
   def show_subcategory
