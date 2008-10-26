@@ -19,8 +19,8 @@ body, p, ol, ul, td {
   font-size: 120%;
 }
 
-#listing {
-  margin-top: 10px;
+.listing {
+  margin-top: 20px;
 }
 
 
