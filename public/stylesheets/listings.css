@@ -19,8 +19,12 @@ body, p, ol, ul, td {
   font-size: 120%;
 }
 
-.listing {
+.listing_subcategory {
   margin-top: 20px;
+}
+
+.listing {
+  margin-top: 10px;
 }
 
 
