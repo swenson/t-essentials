@@ -19,6 +19,11 @@ body, p, ol, ul, td {
   font-size: 120%;
 }
 
+#listing {
+  margin-top: 10px;
+}
+
+
 #leftsidebar {
   padding-right: 15px;
 }
