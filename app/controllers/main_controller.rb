@@ -44,7 +44,13 @@ class MainController < ApplicationController
     @category = Category.find(params[:id])
     @listings = Listing.find(:all, :conditions => "category_id = #{@category.id}", :order => "title")
     if @listings
-      @listings = @listings.sort_by { |l| if l.subcategory then l.subcategory.name else '' end }
+      @listings = @listings.sort { |l,m| 
+        if (not l.subcategory) or (not m.subcategory) or l.subcategory_id == m.subcategory_id
+          l.title <=> m.title
+        else
+          l.subcategory.name <=> m.subcategory.name
+        end
+      }
     end
   end
 
@@ -52,6 +58,15 @@ class MainController < ApplicationController
     @subcategory = Subcategory.find(params[:id])
     @category = @subcategory.category
     @listings = @subcategory.listings
+    if @listings
+      @listings = @listings.sort { |l,m| 
+        if l.subcategory_id and l.subcategory_id == k.subcategory_id
+          l.title <=> m.title
+        else
+          l.subcategory.name <=> m.subcategory.name
+        end
+      }
+    end
   end
 
 end
