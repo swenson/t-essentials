@@ -3,16 +3,13 @@
 <table>
   <tr class="header">
     <th>Go to Contract (link)</th>
-    <th>Contract Date</th>
-		<th>Due Date</th>
-    <th>Region</th>
+    <th>Total Amount</th>
+    <th>Amount Due</th>
     <th><%= link_to 'Client', {:controller => :clients} %></th>
     <th><%= link_to 'Salesperson', {:controller => :salespeople} %></th>
+    <th>Contract Date</th>
+    <th>Due Date</th>
     <th><%= link_to 'Designer', {:controller => :designers} %></th>
-    <th>Client Approved?</th>
-    <th>Certs/Edu Listed On Contract?</th>
-    <th>Amount Due</th>
-    <th>Total Amount</th>
     <th>Listings</th>
 		<th>Web Ads</th>
 		<th>Uploads</th>
@@ -22,16 +19,15 @@
 <% for contract in @contracts %>
   <tr class="<%= (even = !even) ? "even" : "odd" %>">
     <td align="center"><%= button_to h("Go to contract"), contract, :method => :get %></td>
-    <td><%= link_to h(contract.contractdate), contract %></td>
-		<td><%= h contract.paymentduedate %></td>
-    <td><%= h contract.region %>
+    <td><strong><%= money contract.sum_charges %></strong></td>
+    <td><%= money contract.amount_due %></td>
     <td><%= link_to h(contract.client.normalname), contract.client %></td>
     <td><%= link_to h(contract.salesperson.name), contract.salesperson %></td>
+    <td><%= h(time_ago_in_words(contract.contractdate)) %>
+        <%= "ago" if contract.contractdate < Time.now %></td>
+    <td><%= h(time_ago_in_words(contract.paymentduedate)) %>
+        <%= "ago" if contract.paymentduedate < Time.now %></td>
     <td><%= link_to h(contract.designer.name), contract.designer if contract.designer %></td>
-    <td><%=h contract.clientapproved %></td>
-    <td><%=h contract.certlistedoncontract %></td>
-    <td><%=h contract.amount_due %></td>
-    <td><%=h contract.sum_charges %></td>
 	<td><%= h contract.listings.length %> / <%= h contract.listings_allowed %></td>
     <td><%=h contract.web_ads.length %></td>
 		<td>
