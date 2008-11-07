@@ -7,6 +7,5 @@ db/data.yml
 config/database.yml
 ._*
 *.DS_Store
-config/amazon_s3.yml
 db/data-old.yml
 

@@ -1,20 +1,32 @@
-<div class="categories">
-  <h2>Browse by Category</h2>
-  <hr />
-  <table width="100%">
-  <tr>
-    <% for categories in @cat_thirds do %>
-      <td valign="top" width="30%">
-      <% for category in categories do %>
-        <div class="category">
-        <h2><%= link_to "#{category.name.downcase} (#{category.listings.length})", :action => :show_category, :id => category.id %></h2>
-        <div class="subcategories">
-          <%= (category.randomsubs.sort_by { |subcat| subcat.name.downcase }.map { |subcat| link_to("#{subcat.name.downcase} (#{subcat.listings.length})", :action => :show_subcategory, :id => subcat.id) }).join(", ") %>, 
-          <%= link_to "&hellip;", :action => :show_category, :id => category.id %>
-        </div>
-        </div>
-      <% end %>
-      </td>
-    <% end %>
-  </tr></table>
+<div id="brochure" />
+<div id="main_content">
+  <h2>In this issue &hellip;</h2>
+
+  <h2>Directory</h2>
+    ???
+
+  <h2><%= link_to h("What to expect in a session"), "#" %></h2>
+  
+  <h2><%= link_to h("Green Marketing"), "#" %></h2>
+  
+  <h2><%= link_to h("Directory"), "#" %></h2>
+  
+  <h2>About Terra Essentials</h2>
+  <ul>
+    <li><%= link_to h("About Us"), "#" %></li>
+    <li><%= link_to h("Contact Us"), "#" %></li>
+    <li><%= link_to h("Disclosure"), "#" %></li>
+  </ul>
+
+  <h2>To Advertise</h2>
+  <ul>
+    <li><%= link_to h("Rates"), "#" %></li>
+    <li><%= link_to h("Contracts"), "#" %></li>
+    <li><%= link_to h("Paypal"), "#" %></li>
+  </ul>
+
+  <h2><%= link_to h("Art Specs"), "#" %></h2>
+  
+  <h2><%= link_to h("Editorial Specs"), "#" %></h2>
+
 </div>

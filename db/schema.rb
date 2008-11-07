@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20080909212122) do
     t.integer  "numlistings"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "standardprice"
+    t.integer  "standardprice", :limit => 10, :precision => 10, :scale => 0
   end
 
   create_table "categories", :force => true do |t|
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20080909212122) do
 
   create_table "charges", :force => true do |t|
     t.integer  "contract_id"
-    t.decimal  "amount"
+    t.integer  "amount",      :limit => 10, :precision => 10, :scale => 0
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20080909212122) do
 
   create_table "payments", :force => true do |t|
     t.integer  "contract_id"
-    t.decimal  "amount"
+    t.integer  "amount",      :limit => 10, :precision => 10, :scale => 0
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"

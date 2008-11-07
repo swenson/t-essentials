@@ -1,0 +1,240 @@
+body {
+  background: #ffffff;
+  color: #333; 
+}
+
+body, p, ol, ul, td {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+  font-size:   12px;
+  line-height: 15px;
+}
+
+div#left {
+  width: 624px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+div#blue {
+  background: url('/images/te-theme/blue-header.jpg') no-repeat;
+  width: 624px;
+  height: 54px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+div#header {
+  background: url('/images/te-theme/t-e-banner.jpg') no-repeat;
+  width: 471px;
+  height: 194px;
+  top: 38px;
+  position: relative;
+}
+
+div#ad_sidebar {
+  background: #ffe5a2;
+  position: absolute;
+  left: 624px;
+  top: -54px;
+  margin: 0px;
+  padding: 0px;
+}
+
+div#categorybox {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  top: 196px;
+  width: 614px;
+  height: 100px;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+div#categorybox h1 {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+div#categorybox h2 {
+  font-size: 1em;
+  text-align: left;
+}
+
+div#categorybox ul, div#categorybox ul ul{
+  list-style-type: none;
+  margin-left: -15px;
+}
+
+div#categorybox ul li, div#categorybox ul ul li {
+  float: left;
+  padding-right: 5px;
+}
+
+div#content {
+  background: #cce7f4;
+  position: relative;
+  top: 200px;
+  width: 624px;
+  left: 0px;
+  padding-top: 10px;
+}
+
+div#brochure {
+  background: url('/images/te-theme/t-e-brochure.jpg') no-repeat;
+  width: 366px;
+  height: 605px;
+  margin: 10px 38px 10px 38px;
+}
+
+div#main_content {
+  position: relative;
+  left: 366px;
+  width: 172px;
+  margin-left: 10px;
+}
+
+div#main_content h2 {
+  text-align: left;
+  line-height: 1em;
+}
+
+div#main_content ul li {
+  margin-left: 10px;
+}
+ 
+.categories, .category, .regions, .region  {
+  margin-top: 10px;
+  font-size: 75%;
+} 
+
+#subcategories, .subcategories {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.listing_subcategory {
+  margin-top: 20px;
+}
+
+.listing {
+  margin-top: 10px;
+}
+
+
+#leftsidebar {
+  padding-right: 15px;
+}
+
+#searchbox {
+  padding-bottom: 15px;
+  border-bottom: thin solid gray;
+}
+
+#categorybox {
+  margin-top: 15px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+ 
+a {
+  color: #000;
+  text-decoration: none;
+}
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+  
+ 
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+ 
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+ 
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+ 
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+ 
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+ 
+div.uploadStatus {
+  margin: 5px;
+}
+ 
+div.progressBar {
+  margin: 5px;
+}
+ 
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 100%;
+}
+ 
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+table.nice {
+	border-width: 2px;
+	border-spacing: 3px;
+	border-style: groove;
+	border-color: gray;
+	border-collapse: separate;
+}
+
+table.nice th, table.nice td {
+	border-width: 1px;
+	padding: 4px;
+	border-style: groove;
+	border-color: gray;
+	-moz-border-radius: 4px;
+}
+
+.aligncenter {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sideimage {
+  margin-left: 35px;
+}

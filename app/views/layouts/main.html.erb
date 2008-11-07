@@ -5,68 +5,31 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Terra Essentials – <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'listings' %>
+  <%= stylesheet_link_tag 't-e' %>
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
-<p style="color: green"><%= flash[:notice] %></p>
+<div id="left">
+  <div id="blue" />
+  <div id="header" />
+    <div id="categorybox">
+    <h1>Fall 2009</h1>
+    <h2>Categories</h2>
+    <ul>
+    <% for category in @categories do %>
+      <li><%= link_to "#{category.name} (#{category.num_listings})", :action => :show_category, :id => category.id %></li>
+    <% end %>
+    </ul>
+  </div>
+  
+  <div id="content">
+    <%= yield  %>
+  </div>
 
-<div id="header_image">
-<h1 align="Center">
-  <%= link_to "Terra Essentials", :controller => :main, :action => :index %>
-</h1>
 </div>
-
-<table width="90%">
-<tr>
-<td id="leftsidebar" valign="top" width="25%">
-  <div id="searchbox">
-  <h2>Search</h2>
-  <% form_tag '/main/search' do -%>
-    <%= text_field_tag 'search' %> <%= submit_tag 'Search' %>
-  <% end %>
-  </div>
-
-  <div id="categorybox">
-  <h2>Categories</h2>
-  <ul>
-  <% for category in @categories do %>
-    <li><%= link_to "#{category.name} (#{category.num_listings})", :action => :show_category, :id => category.id %></li>
-  <% end %>
-  </ul>
-  </div>
-</td>
-<td valign="top" idth="55%">
-
-<%= yield  %>
- 
-</td>
-<td valign="top" width="20%">
-<!--Sidebar?-->
-  <ul>
-  <% if @bios.length > 0 %>
-  <li>Bios</li>
-  <ul>
-		<% for page in @bios %>
-		  <li><%= link_to h(page.name), :action => :show_page, :id => page.id %></li>
-		<% end %>
-	</ul>
-	<% end %>
-  <% if @pages %>
-  <li>Misc</li>
-  <ul>
-	<% for page in @pages %>
-	  <li><%= link_to h(page.name), :action => :show_page, :id => page.id %></li>
-	<% end %>
-  </ul>
-  <% end %>
-  </ul>
-  <br />
-  <img class="sideimage" src="/images/terra2b-200.jpg" />
-</td>
-</tr>
-</table>
-<script type="text/javascript">
+<div id="ad_sidebar" />  
+  
+  <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
