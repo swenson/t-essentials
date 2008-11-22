@@ -109,14 +109,18 @@ div#brochure {
 
 div#main {
   width: 294px;
-  margin-left: 500px;
+  margin-left: 483px;
   margin-top: -7px;
   margin-bottom: 50px;
 }
 
+div#main, div#main a, div#main a:visited {
+	color: #fff;
+}
+
 div#main_content {
   background: #336666;
-  padding-left: 10px;
+  padding-left: 25px;
   padding-bottom: 10px;
   margin-top: 18px;
 }
@@ -142,12 +146,21 @@ div#main_content h1 {
   text-align: center;
   margin: 0;
   padding-top: 5px;
+  margin-left: -25px;
   font-style: italic;
-  
+}
+
+div#main_content h2 {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+div#main_content ul {
+  padding-left: 1.75em;
+	
 }
 
 div#main_content ul li {
-  margin-left: 10px;
 }
  
 .categories, .category, .regions, .region  {
