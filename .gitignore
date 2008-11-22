@@ -4,6 +4,7 @@ vendor/gems
 db/*.sqlite3
 data.dump
 db/data.yml
+db/development-data.yml
 config/database.yml
 ._*
 *.DS_Store
