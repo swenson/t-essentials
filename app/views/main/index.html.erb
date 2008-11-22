@@ -1,32 +1,35 @@
-<div id="brochure" />
+<div id="brochure"></div>
+<div id="main">
+<div id="main_content_top"></div>
 <div id="main_content">
-  <h2>In this issue &hellip;</h2>
-
-  <h2>Directory</h2>
-    ???
-
-  <h2><%= link_to h("What to expect in a session"), "#" %></h2>
-  
-  <h2><%= link_to h("Green Marketing"), "#" %></h2>
+  <h1>On this site</h1>
   
   <h2><%= link_to h("Directory"), "#" %></h2>
+  <ul>
+	  <% for category in @categories do -%>
+	    <li><%= link_to category.name, category -%></li>
+	  <% end -%>
+	</ul>
   
   <h2>About Terra Essentials</h2>
   <ul>
-    <li><%= link_to h("About Us"), "#" %></li>
+    <li><%= link_to h("Who we are"), "#" %></li>
     <li><%= link_to h("Contact Us"), "#" %></li>
     <li><%= link_to h("Disclosure"), "#" %></li>
   </ul>
 
   <h2>To Advertise</h2>
   <ul>
-    <li><%= link_to h("Rates"), "#" %></li>
-    <li><%= link_to h("Contracts"), "#" %></li>
-    <li><%= link_to h("Paypal"), "#" %></li>
+    <li><%= link_to h("Rate sheet"), "#" %></li>
+    <li><%= link_to h("Contract"), "#" %></li>
+    <li><%= link_to h("PayPal"), "#" %></li>
   </ul>
 
-  <h2><%= link_to h("Art Specs"), "#" %></h2>
-  
-  <h2><%= link_to h("Editorial Specs"), "#" %></h2>
-
+  <h2>Editorial</h2>
+	<ul>
+		<li><%= link_to h("Submissions"), "#" %></li>
+		<li><%= link_to h("Postings"), "#" %></li>
+	</ul>
+ </div>
+<div id="main_content_bottom"></div>
 </div>

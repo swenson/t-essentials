@@ -10,25 +10,36 @@
 </head>
 <body>
 <div id="left">
-  <div id="blue" />
-  <div id="header" />
+  <div id="header"></div>
     <div id="categorybox">
-    <h1>Fall 2009</h1>
-    <h2>Categories</h2>
-    <ul>
-    <% for category in @categories do %>
-      <li><%= link_to "#{category.name} (#{category.num_listings})", :action => :show_category, :id => category.id %></li>
-    <% end %>
-    </ul>
-  </div>
+	    <h1>Fall 2009</h1>
+	    <ul>
+	      <li>Directory |</li>
+	      <li>Vitesis |</li>
+	      <li>Calendar |</li>
+	      <li>About</li>
+	    </ul>
+	  </div>
   
   <div id="content">
     <%= yield  %>
   </div>
-
 </div>
-<div id="ad_sidebar" />  
-  
+<div id="ad_sidebar">
+	<div class="blue_ad">
+		<p class="aligncenter">Now Selling Advertising for 2009 Ad Sales</p>		
+		<p class="aligncenter"><em>Contact Us Today!</em></p>
+	</div>
+</div>  
+ 
+<div id="contact_info">
+	<ul>
+		<li>Terra Essentials</li>
+		<li>PO Box 7754, Colorado Springs, CO 80933-7754</li>
+		<li>719.235.7872</li>
+		<li>email: Amy@T-Essentials.net</li>
+	</ul>
+</div>
   <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

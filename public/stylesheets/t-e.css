@@ -1,6 +1,6 @@
 body {
-  background: #ffffff;
-  color: #333; 
+  background: #fff;
+  color: #000;
 }
 
 body, p, ol, ul, td {
@@ -10,58 +10,58 @@ body, p, ol, ul, td {
 }
 
 div#left {
-  width: 624px;
   margin: 0px;
   padding: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-
-div#blue {
-  background: url('/images/te-theme/blue-header.jpg') no-repeat;
-  width: 624px;
-  height: 54px;
-  margin: 0px;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  display: block;
 }
 
 div#header {
-  background: url('/images/te-theme/t-e-banner.jpg') no-repeat;
-  width: 471px;
-  height: 194px;
-  top: 38px;
+  background: url('/images/te-theme/t-e-banner.png') no-repeat;
+  width: 560px;
+  height: 100px;
   position: relative;
+  top: 10px;
+  left: 250px;
 }
 
 div#ad_sidebar {
-  background: #ffe5a2;
   position: absolute;
-  left: 624px;
-  top: -54px;
-  margin: 0px;
-  padding: 0px;
+  top: 20px;
+  left: 850px;
+  width: 256px;
+}
+
+div.blue_ad {
+  width: 240px;
+  background: url('/images/te-theme/blue-background.png') repeat-x;
+}
+
+div.blue_ad p {
+  font-size: 1.4em;
+  line-height: 1.8em;
+  color: #fff;
+}
+
+.aligncenter {
+  text-align: center;
 }
 
 div#categorybox {
-  position: relative;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-left: 5px;
   margin-right: 5px;
-  top: 196px;
-  width: 614px;
-  height: 100px;
+  width: 810px;
+  height: 20px;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
 }
 
 div#categorybox h1 {
-  font-size: 1.2em;
-  text-align: center;
+  float: right;
+  font-size: 1em;
+  font-weight: normal;
+  margin-top: 0px;
 }
 
 div#categorybox h2 {
@@ -72,6 +72,7 @@ div#categorybox h2 {
 div#categorybox ul, div#categorybox ul ul{
   list-style-type: none;
   margin-left: -15px;
+  margin-top: 0px;
 }
 
 div#categorybox ul li, div#categorybox ul ul li {
@@ -79,32 +80,70 @@ div#categorybox ul li, div#categorybox ul ul li {
   padding-right: 5px;
 }
 
+div#contact_info {
+  background: #fff;
+}
+
+div#contact_info ul {
+  list-style-type: none;
+}
+
+div#contact_info ul li {
+  display: inline;
+  font-weight: bold;
+  margin-right: 4em;
+}
+
 div#content {
-  background: #cce7f4;
-  position: relative;
-  top: 200px;
   width: 624px;
-  left: 0px;
   padding-top: 10px;
 }
 
 div#brochure {
-  background: url('/images/te-theme/t-e-brochure.jpg') no-repeat;
-  width: 366px;
-  height: 605px;
+  float: left;
+  background: url('/images/te-theme/t-e-brochure.png') no-repeat;
+  width: 437px;
+  height: 570px;
   margin: 10px 38px 10px 38px;
 }
 
-div#main_content {
-  position: relative;
-  left: 366px;
-  width: 172px;
-  margin-left: 10px;
+div#main {
+  width: 294px;
+  margin-left: 500px;
+  margin-top: -7px;
+  margin-bottom: 50px;
 }
 
-div#main_content h2 {
-  text-align: left;
-  line-height: 1em;
+div#main_content {
+  background: #336666;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-top: 18px;
+}
+
+div#main_content_top {
+  background: url('/images/te-theme/green-top.png') no-repeat;
+  position: relative;
+  top: 18px;
+  width: 294px;
+  height: 18px;
+}
+
+div#main_content_bottom {
+  background: url('/images/te-theme/green-bottom.png') no-repeat;
+  width: 294px;
+  height: 19px;
+  position: relative;
+  top: -17px;
+}
+
+div#main_content h1 {
+  font-size: 1.6em;
+  text-align: center;
+  margin: 0;
+  padding-top: 5px;
+  font-style: italic;
+  
 }
 
 div#main_content ul li {
