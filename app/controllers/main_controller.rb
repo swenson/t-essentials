@@ -21,7 +21,8 @@ class MainController < ApplicationController
   end
   
   def show_page
-    @page = Page.find(params[:id])
+    @page = Page.find(:first,
+      :conditions => ["id = ? or name like ?", params[:id], params[:id]] ) or r404
   end
   
   def search

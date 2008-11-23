@@ -10,14 +10,14 @@
 </head>
 <body>
 <div id="left">
-  <div id="header"></div>
+  <a href="http://www.t-essentials.com/"><div id="header"></div></a>
     <div id="categorybox">
 	    <h1>Fall 2008</h1>
 	    <ul>
 	      <li>Directory |</li>
-	      <li>Vitesis |</li>
-	      <li>Calendar |</li>
-	      <li>About</li>
+	      <li><%= link_to 'Vitesis', "http://www.vitesis.com/" %> |</li>
+	      <li><%= link_to 'Calendar', "http://www.vitesis.com/calendar/month.php?user=amy" %> |</li>
+	      <li><%= link_to 'About', :action => "show_page", :id => "about" %></li>
 	    </ul>
 	  </div>
   
