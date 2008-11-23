@@ -60,7 +60,7 @@ class MainController < ApplicationController
     @listings = @subcategory.listings
     if @listings
       @listings = @listings.sort { |l,m| 
-        if l.subcategory_id and l.subcategory_id == k.subcategory_id
+        if l.subcategory_id and l.subcategory_id == m.subcategory_id
           l.title <=> m.title
         else
           l.subcategory.name <=> m.subcategory.name
