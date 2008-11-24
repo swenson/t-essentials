@@ -114,7 +114,7 @@ div#main {
   margin-bottom: 50px;
 }
 
-div#main, div#main a, div#main a:visited {
+div#main, div#main a, div#main a:visited, div#ad_sidebar a, div#ad_sidebar a:visited {
 	color: #fff;
 }
 
