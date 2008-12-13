@@ -169,12 +169,18 @@ div#main_content ul li {
 } 
 
 #subcategories, .subcategories {
+  font-family: helvetica, arial, sans-serif;
   font-weight: bold;
   font-size: 120%;
 }
 
 .listing_subcategory {
   margin-top: 20px;
+  font-family: helvetica, arial, sans-serif;
+}
+
+#listings {
+  font-family: helvetica, arial, sans-serif;
 }
 
 .listing {
