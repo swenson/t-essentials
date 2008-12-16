@@ -21,7 +21,8 @@ class MainController < ApplicationController
   end
   
   def show_page
-    @page = Page.find(params[:id])
+    @page = Page.find(:first,
+      :conditions => ["id = ? or name like ?", params[:id], params[:id]] ) or r404
   end
   
   def search
@@ -60,7 +61,7 @@ class MainController < ApplicationController
     @listings = @subcategory.listings
     if @listings
       @listings = @listings.sort { |l,m| 
-        if l.subcategory_id and l.subcategory_id == k.subcategory_id
+        if l.subcategory_id and l.subcategory_id == m.subcategory_id
           l.title <=> m.title
         else
           l.subcategory.name <=> m.subcategory.name

@@ -1,20 +1,35 @@
-<div class="categories">
-  <h2>Browse by Category</h2>
-  <hr />
-  <table width="100%">
-  <tr>
-    <% for categories in @cat_thirds do %>
-      <td valign="top" width="30%">
-      <% for category in categories do %>
-        <div class="category">
-        <h2><%= link_to "#{category.name.downcase} (#{category.listings.length})", :action => :show_category, :id => category.id %></h2>
-        <div class="subcategories">
-          <%= (category.randomsubs.sort_by { |subcat| subcat.name.downcase }.map { |subcat| link_to("#{subcat.name.downcase} (#{subcat.listings.length})", :action => :show_subcategory, :id => subcat.id) }).join(", ") %>, 
-          <%= link_to "&hellip;", :action => :show_category, :id => category.id %>
-        </div>
-        </div>
-      <% end %>
-      </td>
-    <% end %>
-  </tr></table>
+<div id="brochure"></div>
+<div id="main">
+<div id="main_content_top"></div>
+<div id="main_content">
+  <h1>On this site</h1>
+  
+  <h2><%= link_to h("Directory"), "#" %></h2>
+  <ul>
+	  <% for category in @categories do -%>
+	    <li><%= link_to category.name, :action => "show_category", :id => category.id -%></li>
+	  <% end -%>
+	</ul>
+  
+  <h2>About Terra Essentials</h2>
+  <ul>
+    <li><%= link_to h("Who we are"), :action => "show_page", :id => "the sales team" %></li>
+    <li><%= link_to h("Contact Us"), :action => "show_page", :id => "contact us" %></li>
+    <li><%= link_to h("Disclosure"), :action => "show_page", :id => "disclosure" %></li>
+  </ul>
+
+  <h2>To Advertise</h2>
+  <ul>
+    <li><%= link_to h("Rate sheet"), :action => "show_page", :id => "advertising" %></li>
+    <li><%= link_to h("Contract"), "http://www.vitesis.com/wp-content/uploads/2008/09/t-essentials-contract.pdf" %></li>
+    <li><%= link_to h("PayPal"), :action => "show_page", :id => "paypal" %></li>
+  </ul>
+
+  <h2>Editorial</h2>
+	<ul>
+		<li><%= link_to h("Submissions"), :action => "show_page", :id => "submissions" %></li>
+		<li><%= link_to h("Postings"), :action => "show_page", :id => "postings" %></li>
+	</ul>
+ </div>
+<div id="main_content_bottom"></div>
 </div>

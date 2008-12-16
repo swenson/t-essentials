@@ -10,7 +10,18 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '307b8a34c931d02b46ef87ce7449305c'
   
-  private
+  def method_missing(methodname, *args)
+    @methodname = methodname
+    @args = args
+    render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+  end
+
+  def r404
+    render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+  end
+
+
+private
 
   def twodec(num)
     sprintf("%.2f", num)

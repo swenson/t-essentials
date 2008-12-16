@@ -5,68 +5,41 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Terra Essentials – <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'listings' %>
+  <%= stylesheet_link_tag 't-e' %>
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
-<p style="color: green"><%= flash[:notice] %></p>
-
-<div id="header_image">
-<h1 align="Center">
-  <%= link_to "Terra Essentials", :controller => :main, :action => :index %>
-</h1>
+<div id="left">
+  <a href="http://www.t-essentials.com/"><div id="header"></div></a>
+    <div id="categorybox">
+	    <h1>Fall 2008</h1>
+	    <ul>
+	      <li><%= link_to 'Vitesis', "http://www.vitesis.com/" %> |</li>
+	      <li><%= link_to 'Calendar', "http://www.vitesis.com/calendar/month.php?user=amy" %> |</li>
+	      <li><%= link_to 'About', :action => "show_page", :id => "about" %></li>
+	    </ul>
+	  </div>
+  
+  <div id="content">
+    <%= yield  %>
+  </div>
 </div>
-
-<table width="90%">
-<tr>
-<td id="leftsidebar" valign="top" width="25%">
-  <div id="searchbox">
-  <h2>Search</h2>
-  <% form_tag '/main/search' do -%>
-    <%= text_field_tag 'search' %> <%= submit_tag 'Search' %>
-  <% end %>
-  </div>
-
-  <div id="categorybox">
-  <h2>Categories</h2>
-  <ul>
-  <% for category in @categories do %>
-    <li><%= link_to "#{category.name} (#{category.num_listings})", :action => :show_category, :id => category.id %></li>
-  <% end %>
-  </ul>
-  </div>
-</td>
-<td valign="top" idth="55%">
-
-<%= yield  %>
+<div id="ad_sidebar">
+	<div class="blue_ad">
+		<p class="aligncenter">Now Selling Advertising for 2009 Ad Sales</p>		
+		<p class="aligncenter"><em><a href="http://www.t-essentials.com/main/show_page/contact%20us">Contact Us Today!</a></em></p>
+	</div>
+</div>  
  
-</td>
-<td valign="top" width="20%">
-<!--Sidebar?-->
-  <ul>
-  <% if @bios.length > 0 %>
-  <li>Bios</li>
-  <ul>
-		<% for page in @bios %>
-		  <li><%= link_to h(page.name), :action => :show_page, :id => page.id %></li>
-		<% end %>
+<div id="contact_info">
+	<ul>
+		<li>Terra Essentials</li>
+		<li>PO Box 7754, Colorado Springs, CO 80933-7754</li>
+		<li>719.235.7872</li>
+		<li>email: <a href="mailto:amy@t-essentials.com">Amy@T-Essentials.com</a></li>
 	</ul>
-	<% end %>
-  <% if @pages %>
-  <li>Misc</li>
-  <ul>
-	<% for page in @pages %>
-	  <li><%= link_to h(page.name), :action => :show_page, :id => page.id %></li>
-	<% end %>
-  </ul>
-  <% end %>
-  </ul>
-  <br />
-  <img class="sideimage" src="/images/terra2b-200.jpg" />
-</td>
-</tr>
-</table>
-<script type="text/javascript">
+</div>
+  <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
