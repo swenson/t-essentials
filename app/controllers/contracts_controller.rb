@@ -271,7 +271,48 @@ class ContractsController < ApplicationController
     #  format.xml  { render :xml => @contract }
     #end
   end
+  
+  def ads_sold
+    if @user.admin
+      @adsizes = Adsize.find(:all, :order => 'adsize')
+    else
+      @adsizes = []
+    end
+    respond_to do |format|
+      format.html # ads_sold.html.erb
+      format.xml  { render :xml => @adsizes }
+    end
+  end
 
+
+  # GET /contracts/negative
+  # GET /negative.xml
+  def negative
+    if @user.admin
+      @contracts = Contract.find(:all)
+    else
+      @contracts = Contract.find(:all, :conditions => "salesperson_id = #{@user.salesperson_id}")
+    end
+    
+    @contracts.reject! { |c| (c.amount_due - 0.0) >= -0.001}
+
+    respond_to do |format|
+      format.html { render :action => "index" }# index.html.erb
+      format.xml  { render :xml => @contracts }
+    end
+  end
+  
+  def master_listings
+    @listings = Listing.find(:all).reject { |l| l.contract.nil? }.sort { |x,y| x.contract.client.name <=> y.contract.client.name }
+    @categories = Category.find(:all, :order => "name").reject { |c| c.listings.reject {|l| l.contract.nil?}.length == 0 }
+    @subcategories = Subcategory.find(:all, :order => "name").reject { |c| c.listings.reject{|l| l.contract.nil?}.length == 0 }
+    @orphaned_listings = @listings.select { |l| l.subcategory.nil? }
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @listings }
+    end
+  end
 
 
   # GET /contracts

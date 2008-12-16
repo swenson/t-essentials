@@ -152,4 +152,7 @@ input.submit, input.button {
   margin-top: 40px;
 }
 
+#contract_selector {
+  margin: 10px;
+}
 

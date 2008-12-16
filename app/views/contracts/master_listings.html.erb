@@ -1,0 +1,46 @@
+<h2>Categories</h2>
+<ul id="category_list">
+  <% @categories.each do |category| %>
+  <li><%= category.name %></li>
+  <ul class="subcategory_list">
+    <% category.subcategories.reject { |s| s.listings.length == 0 }.sort { |x, y| x.name <=> y.name }.each do |subcategory| %>
+    <li><%= subcategory.name %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</ul>
+
+<h2>Categories</h2>
+<ul id="category_list">
+  <% @categories.each do |category| %>
+  <li><%= category.name %></li>
+  <ul class="subcategory_list">
+    <% category.subcategories.reject { |s| s.listings.length == 0 }.sort { |x, y| x.name <=> y.name }.each do |subcategory| %>
+    <li><%= subcategory.name %></li>
+    <ul class="listings_list">
+      <% subcategory.listings.sort {|x, y| x.title <=> y.title }.each do |listing| %>
+      <li>
+        <h3><%= h listing.title %></h3>
+        <p>
+          <pre><%= h listing.body %></pre>
+        </p>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </ul>
+  <% end %>
+</ul>
+
+<% if @orphaned_listings.length > 0 %>
+  <h2>Orphaned listings</h2><ul>
+  <% @orphaned_listings.each do |listing| %>
+    <li>
+      <h3><%= h listing.title %></h3>
+      <p>
+        <pre><%= h listing.body %></pre>
+      </p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

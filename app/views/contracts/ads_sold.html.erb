@@ -1,0 +1,15 @@
+<div id="ad_table">
+<h1>Ads Sold</h1>
+<table>
+  <tr>
+    <th><%= link_to h("Ad Size"), :controller => :adsizes %></th>
+    <th>Quantity Sold</th>
+  </tr>
+  <% for adsize in @adsizes do %>
+    <tr>
+      <td><%= h(adsize) %></td>
+      <td><%= h adsize.ads.length %></td>
+    </tr>
+  <% end %>
+</table>
+</div>

@@ -1,5 +1,12 @@
 <h1>Contracts</h1>
-
+<div id="contract_selector">
+  <%= link_to "(all)", {:action => "index"} %> |
+  <%= link_to "(negative)", {:action => "negative", :id => 1} %>
+  <% if @user.admin %> |
+    <%= link_to "Ads Sold", {:action => "ads_sold", :id => 1} if @user.admin %> |
+    <%= link_to "Master Listings", {:action => "master_listings", :id => 1} %>
+  <% end %>
+</div>
 <table>
   <tr class="header">
     <th>Go to Contract (link)</th>

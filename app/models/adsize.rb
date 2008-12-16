@@ -9,8 +9,8 @@ class Adsize < ActiveRecord::Base
     else
       '$0.00'
     end
-  end    
-  
+  end
+    
   def to_s
     "#{adsize}, #{price}, web: #{numlistings}"
   end
