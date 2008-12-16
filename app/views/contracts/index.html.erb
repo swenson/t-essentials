@@ -21,8 +21,8 @@
     <td align="center"><%= button_to h("Go to contract"), contract, :method => :get %></td>
     <td><strong><%= money contract.sum_charges %></strong></td>
     <td><%= money contract.amount_due %></td>
-    <td><%= link_to h(contract.client.normalname), contract.client %></td>
-    <td><%= link_to h(contract.salesperson.name), contract.salesperson %></td>
+    <td><%= link_to h(contract.client.normalname), contract.client if contract.client %></td>
+    <td><%= link_to h(contract.salesperson.name), contract.salesperson if contract.salesperson %></td>
     <td><%= h(time_ago_in_words(contract.contractdate)) %>
         <%= "ago" if contract.contractdate < Time.now %></td>
     <td><%= h(time_ago_in_words(contract.paymentduedate)) %>

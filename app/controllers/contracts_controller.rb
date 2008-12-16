@@ -377,6 +377,7 @@ class ContractsController < ApplicationController
   # DELETE /contracts/1.xml
   def destroy
     @contract = Contract.find(params[:id])
+    @contract.listings.each { |l| l.destroy }
     @contract.destroy
 
     respond_to do |format|
