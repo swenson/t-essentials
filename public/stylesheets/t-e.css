@@ -175,8 +175,12 @@ div#main_content ul li {
 }
 
 .listing_subcategory {
-  margin-top: 20px;
+  margin-top: 40px;
   font-family: helvetica, arial, sans-serif;
+}
+
+.listing_rule {
+  margin-bottom: -10px;
 }
 
 #listings {
@@ -184,7 +188,8 @@ div#main_content ul li {
 }
 
 .listing {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-family: helvetica, arial, sans-serif;
   font-size: 120%;
 

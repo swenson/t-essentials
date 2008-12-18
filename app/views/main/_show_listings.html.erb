@@ -19,7 +19,7 @@
     <% if listing.subcategory and h(listing.subcategory.name) != subcat %>
       <% subcat = h(listing.subcategory.name) %>
       <p class="listing_subcategory">Subcategory: <a href="<%= url_for :action => "show_subcategory", :id => listing.subcategory_id %>"><span class="subcategories"><%= subcat %></a></p>
-      <hr />
+      <hr class="listing_rule"/>
     <% end %>
    
     <div class="listing">
