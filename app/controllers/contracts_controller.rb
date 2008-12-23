@@ -283,6 +283,17 @@ class ContractsController < ApplicationController
       format.xml  { render :xml => @adsizes }
     end
   end
+  
+  def report_graphics
+    @graphics = Upload.find(:all)
+  end
+  
+  def report_problems
+    @listings = Listing.find(:all)
+    @no_contract_listings = @listings.select { |l| l.contract.nil? }
+    @no_category_listings = @listings.select { |l| l.category.nil? }
+    @no_subcategory_listings = @listings.select { |l| l.subcategory.nil? }
+  end
 
 
   # GET /contracts/negative
@@ -306,7 +317,6 @@ class ContractsController < ApplicationController
     @listings = Listing.find(:all).reject { |l| l.contract.nil? }.sort { |x,y| x.contract.client.name <=> y.contract.client.name }
     @categories = Category.find(:all, :order => "name").reject { |c| c.listings.reject {|l| l.contract.nil?}.length == 0 }
     @subcategories = Subcategory.find(:all, :order => "name").reject { |c| c.listings.reject{|l| l.contract.nil?}.length == 0 }
-    @orphaned_listings = @listings.select { |l| l.subcategory.nil? }
     
     respond_to do |format|
       format.html # index.html.erb

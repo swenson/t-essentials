@@ -1,0 +1,3 @@
+<% for graphic in @graphics %>
+  <%= link_to h(graphic.filename), graphic.public_filename %> <br />
+<% end %>

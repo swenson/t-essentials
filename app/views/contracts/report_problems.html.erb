@@ -1,0 +1,36 @@
+<% if @no_contract_listings.length > 0 %>
+  <h2>Listings with no contract</h2><ul>
+  <% @no_contract_listings.each do |listing| %>
+    <li>
+      <h3><%= h listing.title %></h3>
+      <p>
+        <pre><%= h listing.body %></pre>
+      </p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+<% if @no_category_listings.length > 0 %>
+  <h2>Listings with no category</h2><ul>
+  <% @no_category_listings.each do |listing| %>
+    <li>
+      <h3><%= h listing.title %></h3>
+      <p>
+        <pre><%= h listing.body %></pre>
+      </p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+<% if @no_subcategory_listings.length > 0 %>
+  <h2>Listings with no subcategory</h2><ul>
+  <% @no_subcategory_listings.each do |listing| %>
+    <li>
+      <h3><%= h listing.title %></h3>
+      <p>
+        <pre><%= h listing.body %></pre>
+      </p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
