@@ -166,6 +166,30 @@ class ContractsController < ApplicationController
     @uploads = @contract.uploads
   end
 
+  def edit_upload
+    upload = Upload.find(params[:upload_id])
+    @contract = Contract.find(params[:id])
+
+    respond_to do |format|
+      if upload.update_attributes(params[:upload])
+        flash[:notice] = 'Upload was successfully updated.'
+        format.html { redirect_to(@contract) }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(@contract) }
+        format.xml  { render :xml => upload.errors, :status => :unprocessable_entity }
+      end
+    end
+
+    @comments = @contract.comments
+    @newcomment = Comment.new
+    @newpayment = Payment.new
+    @newcharge = Charge.new
+    @newad = Ad.new
+    @upload = Upload.new  
+    @uploads = @contract.uploads
+  end
+
   def delete_upload
     upload = Upload.find(params[:upload_id])
     if upload.destroy

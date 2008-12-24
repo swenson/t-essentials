@@ -41,7 +41,7 @@
     <td><%=h contract.web_ads.length %></td>
 		<td>
 		<% for upload in contract.uploads -%>
-		  <%= link_to h(upload.filename), upload.public_filename %> <br />
+		  <%= link_to h(upload), upload.public_filename %> <br />
 		<% end -%>
 		</td>
     <td><%= button_to 'Send Invoice', :action => :send_invoice, :id => contract.id, :method => :get %></td>

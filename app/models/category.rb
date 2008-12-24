@@ -4,6 +4,11 @@ class Category < ActiveRecord::Base
   include WhiteListHelper
   has_many :subcategories
   has_many :listings
+  has_many :uploads
+
+  def to_s
+    name
+  end
   
   def num_listings
     count = (Listing.find(:all, :conditions => "category_id = #{id}")).length

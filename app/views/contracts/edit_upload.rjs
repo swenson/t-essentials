@@ -1,0 +1,3 @@
+page.replace_html("upload_table", :partial => "list_uploads")
+ 
+page[:upload_table].visual_effect :highlight

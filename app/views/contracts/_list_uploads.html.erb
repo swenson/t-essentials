@@ -3,7 +3,19 @@
 <table>
 <% for upload in @uploads -%>
   <tr>
-		<td><%= link_to h(upload.filename), upload.public_filename %></td>
+  <% form_remote_for(upload, :url => {:action => :edit_upload, :id => @contract.id }) do |f| -%>
+    <%= hidden_field_tag :contract_id, @contract.id %>
+    <%= hidden_field_tag :upload_id, upload.id %>
+    <td>
+      <b>Category</b>:&nbsp;
+      <%= f.collection_select :category_id, Category.find(:all, :order => :name), :id, :name, {:include_blank => true}, { :onchange => "this.form.submit()" } %>
+    </td>
+    <td>
+      <b>Subcategory</b>&nbsp;
+      <%= f.collection_select :subcategory_id, Subcategory.find(:all, :order => :name), :id, :name, {:include_blank => true}, { :onchange => "this.form.submit()" } %>
+    </td>
+  <% end %>
+		<td><%= link_to h(upload), upload.public_filename %></td>
   	<td>
 			<% form_remote_for(upload, :url => {:action => :delete_upload, :id => @contract.id}) do |f| %>
     		<%= hidden_field_tag :upload_id, upload.id %>
@@ -18,6 +30,14 @@
 <% form_for(@upload, :url => {:action => :add_upload, :id => @contract.id },
 									:html => { :multipart => true }) do |f| -%>
   <%= f.hidden_field :contract_id, :value => @contract.id %>
+  <p>
+    <b>Category</b><br />
+    <%= f.collection_select :category_id, Category.find(:all, :order => :name), :id, :name, {:include_blank => true} %>
+  </p>
+  <p>
+    <b>Subcategory</b><br />
+    <%= f.collection_select :subcategory_id, Subcategory.find(:all, :order => :name), :id, :name, {:include_blank => true} %>
+  </p>
   <p>
     <label for="upload">Upload an Ad (PDF, preferably):</label>
     <%= f.file_field :uploaded_data %>

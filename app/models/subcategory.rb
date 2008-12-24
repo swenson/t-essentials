@@ -4,8 +4,13 @@ class Subcategory < ActiveRecord::Base
   include WhiteListHelper
   belongs_to :category
   has_many :listings
+  has_many :uploads
   
   validates_presence_of :category_id
+
+  def to_s
+    name
+  end
   
   def fullname
     "#{category.name} – #{name}"
