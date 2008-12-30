@@ -53,6 +53,15 @@ class MainController < ApplicationController
         end
       }
     end
+    @num_columns = 3
+    @column = []
+    1.upto(@num_columns) { |i| @column << [] }
+    
+    i = 0
+    @category.subcategories.sort_by {|c| c.name}.each do |l|
+      @column[i % @num_columns] << l
+      i += 1
+    end
   end
 
   def show_subcategory

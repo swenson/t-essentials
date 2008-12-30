@@ -20,7 +20,15 @@ function fulldesc()
 <hr />
 
 <div id="subcategories">
-  <%= (@category.subcategories.sort_by {|c| c.name}.map { |subcat| link_to("#{subcat.name.downcase} (#{subcat.listings.length})", :action => :show_subcategory, :id => subcat.id) }).join(", ") %>
+  <% 1.upto(@num_columns) do |c| %>
+    <% if c == 1 %><div id="wrapper"><% end %>
+    <div id="column<%= c %>">
+      <%= @column[c - 1].map { |subcat| link_to("#{subcat.name.downcase} (#{subcat.listings.length})", :action => "show_subcategory", :id => subcat.id) }.join("<br />") %>
+    </div>
+    <% if c == 1 %></div><% end %>
+    
+  <% end %>
+  <div id="clear">&nbsp;</div>
 </div>
 
 <hr />

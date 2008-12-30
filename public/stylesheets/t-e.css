@@ -172,10 +172,41 @@ div#main_content ul li {
   font-family: helvetica, arial, sans-serif;
   font-weight: bold;
   font-size: 120%;
+  width: 600px;
+  margin: 0 auto;
 }
 
+#wrapper {
+  float: left;
+  width: 100%;
+}
+
+#column1 {
+  margin-right: 400px;
+}
+
+#column2 {
+  float: left;
+  width: 200px;
+  margin-left: -400px;
+}
+#column3 {
+  float: left;
+  width: 200px;
+  margin-left: -200px;
+}
+
+#clear {
+  clear: left;
+  width: 100%;
+}
+  
+
+
+
+
 .listing_subcategory {
-  margin-top: 40px;
+  margin-top: 50px;
   font-family: helvetica, arial, sans-serif;
 }
 
