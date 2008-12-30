@@ -58,6 +58,9 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
 end
 
+ExceptionNotifier.exception_recipients = %w(chris@caswenson.com)
+ExceptionNotifier.sender_address = %("Directory Error" <dir.error@t-essentials.com>)
+
 ActionMailer::Base.delivery_method = :sendmail
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.smtp_settings = {

@@ -2,6 +2,9 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include ExceptionNotifiable
+  consider_local "10.0.1.193"
+  
   helper :all # include all helpers, all the time
   
   session :session_key => '_directory_session_id'
