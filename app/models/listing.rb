@@ -8,7 +8,7 @@ class Listing < ActiveRecord::Base
   validates_presence_of :title
   
   def format_body
-    h(body).gsub("\n", "<br />").gsub("\r", "")
+    body.gsub("\n", "<br />").gsub("\r", "")
   end
   
   def by
