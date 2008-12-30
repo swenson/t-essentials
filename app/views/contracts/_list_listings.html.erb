@@ -28,7 +28,7 @@
 <% for listing in @contract.listings %>
   <tr>
     <td><%=h listing.category.name %></td>
-    <td><%=h(listing.subcategory.name) if listing.subcategory != nil %></td>
+    <td><%=h(listing.subcategory.name) if listing.subcategory %></td>
     <td><%=h listing.title %></td>
     <td><pre><%=h listing.body[0..9] %> ... </pre></td>
     <td><%=h listing.start %></td>
@@ -62,7 +62,7 @@
   </p>
   <p>
     <b>Subcategory</b><br />
-    <%= f.collection_select :subcategory_id, Subcategory.find(:all, :order => :name), :id, :name, {:include_blank => true} %>
+    <%= f.collection_select :subcategory_id, Subcategory.find(:all, :order => :name), :id, :fullname, {:include_blank => true} %>
   </p>
   <p>
     <b>Title</b><br />
