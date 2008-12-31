@@ -15,7 +15,7 @@
  
 <p>
   <b>Client:</b>
-  <%=h @contract.client.name %>
+  <%=h @contract.client.name if @contract.client %>
 </p>
 
 <%= render :partial => "list_listings" %>
