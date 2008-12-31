@@ -76,12 +76,12 @@
  
   <p>
     <b>By</b>
-    <%= f.text_field :by, :value => @contract.client.business %>
+    <%= f.text_field :by, :value => @contract.client.business if @contract.client %>
   </p>
  
   <p>
     <b>Email</b><br />
-    <%= f.text_field :email, :value => @contract.client.email %>
+    <%= f.text_field :email, :value => @contract.client.email if @contract.client %>
   </p>
  
   <p>
