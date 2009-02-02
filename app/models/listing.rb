@@ -10,7 +10,7 @@ class Listing < ActiveRecord::Base
   def format_body
     body.gsub("\n", "<br />").gsub("\r", "")
   end
-  
+    
   def by
     whoby
   end

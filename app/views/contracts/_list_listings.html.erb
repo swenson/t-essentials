@@ -16,6 +16,7 @@
     <th>Subcategory</th>
     <th>Title</th>
     <th>Body</th>
+    <th>Website</th>
     <th>Start</th>
     <th>End</th>
     <th>View Listing</th>
@@ -31,6 +32,7 @@
     <td><%=h(listing.subcategory.name) if listing.subcategory %></td>
     <td><%=h listing.title %></td>
     <td><pre><%=h listing.body[0..9] %> ... </pre></td>
+    <td><%=h listing.website if listing.website %>
     <td><%=h listing.start %></td>
     <td><%=h listing.end %></td>
     <td align="center"><%= h 'View' %></td>
@@ -67,6 +69,11 @@
   <p>
     <b>Title</b><br />
     <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>Website</b> (listed at the bottom &hellip; don't forget the <tt>http://</tt> at the beginning!)<br />
+    <%= f.text_field :website %>
   </p>
  
   <p>

@@ -10,6 +10,9 @@
       <p>
         <%= h listing.body %>
       </p>
+      <p>
+        <%= format_website(listing.website) %>
+      </p>
     </div>
   <% end %>
 <% else %>
@@ -24,6 +27,9 @@
       <h3><%= h listing.title %></h3>
       <p>
         <%= listing.format_body %>
+      </p>
+      <p>
+        <%= format_website(listing.website) %>
       </p>
     </div>
   <% end %>
