@@ -58,7 +58,7 @@ class MainController < ApplicationController
     1.upto(@num_columns) { |i| @column << [] }
     
     i = 0
-    @category.subcategories.sort_by {|c| c.name}.each do |l|
+    @category.subcategories.delete_if {|c| c.listings.length == 0 }.sort_by {|c| c.name}.each do |l|
       @column[i % @num_columns] << l
       i += 1
     end
