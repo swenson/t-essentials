@@ -8,10 +8,12 @@ body, p, ol, ul, td {
   font-size:   12px;
   line-height: 15px;
 }
+
 a {
   color: #000;
   text-decoration: none;
 }
+
 a:hover { color: #fff; background-color:#000; }
 
 div#left {
@@ -21,9 +23,9 @@ div#left {
 }
 
 div#header {
-  background: url('/images/te-theme/t-e-banner.png') no-repeat;
-  width: 560px;
-  height: 100px;
+  background: url('/images/te-theme2/t-e-banner.png') no-repeat;
+  width: 570px;
+  height: 98px;
   position: relative;
   top: 10px;
   left: 250px;
@@ -39,12 +41,17 @@ div#ad_sidebar {
 div.blue_ad {
   width: 240px;
   background: url('/images/te-theme/blue-background.png') repeat-x;
+  padding-bottom: 10px;
 }
 
 div.blue_ad p {
-  font-size: 1.4em;
-  line-height: 1.8em;
+  font-size: 2.2em;
+  line-height: 1.5em;
   color: #fff;
+  padding-top: 10px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: georgia, palatino, times, serif;
 }
 
 .ad a:hover { background-color: #fff; }
@@ -88,6 +95,7 @@ div#categorybox ul li, div#categorybox ul ul li {
 }
 
 div#contact_info {
+  clear: both;
   background: #fff;
 }
 
@@ -98,7 +106,7 @@ div#contact_info ul {
 div#contact_info ul li {
   display: inline;
   font-weight: bold;
-  margin-right: 4em;
+  margin-right: 2.8em;
 }
 
 div#content {
@@ -108,9 +116,9 @@ div#content {
 
 div#brochure {
   float: left;
-  background: url('/images/te-theme/t-e-brochure.png') no-repeat;
+  background: url('/images/te-theme2/t-e-brochure.png') no-repeat;
   width: 437px;
-  height: 570px;
+  height: 600px;
   margin: 10px 38px 10px 38px;
 }
 
@@ -129,7 +137,8 @@ div#main_content {
   background: #336666;
   padding-left: 25px;
   padding-bottom: 10px;
-  margin-top: 18px;
+  margin-top: 17px;
+  height: 570px;
 }
 
 div#main_content_top {
@@ -150,10 +159,10 @@ div#main_content_bottom {
 
 div#main_content h1 {
   font-size: 1.6em;
-  text-align: center;
   margin: 0;
   padding-top: 5px;
-  margin-left: -25px;
+  text-align: center;
+  margin-right: 30px;
   font-style: italic;
 }
 
@@ -164,10 +173,17 @@ div#main_content h2 {
 
 div#main_content ul {
   padding-left: 1.75em;
+  list-style-type: none;
+  margin-left: -14px;
 	
 }
 
 div#main_content ul li {
+  margin-bottom: 3px;
+}
+
+div#main_content ul li a {
+  text-decoration: underline;
 }
  
 .categories, .category, .regions, .region  {
@@ -212,6 +228,8 @@ div#main_content ul li {
 
 
 
+/* Listings */
+
 .listing_subcategory {
   margin-top: 50px;
   font-family: helvetica, arial, sans-serif;
@@ -221,8 +239,40 @@ div#main_content ul li {
   margin-bottom: -10px;
 }
 
-#listings {
+.listings_mask {
+	clear: both;
+	float: left;
+	width: 100%;
+	overflow: hidden;	
+}
+
+.listings {
   font-family: helvetica, arial, sans-serif;
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+.listings_left, .listings_right {
+	float: left;
+	position: relative;
+	padding: 0 0 1em 0;
+	overflow: hidden;
+}
+
+.listings {
+	right: 50%;
+	background: #fff;
+}
+
+.listings_left {
+	width: 46%;
+	left: 52%;
+}
+
+.listings_right {
+	width: 46%;
+	left: 56%;
 }
 
 .listing {
@@ -230,8 +280,18 @@ div#main_content ul li {
   margin-bottom: 20px;
   font-family: helvetica, arial, sans-serif;
   font-size: 120%;
-
+  padding: 3px;
 }
+
+.even {
+  background-color: #cff;
+}
+
+
+
+
+
+/* Old stuff */
 
 
 #leftsidebar {
@@ -252,7 +312,11 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
- 
+
+
+
+
+/* Rails stuff */
   
  
 .fieldWithErrors {

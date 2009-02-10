@@ -43,9 +43,9 @@ class MainController < ApplicationController
   
   def show_category
     @category = Category.find(params[:id])
-    @listings = Listing.find(:all, :conditions => "category_id = #{@category.id}", :order => "title")
-    if @listings
-      @listings = @listings.sort { |l,m| 
+    listings = Listing.find(:all, :conditions => "category_id = #{@category.id}", :order => "title")
+    if listings
+      listings = listings.sort { |l,m| 
         if (not l.subcategory) or (not m.subcategory) or l.subcategory_id == m.subcategory_id
           l.title <=> m.title
         else
@@ -62,20 +62,40 @@ class MainController < ApplicationController
       @column[i % @num_columns] << l
       i += 1
     end
+    
+    @listings = {}
+    @listings[:left] = []
+    @listings[:right] = []
+    if listings.length == 1
+      @listings[:left] = [listings[0]]
+    else
+      @listings[:left] = listings[0..(listings.length / 2 - 1)]
+      @listings[:right] = listings[(listings.length / 2)..(listings.length - 1)]
+    end
   end
 
   def show_subcategory
     @subcategory = Subcategory.find(params[:id])
     @category = @subcategory.category
-    @listings = @subcategory.listings
-    if @listings
-      @listings = @listings.sort { |l,m| 
+    listings = @subcategory.listings
+    if listings
+      listings = listings.sort { |l,m| 
         if l.subcategory_id and l.subcategory_id == m.subcategory_id
           l.title <=> m.title
         else
           l.subcategory.name <=> m.subcategory.name
         end
       }
+    end
+    
+    @listings = {}
+    @listings[:left] = []
+    @listings[:right] = []
+    if listings.length == 1
+      @listings[:left] = [listings[0]]
+    else
+      @listings[:left] = listings[0..(listings.length / 2 - 1)]
+      @listings[:right] = listings[(listings.length / 2)..(listings.length - 1)]
     end
   end
 

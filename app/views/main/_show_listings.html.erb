@@ -1,11 +1,16 @@
+<div class="listings_mask">
 <div class="listings">
-<% if @listings.length == 0 %>
+<% if @listings[:left].length + @listings[:right].length == 0 %>
   <i>No listings.</i>
 <% end %>
 
+<% even = false %>
+
 <% if @subcategory %>
-  <% for listing in @listings %>
-    <div class="listing">
+  <div class="listings_left">
+  <% for listing in @listings[:left] %>
+    <div class="listing <%= even ? 'even' : 'odd' %>">
+      <% even = !even %>
       <h3><%= h listing.title %></h3>
       <p>
         <%= h listing.body %>
@@ -15,15 +20,32 @@
       </p>
     </div>
   <% end %>
+  </div>
+  <div class="listings_right">
+  <% for listing in @listings[:right] %>
+    <div class="listing <%= even ? 'even' : 'odd' %>">
+      <% even = !even %>
+      <h3><%= h listing.title %></h3>
+      <p>
+        <%= h listing.body %>
+      </p>
+      <p>
+        <%= format_website(listing.website) %>
+      </p>
+    </div>
+  <% end %>
+  </div>
 <% else %>
   <% subcat = nil %>
-  <% for listing in @listings %>
+  <div class="listings_left">
+  <% for listing in @listings[:left] %>
     <% if listing.subcategory and h(listing.subcategory.name) != subcat %>
       <% subcat = h(listing.subcategory.name) %>
       <p class="listing_subcategory">Subcategory: <a href="<%= url_for :action => "show_subcategory", :id => listing.subcategory_id %>"><span class="subcategories"><%= subcat %></a></p>
     <% end %>
    
-    <div class="listing">
+    <div class="listing <%= even ? 'even' : 'odd' %>">
+      <% even = !even %>
       <h3><%= h listing.title %></h3>
       <p>
         <%= listing.format_body %>
@@ -33,8 +55,29 @@
       </p>
     </div>
   <% end %>
+  </div>
+  <% subcat = nil %>
+  <div class="listings_right">
+  <% for listing in @listings[:right] %>
+    <% if listing.subcategory and h(listing.subcategory.name) != subcat %>
+      <% subcat = h(listing.subcategory.name) %>
+      <p class="listing_subcategory">Subcategory: <a href="<%= url_for :action => "show_subcategory", :id => listing.subcategory_id %>"><span class="subcategories"><%= subcat %></a></p>
+    <% end %>
+   
+    <div class="listing <%= even ? 'even' : 'odd' %>">
+      <% even = !even %>
+      <h3><%= h listing.title %></h3>
+      <p>
+        <%= listing.format_body %>
+      </p>
+      <p>
+        <%= format_website(listing.website) %>
+      </p>
+    </div>
+  <% end %>
+  </div>
+
 <% end %>
 
-
-
+</div>
 </div>
