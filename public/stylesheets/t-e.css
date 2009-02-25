@@ -169,17 +169,22 @@ div#main_content h1 {
 div#main_content h2 {
 	margin-left: 0;
 	padding-left: 0;
+  font-size: 16px;
 }
 
 div#main_content ul {
+  position: relative;
+  top: -10px;
   padding-left: 1.75em;
   list-style-type: none;
   margin-left: -14px;
+  margin-bottom: -10px;
 	
 }
 
 div#main_content ul li {
-  margin-bottom: 3px;
+  margin-bottom: 1px;
+  font-size: 95%;
 }
 
 div#main_content ul li a {
@@ -399,4 +404,18 @@ table.nice th, table.nice td {
 
 .sideimage {
   margin-left: 35px;
+}
+
+
+/* Downloads bar */
+
+div#downloads {
+  margin-left: 40px;
+  font-weight: bold;
+}
+
+span#downloads_text {
+  font-size: 12px;
+  font-weight: normal;
+  padding-right: 10px;
 }
