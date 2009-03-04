@@ -54,6 +54,11 @@ div.blue_ad p {
   font-family: georgia, palatino, times, serif;
 }
 
+.ad {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .ad a:hover { background-color: #fff; }
 
 .aligncenter {
