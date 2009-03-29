@@ -415,6 +415,7 @@ table.nice th, table.nice td {
 /* Downloads bar */
 
 div#downloads {
+  font-size: 12px;
   margin-left: 40px;
   font-weight: bold;
 }
