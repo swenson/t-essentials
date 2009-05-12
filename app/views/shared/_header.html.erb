@@ -4,7 +4,7 @@
 &emsp;
 <%= link_to h("Contracts"), :controller => :contracts %>
 <%= link_to h("Clients"), :controller => :clients %>
-<%= link_to h("Categories"), :controller => :categories if @login_user.admin %>
+<%= link_to h("Categories"), :controller => :categories %>
 <%= link_to h("Subcategories"), :controller => :subcategories %>
 <%= link_to h("Pages"), :controller => :pages %>
 <% if @login_user.admin %>

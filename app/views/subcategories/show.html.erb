@@ -14,6 +14,11 @@
   <%= h @subcategory.name %>
 </p>
 
+<p>
+  <b>Long description:</b>
+  <%=h @subcategory.long_description %>
+</p>
+
 
 <%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
 <%= link_to 'Back', subcategories_path %>

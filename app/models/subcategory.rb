@@ -40,12 +40,7 @@ class Subcategory < ActiveRecord::Base
       nil
     end
   end
-  
-  def format_text
-    #ERB::Util::html_escape(description).gsub("\n", "<br />").gsub("\r", "")
-    white_list(description).gsub("\n", "<br />").gsub("\r", "")
-  end
-  
+    
   def format_text_esc_quote
     if format_text
       format_text.gsub('"', '\\"')
@@ -53,4 +48,21 @@ class Subcategory < ActiveRecord::Base
       nil
     end
   end
+
+  def format_text
+    if description
+      white_list(description).gsub("\n", "<br />").gsub("\r", "")
+    else
+      ''
+    end
+  end
+  
+  def format_long_description
+    if long_description
+      white_list(long_description).gsub("\n", "<br />").gsub("\r", "")
+    else
+      ''
+    end
+  end
+  
 end
