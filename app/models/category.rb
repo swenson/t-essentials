@@ -6,6 +6,8 @@ class Category < ActiveRecord::Base
   has_many :listings
   has_many :uploads
 
+  validates_uniqueness_of :name
+
   def to_s
     name
   end

@@ -7,6 +7,7 @@ class Subcategory < ActiveRecord::Base
   has_many :uploads
   
   validates_presence_of :category_id
+  validates_uniqueness_of :name, :scope => :category_id
 
   def to_s
     name
