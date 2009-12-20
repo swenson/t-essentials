@@ -7,8 +7,8 @@ class CreateStates < ActiveRecord::Migration
       t.timestamps
     end
     
-    State.create(:name => 'Colorado', :abbreviation => 'CO')
-    State.create(:name => 'Louisiana', :abbreviation => 'LA')
+    #State.create(:name => 'Colorado', :abbreviation => 'CO')
+    #State.create(:name => 'Louisiana', :abbreviation => 'LA')
   end
 
   def self.down

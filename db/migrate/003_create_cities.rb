@@ -7,11 +7,11 @@ class CreateCities < ActiveRecord::Migration
       t.timestamps
     end
     
-    colorado = State.find(:first, :conditions => "name = 'Colorado'")
+    #colorado = State.find(:first, :conditions => "name = 'Colorado'")
     
-    City.create(:name => 'Colorado Springs', :state_id => colorado.id)
-    City.create(:name => 'Denver', :state_id => colorado.id)
-    City.create(:name => 'Pueblo', :state_id => colorado.id)
+    #City.create(:name => 'Colorado Springs', :state_id => colorado.id)
+    #City.create(:name => 'Denver', :state_id => colorado.id)
+    #City.create(:name => 'Pueblo', :state_id => colorado.id)
   end
 
   def self.down

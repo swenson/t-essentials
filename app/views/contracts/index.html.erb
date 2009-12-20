@@ -4,7 +4,8 @@
   <%= link_to "(negative)", {:action => "negative", :id => 1} %>
   <% if @user.admin %> |
     <%= link_to "Ads Sold", {:action => "ads_sold", :id => 1} if @user.admin %> |
-    <%= link_to "Master Listings", {:action => "master_listings", :id => 1} %> |
+    <%= link_to "Master Listings (#{@current_year})", {:action => "master_listings", :id => @current_year} %> |
+    <%= link_to "Master Listings (#{@current_year + 1})", {:action => "master_listings", :id => @current_year + 1} %> |
     <%= link_to "Graphics Table", {:action => "report_graphics", :id => 1} %> |
     <%= link_to "Problem Listings", {:action => "report_problems", :id => 1} %>
   <% end %>

@@ -302,6 +302,9 @@ class ContractsController < ApplicationController
     else
       @adsizes = []
     end
+    
+    @year = params[:id].to_i
+    
     respond_to do |format|
       format.html # ads_sold.html.erb
       format.xml  { render :xml => @adsizes }
@@ -341,6 +344,11 @@ class ContractsController < ApplicationController
     @listings = Listing.find(:all).reject { |l| l.contract.nil? }.sort { |x,y| x.contract.client.name <=> y.contract.client.name }
     @categories = Category.find(:all, :order => "name").reject { |c| c.listings.reject {|l| l.contract.nil?}.length == 0 }
     @subcategories = Subcategory.find(:all, :order => "name").reject { |c| c.listings.reject{|l| l.contract.nil?}.length == 0 }
+    unless params[:id] == 1
+      @listings = @listings.reject { |l| l.end.year.to_s != params[:id].to_s }
+    end
+    
+    @year = params[:id].to_i
     
     respond_to do |format|
       format.html # index.html.erb
@@ -357,6 +365,8 @@ class ContractsController < ApplicationController
     else
       @contracts = Contract.find(:all, :conditions => "salesperson_id = #{@user.salesperson_id}")
     end
+    
+    @current_year = DateTime.now.year
 
     respond_to do |format|
       format.html # index.html.erb

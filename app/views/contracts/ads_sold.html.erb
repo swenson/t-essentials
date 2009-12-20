@@ -8,7 +8,7 @@
   <% for adsize in @adsizes do %>
     <tr>
       <td><%= h(adsize) %></td>
-      <td><%= h adsize.ads.length %></td>
+      <td><%= h adsize.ads.select { |a| @year == 1 or (a.contract and a.contract.contractdate.year == @year - 1) }.length %></td>
     </tr>
   <% end %>
 </table>
