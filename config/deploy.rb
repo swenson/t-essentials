@@ -1,4 +1,4 @@
-require 'mongrel_cluster/recipes'
+#require 'mongrel_cluster/recipes'
 
 set :application, "directory"
 set :repository,  "root@www.t-essentials.com:/home/git/directory"
@@ -14,6 +14,6 @@ set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 # your SCM below:
 # set :scm, :subversion
 
-role :app, "www.t-essentials.com"
-role :web, "www.t-essentials.com"
-role :db,  "www.t-essentials.com", :primary => true
+#role :app, "www.t-essentials.com"
+#role :web, "www.t-essentials.com"
+role :root,  "www.t-essentials.com", :primary => true
