@@ -39,6 +39,15 @@ class MainController < ApplicationController
   end
   
   def index
+    names_2010 = ['Mind & Body', 'Planet', 'Spirit', 'Connections']
+    names_2009 = ['Business & Professional', 'Creative Arts', 'Education', 'Events', 'Fitness', 'Food', 'Health & Alternative Healing',
+        'Herbs & Supplements', 'Metaphysics', 'Recycling', 'Retail', 'Spirituality & Metaphysical', 'Sustainability']
+    all_categories = @categories
+    @categories = []
+    @categories << all_categories.select { |c| names_2010.include? c.name }
+    @categories << all_categories.select { |c| names_2009.include? c.name }
+    puts (all_categories.reject {|c| (@categories[0].include? c) or (@categories[1].include? c)}).join ', '
+    puts "\n"
   end
   
   def show_category

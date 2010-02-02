@@ -1,38 +1,55 @@
-<div id="main_wrap">
-  <div id="brochure"><img src="http://www.t-essentials.com/images/te-theme2/t-e-brochure.png" /></div>
-  <div id="main">
-    <div id="main_content_top"></div>
-    <div id="main_content">
-      <h1>On this site</h1>
+ <div id="main">
+  <div class="main_content_top"></div>
+  <div class="main_content">
+	  <div id="cover2010"></div>
+		<h1>2010 Directory Links</h1>
+		<ul>
+			<% if @categories[0].empty? %>
+			  <li><a href="#">Mind & Body</a></li>
+			  <li><a href="#">Planet</a></li>
+			  <li><a href="#">Spirit</a></li>
+			  <li><a href="#">Connections</a></li>
+			<% else %>
+			<% for category in @categories[0] do -%>
+ 	    	<li><%= link_to category.name, :action => "show_category", :id => category.id -%></li>
+			<% end -%>
+			<% end %>
+		</ul>
+	</div>
+	<div class="main_content_bottom"></div>
+	
+  <div class="main_content_top"></div>
+	<div class="main_content">
+		<div id="cover2009"></div>
+    <h1>2009 Directory Links</h1>
+		<ul>
+			<% for category in @categories[1] do -%>
+ 	    	<li><%= link_to category.name, :action => "show_category", :id => category.id -%></li>
+			<% end -%>
+		</ul>
+	</div>
+	<div class="main_content_bottom"></div>
+  
+	<!--
+  
+     <h2>About Terra Essentials</h2>
+     <ul>
+       <li><%= link_to h("Who we are"), :action => "show_page", :id => "the sales team" %></li>
+       <li><%= link_to h("Contact Us"), :action => "show_page", :id => "contact us" %></li>
+       <li><%= link_to h("Disclosure"), :action => "show_page", :id => "disclosure" %></li>
+     </ul>
 
-      <h2><%= link_to h("Directory"), "#" %></h2>
-      <ul>
-    	  <% for category in @categories do -%>
-    	    <li><%= link_to category.name, :action => "show_category", :id => category.id -%></li>
-    	  <% end -%>
-    	</ul>
+     <h2>To Advertise</h2>
+     <ul>
+       <li><%= link_to h("Rate sheet"), :action => "show_page", :id => "advertising" %></li>
+       <li><%= link_to h("Contract"), "http://www.vitesis.com/wp-content/uploads/2008/09/t-essentials-contract.pdf" %></li>
+       <li><%= link_to h("PayPal"), :action => "show_page", :id => "paypal" %></li>
+     </ul>
 
-      <h2>About Terra Essentials</h2>
-      <ul>
-        <li><%= link_to h("Who we are"), :action => "show_page", :id => "the sales team" %></li>
-        <li><%= link_to h("Contact Us"), :action => "show_page", :id => "contact us" %></li>
-        <li><%= link_to h("Disclosure"), :action => "show_page", :id => "disclosure" %></li>
-      </ul>
-
-      <h2>To Advertise</h2>
-      <ul>
-        <li><%= link_to h("Rate sheet"), :action => "show_page", :id => "advertising" %></li>
-        <li><%= link_to h("Contract"), "http://www.vitesis.com/wp-content/uploads/2008/09/t-essentials-contract.pdf" %></li>
-        <li><%= link_to h("PayPal"), :action => "show_page", :id => "paypal" %></li>
-      </ul>
-
-      <h2>Editorial</h2>
-    	<ul>
-    		<li><%= link_to h("Submissions"), :action => "show_page", :id => "submissions" %></li>
-    		<li><%= link_to h("Postings"), :action => "show_page", :id => "postings" %></li>
-    	</ul>
-    </div>
-    <div id="main_content_bottom"></div>
-  </div>
-  <div id="main_clear"></div>
+     <h2>Editorial</h2>
+   	<ul>
+   		<li><%= link_to h("Submissions"), :action => "show_page", :id => "submissions" %></li>
+   		<li><%= link_to h("Postings"), :action => "show_page", :id => "postings" %></li>
+   	</ul>
+   -->
 </div>

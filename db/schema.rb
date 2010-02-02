@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090201190300) do
+ActiveRecord::Schema.define(:version => 20090512011050) do
 
   create_table "ads", :force => true do |t|
     t.integer  "contract_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20090201190300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.text     "long_description"
   end
 
   create_table "charges", :force => true do |t|
@@ -106,13 +107,6 @@ ActiveRecord::Schema.define(:version => 20090201190300) do
     t.string   "website"
   end
 
-  create_table "modalities", :force => true do |t|
-    t.string   "name"
-    t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.text     "content"
@@ -155,8 +149,8 @@ ActiveRecord::Schema.define(:version => 20090201190300) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "subcategories", :force => true do |t|
     t.string   "name"
@@ -164,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20090201190300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.text     "long_description"
   end
 
   create_table "uploads", :force => true do |t|
