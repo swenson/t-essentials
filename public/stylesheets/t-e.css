@@ -56,15 +56,12 @@ div.purple_buttons {
 div.purple_buttons h1 {
   margin: 0 auto;
   text-align: center;
-  
 }
-
-
 
 div.purple_button {
   width: 101px;
   height: 47px;
-  margin: 3px auto 0 auto;
+  margin: 0px auto -4px auto;
   color: #fff;
   text-align: center;
   font-size: 95%;
@@ -217,25 +214,22 @@ div.main_content_bottom {
   height: 24px;
 }
 
-ul.dropdown {
-  position: absolute;
-  left: -100px;
-  float: right;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  background-color: #eee;
-  width: 100px;
+div.up {
+  display: none;
 }
 
-ul.dropdown li {
-  border-top: 1px solid #ccc;
-  margin: 0;
-  width: 100px;
-  padding: 0;
-  list-style-type: none;
-  list-style-position: inside;
-  left: -20px;
+div.up div, div.up a {
+  display: block;
+}
+
+div.dropdown:hover div.up {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 350px;
+  background-color: #eee;
+  padding: 6px;
+  border: 2px solid #aaa;
 }
 
 div.main_content h1 {
@@ -494,3 +488,14 @@ span#downloads_text {
   font-weight: normal;
   padding-right: 10px;
 }
+
+
+div.purple_button a, div.purple_button a:hover, div.purple_button a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+div.purple_button a:hover {
+  color: #ddd;
+}
+
