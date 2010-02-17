@@ -226,6 +226,7 @@ div.dropdown:hover div.up {
   display: block;
   position: absolute;
   z-index: 1;
+  margin-top: -1em;
   left: 350px;
   background-color: #eee;
   padding: 6px;
