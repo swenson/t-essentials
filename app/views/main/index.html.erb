@@ -1,17 +1,26 @@
- <div id="main">
+<div id="main">
   <div class="main_content_top"></div>
   <div class="main_content">
 	  <div id="cover2010"></div>
+	  <div class="purple_buttons">
+		  <h1>Advertising</h1>
+		  <div class="purple_button">2010<br/>Online Listings</div>
+		  <div class="purple_button">2010 Edition Download</div>
+		  <div class="purple_button">Accreditation &amp; Licensures</div>
+		  <div class="purple_button">Definitions</div>
+		  <div class="purple_button">PayPal</div>
+		</div>
 		<h1>2010 Directory Links</h1>
 		<ul>
 			<% if @categories[0].empty? %>
-			  <li><a href="#">Mind & Body</a></li>
+			  <%= generate_dropdown 'Mind & Body', '#', 'mindbody', ['Bodywork', 'Children\'s Services', 'Coaching & Counseling', 'Energy Healing']%>
 			  <li><a href="#">Planet</a></li>
 			  <li><a href="#">Spirit</a></li>
 			  <li><a href="#">Connections</a></li>
 			<% else %>
 			<% for category in @categories[0] do -%>
  	    	<li><%= link_to category.name, :action => "show_category", :id => category.id -%></li>
+
 			<% end -%>
 			<% end %>
 		</ul>
@@ -21,11 +30,15 @@
   <div class="main_content_top"></div>
 	<div class="main_content">
 		<div id="cover2009"></div>
+		<div class="purple_buttons">
+		  <h1>Online Directory</h1>
+		  <div class="purple_button">2009 Edition Download</div>
+		  <div class="purple_button">Definitions</div>
+		  <div class="purple_button">Accreditation &amp; Licensures</div>
+		</div>
     <h1>2009 Directory Links</h1>
 		<ul>
-			<% for category in @categories[1] do -%>
- 	    	<li><%= link_to category.name, :action => "show_category", :id => category.id -%></li>
-			<% end -%>
+			<%= @categories[1].collect { |c| generate_dropdown_for(c) }.join('') %>
 		</ul>
 	</div>
 	<div class="main_content_bottom"></div>

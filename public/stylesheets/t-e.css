@@ -46,6 +46,31 @@ div#ad_sidebar {
   width: 256px;
 }
 
+div.purple_buttons {
+  float: right;
+  width: 200px;
+  padding: 0;
+  margin: 0;
+}
+
+div.purple_buttons h1 {
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+
+
+div.purple_button {
+  width: 101px;
+  height: 47px;
+  margin: 3px auto 0 auto;
+  color: #fff;
+  text-align: center;
+  font-size: 95%;
+  background: url('/images/te-theme3/purpleButton.png') no-repeat;
+}
+
 div.blue_ad {
   width: 240px;
   background: url('/images/te-theme/blue-background.png') repeat-x;
@@ -143,8 +168,10 @@ div#cover2009 {
 
 div#cover2010, div#cover2009 {
   background-position: top center;
-  width: 198px;
+  width: 203px;
   height: 100%;
+  margin-top: -20px;
+  padding-bottom: 20px;
   margin-right: 20px;
   margin-left: 20px;
   float: left;
@@ -188,6 +215,27 @@ div.main_content_bottom {
   padding-top: 0;
   margin-top: 0;
   height: 24px;
+}
+
+ul.dropdown {
+  position: absolute;
+  left: -100px;
+  float: right;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+  width: 100px;
+}
+
+ul.dropdown li {
+  border-top: 1px solid #ccc;
+  margin: 0;
+  width: 100px;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: inside;
+  left: -20px;
 }
 
 div.main_content h1 {
