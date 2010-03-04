@@ -7,6 +7,10 @@ class Category < ActiveRecord::Base
   has_many :uploads
 
   validates_uniqueness_of :name
+  
+  def url
+    "/main/show_category/#{id}"
+  end
 
   def to_s
     name

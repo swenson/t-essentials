@@ -12,14 +12,9 @@
 		  <div class="purple_button"><%= link_to h("PayPal"), :action => "show_page", :id => "paypal" %></div>
 		</div>
 		<h1>2010 Directory Links</h1>
-			<% if @categories[0].empty? %>
-  			<%= generate_dropdown 'Mind & Body', '#', [['Bodywork', '#'], ['Children\'s Services', '#'], ['Coaching & Counseling', '#'], ['Energy Healing', '#']]%>
-        <%= generate_dropdown 'Planet', '#', [] %>
-        <%= generate_dropdown 'Spirit', '#', [] %>
-        <%= generate_dropdown 'Connections', '#', [] %>
-			<% else %>
-			  <%= @categories[0].collect { |c| generate_dropdown_for(c) }.join('') %>
-			<% end %>
+		  <% @dropdown.each do |d| %>
+	      <%= generate_dropdown *d %>	
+		  <% end %>
 		</ul>
 	</div>
 	<div class="main_content_bottom"></div>

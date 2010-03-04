@@ -48,6 +48,18 @@ class MainController < ApplicationController
     @categories << all_categories.select { |c| names_2009.include? c.name }
     puts (all_categories.reject {|c| (@categories[0].include? c) or (@categories[1].include? c)}).join ', '
     puts "\n"
+    
+    dropdown_2010 = [
+      ["Mind & Body", ['Bodywork', 'Children\'s Services', 'Coaching & Counseling', 'Energy Healing']],
+      ["Planet", ["Alternative Energy", "Gardening", "Home", "Recycling", "Sustainable Living"]],
+      ["Spirit", ["Spirituality & Metaphysical"]],
+      ["Connections", ['Creative Arts', 'Events', 'Food', 'Green Businesses & Professionals', 'Herbs & Supplements', 'Nonprofits', 'Holistic Pet Care',
+      'Products', 'Publications & Marketing', 'Travel']]
+    ]
+    @dropdown = dropdown_2010.collect { |c, l| [c, "#", l.collect { |name|
+      c = Category.find(:first, :conditions => ["name = ?", name])
+      [c.name, c.url]
+    }] }    
   end
   
   def show_category
