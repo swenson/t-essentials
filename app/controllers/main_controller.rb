@@ -46,11 +46,11 @@ class MainController < ApplicationController
     @categories = []
     @categories << all_categories.select { |c| names_2010.include? c.name }
     @categories << all_categories.select { |c| names_2009.include? c.name }
-    puts (all_categories.reject {|c| (@categories[0].include? c) or (@categories[1].include? c)}).join ', '
-    puts "\n"
+    #puts (all_categories.reject {|c| (@categories[0].include? c) or (@categories[1].include? c)}).join ', '
+    #puts "\n"
     
     dropdown_2010 = [
-      ["Mind & Body", ['Bodywork', 'Children\'s Services', 'Coaching & Counseling', 'Energy Healing']],
+      ["Mind & Body", ['Bodywork', 'Children\'s Services', 'Coaching & Counseling', 'Energy Healing', 'Fitness', 'Health Care', 'Senior Services', 'Women\'s Health']],
       ["Planet", ["Alternative Energy", "Gardening", "Home", "Recycling", "Sustainable Living"]],
       ["Spirit", ["Spirituality & Metaphysical"]],
       ["Connections", ['Creative Arts', 'Events', 'Food', 'Green Businesses & Professionals', 'Herbs & Supplements', 'Nonprofits', 'Holistic Pet Care',
