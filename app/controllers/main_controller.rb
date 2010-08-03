@@ -59,7 +59,7 @@ class MainController < ApplicationController
     ]
 
     dropdown_2010 = dropdown_2010.collect { |c, l|
-      [c, l.filter { |name| @category_names.include? name }]
+      [c, l.select { |name| @category_names.include? name }]
     }
     
     @dropdown = dropdown_2010.collect { |c, l| [c, "#", l.collect { |name|
