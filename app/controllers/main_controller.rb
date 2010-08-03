@@ -4,6 +4,7 @@ class MainController < ApplicationController
   def collect_info    
     @regions = Region.find(:all)
     @categories = Category.find(:all, :order => 'name')
+    @category_names = @categories.collect { |c| c.name }
 
     @cat_thirds = [[],[],[]]
     for i in 0..(@categories.length - 1)
@@ -56,14 +57,15 @@ class MainController < ApplicationController
       ["Connections", ['Creative Arts', 'Events', 'Food', 'Green Businesses & Professionals', 'Herbs & Supplements', 'Nonprofits', 'Holistic Pet Care',
       'Products', 'Publications & Marketing', 'Travel']]
     ]
+
+    dropdown_2010 = dropdown_2010.collect { |c, l|
+      [c, l.filter { |name| @category_names.include? name }]
+    }
+    
     @dropdown = dropdown_2010.collect { |c, l| [c, "#", l.collect { |name|
       c = Category.find(:first, :conditions => ["name = ?", name])
-      if not c.nil?
-        [c.name, c.url]
-      else
-        nil
-      end
-    }] }.select { |c| not c[2].nil? }
+      [c.name, c.url]
+    }] }
   end
   
   def show_category
