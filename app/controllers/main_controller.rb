@@ -58,8 +58,12 @@ class MainController < ApplicationController
     ]
     @dropdown = dropdown_2010.collect { |c, l| [c, "#", l.collect { |name|
       c = Category.find(:first, :conditions => ["name = ?", name])
-      [c.name, c.url]
-    }] }    
+      if c.nil?
+        [c.name, c.url]
+      else
+        nil
+      end
+    }] }.select { |c| not c[2].nil? }
   end
   
   def show_category
