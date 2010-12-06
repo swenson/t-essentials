@@ -28,7 +28,7 @@
 <% end %>
 <% for listing in @contract.listings %>
   <tr>
-    <td><%=h listing.category.name %></td>
+    <td><%=h listing.category.name if listing.category %></td>
     <td><%=h(listing.subcategory.name) if listing.subcategory %></td>
     <td><%=h listing.title %></td>
     <td><pre><%=h listing.body[0..9] %> ... </pre></td>
