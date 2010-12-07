@@ -80,7 +80,7 @@ class DesignersController < ApplicationController
     @designer.destroy
 
     respond_to do |format|
-      format.html { redirect_to(designers_url) }
+      format.html { redirect_to(:action => 'index') and return }
       format.xml  { head :ok }
     end
   end

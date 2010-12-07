@@ -80,7 +80,7 @@ class RegionsController < ApplicationController
     @region.destroy
 
     respond_to do |format|
-      format.html { redirect_to(regions_url) }
+      format.html { redirect_to(:action => 'index') and return }
       format.xml  { head :ok }
     end
   end
