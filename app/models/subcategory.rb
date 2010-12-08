@@ -19,7 +19,9 @@ class Subcategory < ActiveRecord::Base
   
   def Subcategory.all_sorted
     find(:all).sort do |x,y| 
-      if x.category.name == y.category.name
+      if x.category.nil? or y.category.nil?
+        x.name <=> y.name
+      elsif x.category.name == y.category.name
         x.name <=> y.name
       else
         x.category.name <=> y.category.name

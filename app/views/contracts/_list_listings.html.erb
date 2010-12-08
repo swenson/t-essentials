@@ -64,7 +64,7 @@
   </p>
   <p>
     <b>Subcategory</b><br />
-    <%= f.collection_select :subcategory_id, Subcategory.find(:all, :order => :name), :id, :fullname, {:include_blank => true} %>
+    <%= f.collection_select :subcategory_id, Subcategory.find(:all, :order => :name).delete_if { |x| x.category.nil? }, :id, :fullname, {:include_blank => true} %>
   </p>
   <p>
     <b>Title</b><br />
