@@ -1,5 +1,5 @@
 <div id="category">
-<h2><%= link_to h(@category.name), :action => :show_category, :id => @category.id %></h2>
+<h2><%= link_to(h(@category.name), :action => :show_category, :id => @category.id) if @category %></h2>
 <h3><%= h @subcategory.name %></h3>
 
 <% if @subcategory.description and @subcategory.description.length > 0%>
