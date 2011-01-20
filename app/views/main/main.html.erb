@@ -1,0 +1,25 @@
+<div id="main">
+  <div class="main_content">
+	    <div class="purple_buttons">
+		  <h1>Advertising</h1>
+		  <div class="purple_button"><a href="#">2010<br/>Online Listings</a></div>
+		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/Final te version.pdf">2010 Edition Download</a></div>
+		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/TE Index 2010.pdf">2010 Edition<br /> Index</a></div>
+		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/TE Accredations 2010.pdf">Accreditations &amp; Licensures</a></div>
+		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/Definitions 2.1.pdf">Definitions</a></div>
+			<form name="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick">
+				<input type="hidden" name="hosted_button_id" value="Y3CP3RDNJUZMJ">
+			  <div class="purple_button" onclick="document['paypal'].submit()">
+  		    <a href="#" onclick="document['paypal'].submit(); return false">PayPal</a>
+	   	  </div>
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			</form>
+		</div>
+		<h1>2011 Directory Links</h1>
+		  <% @dropdown.each do |d| %>
+	      <%= generate_dropdown *d %>	
+		  <% end %>
+		</ul>
+	</div>
+</div>

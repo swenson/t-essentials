@@ -40,29 +40,32 @@ class MainController < ApplicationController
   end
   
   def index
+    
+  end
+  
+  def main
+    names_2011 = ['Health & Wellness', 'Spirituality & Metaphysical', 'Sustainability', 'Community', ]
     names_2010 = ['Mind & Body', 'Planet', 'Spirit', 'Connections']
     names_2009 = ['Business & Professional', 'Creative Arts', 'Education', 'Events', 'Fitness', 'Food', 'Health & Alternative Healing',
         'Herbs & Supplements', 'Metaphysics', 'Recycling', 'Retail', 'Spirituality & Metaphysical', 'Sustainability']
     all_categories = @categories
     @categories = []
+    @categories << all_categories.select { |c| names_2011.include? c.name }
     @categories << all_categories.select { |c| names_2010.include? c.name }
     @categories << all_categories.select { |c| names_2009.include? c.name }
-    #puts (all_categories.reject {|c| (@categories[0].include? c) or (@categories[1].include? c)}).join ', '
-    #puts "\n"
     
-    dropdown_2010 = [
-      ["Mind & Body", ['Bodywork', 'Children\'s Services', 'Coaching & Counseling', 'Energy Healing', 'Fitness', 'Health Care', 'Senior Services', 'Women\'s Health']],
-      ["Planet", ["Alternative Energy", "Gardening", "Home", "Recycling", "Sustainable Living"]],
-      ["Spirit", ["Spirituality & Metaphysical"]],
-      ["Connections", ['Creative Arts', 'Events', 'Food', 'Green Businesses & Professionals', 'Herbs & Supplements', 'Nonprofits', 'Holistic Pet Care',
-      'Products', 'Publications & Marketing', 'Travel']]
+    dropdown_2011 = [
+      ['Health & Wellness', ['Bodywork', 'Children & Teen Services', 'Energy Healing', 'Fitness', 'Health Care', 'Herbs & Supplements', 'Holistic Pet Care', 'Psychotherapy, Counseling & Coaching', 'Senior Services']],
+      ['Spirituality & Metaphysical', ['Spirituality', 'Metaphysical']],
+      ['Sustainability', ['Alternative Energy', 'Home', 'Sustainability']],
+      ['Community', ['Creative Arts', 'Events', 'Food', 'Green Businesses & Professionals', 'Nonprofits', 'Publications & Marketing', 'Retail']]
     ]
-
-    dropdown_2010 = dropdown_2010.collect { |c, l|
+    
+    dropdown_2011 = dropdown_2011.collect { |c, l|
       [c, l.select { |name| @category_names.include? name }]
     }
     
-    @dropdown = dropdown_2010.collect { |c, l| [c, "#", l.collect { |name|
+    @dropdown = dropdown_2011.collect { |c, l| [c, "#", l.collect { |name|
       c = Category.find(:first, :conditions => ["name = ?", name])
       [c.name, c.url]
     }] }

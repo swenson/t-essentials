@@ -1,68 +1,30 @@
 <div id="main">
-  <div class="main_content_top"></div>
   <div class="main_content">
-	  <div id="cover2010"></div>
-	  <div class="purple_buttons">
-		  <h1>Advertising</h1>
-		  <div class="purple_button"><a href="#">2010<br/>Online Listings</a></div>
-		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/Final te version.pdf">2010 Edition Download</a></div>
-		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/TE Index 2010.pdf">2010 Edition<br /> Index</a></div>
-		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/TE Accredations 2010.pdf">Accreditations &amp; Licensures</a></div>
-		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/Definitions 2.1.pdf">Definitions</a></div>
-			<form name="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="hosted_button_id" value="Y3CP3RDNJUZMJ">
-			  <div class="purple_button" onclick="document['paypal'].submit()">
-  		    <a href="#" onclick="document['paypal'].submit(); return false">PayPal</a>
-	   	  </div>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			</form>
-		</div>
-		<h1>2010 Directory Links</h1>
-		  <% @dropdown.each do |d| %>
-	      <%= generate_dropdown *d %>	
-		  <% end %>
-		</ul>
-	</div>
-	<div class="main_content_bottom"></div>
-	<!--
-  <div class="main_content_top"></div>
-	<div class="main_content">
-		<div id="cover2009"></div>
-		<div class="purple_buttons">
-		  <h1>Online Directory</h1>
-		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/Final%20Version%2001-23-09.pdf">2009 Edition Download</a></div>
-		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/online%20definitions%201-1.pdf">Definitions</a></div>
-		  <div class="purple_button"><a href="http://media.t-essentials.com/downloads/TE Accredations 2010.pdf">Accreditations &amp; Licensures</a></div>
-		</div>
-    <h1>2009 Directory Links</h1>-->
-   	<%= 
-    ""
-    #@categories[1].collect { |c| generate_dropdown_for(c) }.join('')
-    %>
-	<!--</div>
-	<div class="main_content_bottom"></div>-->
-  
-	<!--
-  
-     <h2>About Terra Essentials</h2>
-     <ul>
-       <li><%= link_to h("Who we are"), :action => "show_page", :id => "the sales team" %></li>
-       <li><%= link_to h("Contact Us"), :action => "show_page", :id => "contact us" %></li>
-       <li><%= link_to h("Disclosure"), :action => "show_page", :id => "disclosure" %></li>
-     </ul>
-
-     <h2>To Advertise</h2>
-     <ul>
-       <li><%= link_to h("Rate sheet"), :action => "show_page", :id => "advertising" %></li>
-       <li><%= link_to h("Contract"), "http://www.vitesis.com/wp-content/uploads/2008/09/t-essentials-contract.pdf" %></li>
-       <li><%= link_to h("PayPal"), :action => "show_page", :id => "paypal" %></li>
-     </ul>
-
-     <h2>Editorial</h2>
-   	<ul>
-   		<li><%= link_to h("Submissions"), :action => "show_page", :id => "submissions" %></li>
-   		<li><%= link_to h("Postings"), :action => "show_page", :id => "postings" %></li>
-   	</ul>
-   -->
+    <table id="cover_table">
+      <tr>
+        <td>
+          <a href="/main/main"><div id="cover2011"></div></a>
+    
+          <div id="cover_text">
+            <p>Terra Essentials is Your Guide to Holistic Health and Sustainable Living in the Pikes Peak Region. <a href="http://www.equinaut.net/">Equinaut.net</a> addresses women's issues and community building. <a href="http://www.verdant-marketing.com">Verdant Marketing</a> offers expertise on Face 2 Face Green Marketing and, coming soon.  <a href="http://www.whattoexpectinasession.com">What to Expect in a Session</a> will highlight subcategories in the directory.</p>
+      
+            <p>In addition, check out the most recent ebooks and edirectories in the ebooks selections.</p>
+          </div>
+        </td>
+        <td align=right>
+          <a href="http://www.t-essentials.com/main/main"><img src="/images/te-theme5/te-button.png" /></a>
+          <br /><br />
+          <a href="http://www.vitesis.com"><img src="/images/te-theme5/vi-button.png" /></a>
+          <br /><br />
+          <a href="http://www.equinaut.net"><img src="/images/te-theme5/eq-button.png" /></a>
+          <br /><br />
+          <a href="http://www.verdant-marketing.com"><img src="/images/te-theme5/vm-button.png" /></a>
+          <br /><br />
+          <a href="http://www.whattoexpectinasession.com"><img src="/images/te-theme5/w2-button.png" /></a>
+          <br /><br />
+          <a href="#"><img src="/images/te-theme5/eb-button.png" /></a>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
