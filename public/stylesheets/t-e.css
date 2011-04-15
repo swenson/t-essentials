@@ -25,9 +25,10 @@ a img {
 
 
 div#left {
-  margin: 0px;
   padding: 0px;
   display: block;
+  margin: 0 auto 0 auto;
+  width: 764px;
 }
 
 div#header {
@@ -133,6 +134,8 @@ div#categorybox ul li, div#categorybox ul ul li {
 div#contact_info {
   clear: both;
   background: #fff;
+  width: 784px;
+  margin: 0 auto 0 auto;
 }
 
 div#contact_info ul {
@@ -142,6 +145,7 @@ div#contact_info ul {
 div#contact_info ul li {
   display: inline;
   font-weight: bold;
+  font-size: 90%;
   margin-right: 2.8em;
 }
 

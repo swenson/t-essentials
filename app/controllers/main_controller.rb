@@ -57,7 +57,8 @@ class MainController < ApplicationController
     dropdown_2011 = [
       ['Health & Wellness', ['Bodywork', 'Children & Teen Services', 'Energy Healing', 'Fitness', 'Health Care', 'Herbs & Supplements', 'Holistic Pet Care', 'Psychotherapy, Counseling & Coaching', 'Senior Services']],
       ['Spirituality & Metaphysical', ['Spirituality', 'Metaphysical']],
-      ['Sustainability', ['Alternative Energy', 'Home', 'Sustainability']],
+      # ['Sustainability', ['Alternative Energy', 'Home', 'Sustainability']],
+      ['Sustainability', ['Alternative Energy', 'Sustainability']],
       ['Community', ['Creative Arts', 'Events', 'Food', 'Green Businesses & Professionals', 'Nonprofits', 'Publications & Marketing', 'Retail']]
     ]
     
