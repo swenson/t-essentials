@@ -243,15 +243,20 @@ div.up div, div.up a {
   display: block;
 }
 
+div.dropdown {
+  position: relative;
+}
+
 div.dropdown:hover div.up {
   display: block;
   position: absolute;
   z-index: 1;
   margin-top: -1em;
-  left: 430px;
+  left: 400px;
   background-color: #eee;
   padding: 6px;
   border: 2px solid #aaa;
+  width: 300px;
 }
 
 div.main_content h1 {
