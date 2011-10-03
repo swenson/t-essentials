@@ -55,7 +55,7 @@ class MainController < ApplicationController
     @categories << all_categories.select { |c| names_2009.include? c.name }
     
     dropdown_2011 = [
-      ['Health & Wellness', ['Bodywork', 'Children & Teen Services', 'Energy Healing', 'Fitness', 'Health Care', 'Herbs & Supplements', 'Holistic Pet Care', 'Psychotherapy, Counseling & Coaching', 'Psychotherapy', 'Senior Services', 'Women\'s Health']],
+      ['Health & Wellness', ['Bodywork', 'Children & Teen Services', 'Energy Healing', 'Fitness', 'Health Care', 'Herbs & Supplements', 'Holistic Pet Care', 'Psychotherapy, Counseling & Coaching', 'Psychotherapy', 'Senior Services', "Women's Health"]],
       ['Spirituality & Metaphysical', ['Spirituality', 'Metaphysical']],
       # ['Sustainability', ['Alternative Energy', 'Home', 'Sustainability']],
       ['Sustainability', ['Alternative Energy', 'Sustainability']],
